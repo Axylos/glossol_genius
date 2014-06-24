@@ -23,7 +23,7 @@
     <% @document.annotated_docs.each do |annotation| %>
     <% source_doc = annotation.source_document %>
       <li>
-        <%= link_to source_doc.title document_url(source_doc) %>
+        <%= link_to source_doc.title, document_url(source_doc) %>
         authored by <%= source_doc.author.email %>
         <p>
           <%= text_selection(annotation) %>

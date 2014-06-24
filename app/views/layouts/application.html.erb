@@ -11,6 +11,17 @@
   <header>
     <% if signed_in? %>
       <h2>Welcome <%= current_user.email %>!</h2>
+      <form action="<%= session_url %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input
+          type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>">
+        <input type="submit" value="Sign Out">
+      </form>
+    <% else %>
+      <%= link_to "Sign In", new_session_url %>
+      <%= link_to "Sign Up", new_user_url %>
     <% end %>
 
 

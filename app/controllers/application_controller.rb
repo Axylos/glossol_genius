@@ -15,6 +15,13 @@ class ApplicationController < ActionController::Base
 
   def sign_in_user(user)
     user.session_token = SecureRandom::urlsafe_base64(16)
+    user.save
     session[:token] = user.session_token
+  end
+
+  def sign_out
+    user = current_user
+    user.session_token = nil
+    user.save
   end
 end

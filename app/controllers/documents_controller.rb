@@ -1,9 +1,7 @@
 class DocumentsController < ApplicationController
 
   def index
-
   end
-
 
   def new
   end

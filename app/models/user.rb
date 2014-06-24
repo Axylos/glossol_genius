@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   attr_reader :password
-  validates :username, :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :documents, class_name: "Document", source: :user_id

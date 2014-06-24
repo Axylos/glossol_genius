@@ -5,17 +5,13 @@
   <input
     type="hidden"
     name="authenticity_token"
-    value="<%= form_authenticity_token %>" >
-
-  <label for "username">Username</label>
-  <input type="text" id="username" name="user[username]">
-
-  <label for "password">Password</label>
-  <input type="password" id="password" name="user[password]">
+    value="<%= form_authenticity_token %>">
 
   <label for "email">Email</label>
   <input type="email" id="email" name="user[email]">
 
+  <label for "password">Password</label>
+  <input type="password" id="password" name="user[password]">
 
   <input type="submit" value="Sign Up!">
 

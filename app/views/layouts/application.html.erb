@@ -9,6 +9,11 @@
 <body>
 
   <header>
+    <% if signed_in? %>
+      <h2>Welcome <%= current_user.email %>!</h2>
+    <% end %>
+
+
     <% if !flash[:errors].nil? %>
       <% flash[:errors].each do |error| %>
         <%= error %>

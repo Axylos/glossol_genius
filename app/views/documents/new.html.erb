@@ -1,0 +1,23 @@
+<h1>Create a New Document</h1>
+
+<form action="<%= user_documents_url(current_user) %>" method="POST">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <label for "title">Title</label>
+  <br>
+  <input type="text" name="document[title]" id="title">
+
+  <br>
+
+  <label for "doc-body">Body</label>
+  <br>
+  <textarea rows="40" cols="100" name="document[body]" id="doc-body"></textarea>
+
+  <br>
+  <button>Create Document</button>
+
+</form>
+

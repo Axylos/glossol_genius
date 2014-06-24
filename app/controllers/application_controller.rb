@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :sign_in_user, :signed_in?
 
+  before_filter :verify_signed_in
+
   def current_user
     User.find_by(session_token: session[:token])
   end
@@ -22,6 +24,11 @@ class ApplicationController < ActionController::Base
   def sign_out
     user = current_user
     user.session_token = nil
+    session[:token] = nil
     user.save
+  end
+
+  def verify_signed_in
+    redirect_to new_url_url unless signed_in?
   end
 end

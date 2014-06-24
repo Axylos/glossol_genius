@@ -3,13 +3,15 @@
 <h3>My Documents</h3>
 <ul>
   <% current_user.documents.each do |document| %>
-    <li><%= document.title %></li>
+    <li><%= link_to document.title, document_url(document) %></li>
   <% end %>
 </ul>
 
 <h3>Other Documents</h3>
 <ul>
   <% sample_documents.each do |document| %>
-    <li><%= document.title %></li>
+    <li><%= link_to document.title, document_url(document) %></li>
   <% end %>
 </ul>
+
+<%= link_to "Create Document", new_user_document_url(current_user)%>

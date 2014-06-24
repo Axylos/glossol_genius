@@ -1,8 +1,14 @@
 GlossolHellYeah::Application.routes.draw do
 
-  resources :users, only: [:create, :new, :update, :destroy]
+  shallow do
+    resources :users, only: [:create, :new, :update, :destroy] do
+      resources :documents
+    end
+  end
   resource :session, only: [:create, :new, :destroy]
-  resources :documents
+  resources :documents do
+    resources :annotations, only: [:create]
+  end
 
   root to: "users#new"
 

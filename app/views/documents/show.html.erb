@@ -1,0 +1,65 @@
+<h1><%= @document.title %></h1>
+
+<h2>Document:</h2>
+<%= @document.body %>
+
+<h2>Annotations<h2>
+<% unless @document.annotations.empty? %>
+  <ul>
+    <% @document.annotations.each do |annotation| %>
+      <li>
+        <%= link_to annotation.title, document_url(annotation) %>
+          by <%= annotation.author.email %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h4>No Annotations Yet</h4>
+<% end %>
+
+<h2>Annotated Texts</h2>
+<% unless @document.annotated_docs.empty? %>
+  <ul>
+    <% @document.annotated_docs.each do |annotation| %>
+    <% source_doc = annotation.source_document %>
+      <li>
+        <%= source_doc.title %>
+        authored by <%= source_doc.author.email %>
+        <p>
+          <%= text_selection(annotation) %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+
+<% else %>
+  <p>No Annotated Texts</p>
+<% end %>
+
+<br>
+
+<form
+  action="<%= document_annotations_url(@document) %>"
+  method="POST"
+  class="new-doc">
+
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <label for "note-title">Annotation Title</label>
+  <input type="text" name="annotation[title]" id="note-title">
+
+  <br>
+
+  <label for "note-body">Annotation Text</label>
+  <textarea name="annotation[body]" id="note-body"></textarea>
+
+  <br>
+
+  <label for="selection">Start and Stop</label>
+  <input type="text" name="annotation[source_text]" id="selection">
+
+  <input type="submit" value="Create Annotation">
+</form>

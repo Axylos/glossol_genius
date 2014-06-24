@@ -1,20 +1,24 @@
 class SessionsController < ApplicationController
 
+  skip_before_filter :verify_signed_in, only: [:new, :create]
+
   def new
   end
 
   def create
     @user = User.find_by(email: user_params[:email])
-    if @user.is_password?(user_params[:password])
+    if @user && @user.is_password?(user_params[:password])
       sign_in_user(@user)
-      redirect_to documents_url
+      redirect_to user_documents_url(@user)
     else
-      flash.now[:errors] = "Invalid Credentials"
+      flash.now[:errors] ||= []
+      flash.now[:errors] << "Invalid Credentials"
       render :new
     end
   end
 
   def destroy
+    fail
     sign_out
     render :new
   end

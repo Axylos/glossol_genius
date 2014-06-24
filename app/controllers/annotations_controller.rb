@@ -1,12 +1,13 @@
 class AnnotationsController <ApplicationController
 
   def create
-    @document = Document.new(body: doc_params[:body], title: doc_params[:title])
-    @document.author = current_user
+    @document = Document.new(
+          body: doc_params[:body],
+          title: doc_params[:title],
+          author: current_user,
+          parent: params[:document_id])
 
-    if annotation_created
-      p "good to go"
-    else
+    unless annotation_created
       flash[:errors] << @document.errors.full_messages
       flash[:errors] << @annotation.errors.full_messages if @annotation
     end

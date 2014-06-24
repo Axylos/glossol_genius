@@ -1,1 +1,15 @@
 <h1>Documents Index<h1>
+
+<h3>My Documents</h3>
+<ul>
+  <% current_user.documents.each do |document| %>
+    <li><%= document.title %></li>
+  <% end %>
+</ul>
+
+<h3>Other Documents</h3>
+<ul>
+  <% sample_documents.each do |document| %>
+    <li><%= document.title %></li>
+  <% end %>
+</ul>

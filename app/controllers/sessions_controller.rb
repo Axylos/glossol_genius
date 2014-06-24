@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    fail
     sign_out
     render :new
   end

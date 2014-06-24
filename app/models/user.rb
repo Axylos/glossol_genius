@@ -15,4 +15,13 @@ class User < ActiveRecord::Base
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
+
+  def self.generate_token
+    SecureRandom::urlsafe_base64(16)
+  end
+
+  def reset_token
+    self.update(session_token: User.generate_token)
+    return self.session_token
+  end
 end

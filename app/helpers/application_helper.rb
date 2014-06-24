@@ -3,10 +3,6 @@ module ApplicationHelper
     Document.last(10)
   end
 
-  def current_user
-    User.first
-  end
-
   def text_selection(annotation)
     text = annotation.source_document.body
 

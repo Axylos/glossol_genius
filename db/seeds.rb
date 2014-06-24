@@ -6,11 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
 till = User.create(email: "till_lindeman@gmail.com", password: "password")
+till.reset_token
 wittgenstein = User.create(email: "ludvigwitts@yahoo.com", password: "password")
+wittgenstein.reset_token
 marty = User.create(email: "existentThinking@hotmail.com", password: 'drowssap')
-sign_out
+marty.reset_token
 
 
 sein = Document.create(

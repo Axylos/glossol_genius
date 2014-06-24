@@ -4,6 +4,7 @@ class DocumentsController < ApplicationController
   end
 
   def new
+    fail
   end
 
   def create

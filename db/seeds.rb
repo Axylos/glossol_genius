@@ -35,4 +35,4 @@ crit = Document.create(
 critical_note = Annotation.create(
         source_document_id: 2,
         annotation_id: 3,
-        source_text: "1 60")
+        source_text: [1, 60])

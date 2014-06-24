@@ -10,7 +10,7 @@
 <h3>Other Documents</h3>
 <ul>
   <% sample_documents.each do |document| %>
-    <% next unless document.references.empty? %>
+    <% next unless document.annotated_texts.empty? %>
     <li><%= link_to document.title, document_url(document) %></li>
   <% end %>
 </ul>

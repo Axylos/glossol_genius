@@ -10,6 +10,7 @@
 till = User.create(email: "till_lindeman@gmail.com", password: "password")
 wittgenstein = User.create(email: "ludvigwitts@yahoo.com", password: "password")
 marty = User.create(email: "existentThinking@hotmail.com", password: 'drowssap')
+sign_out
 
 
 sein = Document.create(
@@ -31,6 +32,6 @@ crit = Document.create(
         body: "roflcoaster")
 
 critical_note = Annotation.create(
-        source_document_id: 3,
-        annotation_id: 4,
+        source_document_id: 2,
+        annotation_id: 3,
         source_text: "1 60")

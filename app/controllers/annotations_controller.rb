@@ -6,16 +6,14 @@ class AnnotationsController <ApplicationController
           title: doc_params[:title],
           author: current_user)
 
-    unless annotation_created
+    if annotation_created
+      redirect_to document_url(@document)
+    else
       flash[:errors] << @document.errors.full_messages
       flash[:errors] << @annotation.errors.full_messages if @annotation
+      redirect_to document_url(params[:document_id])
     end
 
-    unless params[:annotation][:refs]
-      redirect_to document_url(params[:document_id])
-    else
-      redirect_to new_document_annotation_url(params[:annotation][:parent])
-    end
   end
 
   def new

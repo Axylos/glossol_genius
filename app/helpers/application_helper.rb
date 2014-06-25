@@ -1,6 +1,6 @@
 module ApplicationHelper
   def sample_documents
-    Document.last(10)
+    Document.where("user_id != ?", current_user.id).last(10)
   end
 
 end

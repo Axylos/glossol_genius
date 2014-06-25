@@ -1,5 +1,8 @@
 <ul>
   <% documents.each do |doc| %>
     <li><%= link_to doc.title, document_url(doc) %></li>
+    <% if owner == true %>
+      <%= render "doc_delete", doc: doc %>
+    <% end %>
   <% end %>
 </ul>

@@ -5,4 +5,7 @@
 <h2>Document Text:</h2>
 <%= doc.body %>
 <br>
-<%= link_to "Edit Document", edit_document_url(doc) %>
+<% if current_user == doc.author %>
+  <%= link_to "Edit Document", edit_document_url(doc) %>
+  <%= render "doc_delete", doc: doc %>
+<% end %>

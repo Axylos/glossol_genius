@@ -1,9 +1,9 @@
 <h1>Documents Index<h1>
 
 <h3>My Documents</h3>
-<%= render "title_list", documents: @my_documents %>
+<%= render "title_list", documents: @my_documents, owner: true %>
 
 <h3>Other Documents</h3>
-<%= render "title_list", documents: sample_documents %>
+<%= render "title_list", documents: sample_documents, owner: false %>
 
 <%= link_to "Create Document", new_user_document_url(current_user)%>

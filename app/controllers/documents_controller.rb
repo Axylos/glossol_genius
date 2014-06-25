@@ -1,5 +1,7 @@
 class DocumentsController < ApplicationController
 
+  #before_filter :ensure_owner, only: [:edit, :update, :destroy]
+
   def index
     @my_documents = current_user.documents
   end
@@ -21,7 +23,7 @@ class DocumentsController < ApplicationController
   def update
     @document = Document.find(params[:id])
     if @document.update(doc_params)
-      add_notice("#{@document.title} saved!")
+      add_notice("#{@document.title} successfully updated!")
       redirect_to document_url(@document)
     else
       add_error(@document.errors.full_messages)
@@ -34,6 +36,17 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
+    @document = Document.find(params[:id])
+    if @document.annotations.empty?
+      title = @document.title
+      if @document.destroy
+        add_notice("#{title} successfully destroyed!")
+        redirect_to documents_url
+      end
+    else
+      add_error("You can't delete a doc referenced by others. Sorry!")
+      redirect_to documents_url
+    end
   end
 
   def show
@@ -45,6 +58,13 @@ class DocumentsController < ApplicationController
 
   def doc_params
     params.require(:document).permit(:body, :title)
+  end
+
+  def ensure_owner
+    unless current_owner = Document.find(params[:id]).author
+      add_error("You must be the document's author to do that!")
+      redirect_to documents_url
+    end
   end
 
 end

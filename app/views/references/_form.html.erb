@@ -1,15 +1,15 @@
-<form action="<%= document_references_url(base_text) %>" method="POST">
+<form action="<%= document_annotatings_url(base_text) %>" method="POST">
   <input
     type="hidden"
     name="authenticity_token"
     value="<%= form_authenticity_token %>">
 
   <input type="hidden"
-    name="reference[ref_text]"
+    name="annotating[ref_text]"
     value="<%= ref %>">
 
   <label for="range">
-  <input type="text" name="reference[source_text]" id="range">
+  <input type="text" name="annotating[source_text]" id="range">
 
   <input type="submit" value="Add Reference">
 

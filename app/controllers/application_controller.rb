@@ -34,4 +34,9 @@ class ApplicationController < ActionController::Base
     flash[:errors] ||= []
     flash[:errors] << error
   end
+
+  def add_notice(notice)
+    flash[:notice] ||= []
+    flash[:notice] << notice
+  end
 end

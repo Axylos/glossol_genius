@@ -1,9 +1,4 @@
-<h1><%= @document.title %></h1>
-
-<h3>Author: <br><%= @document.author.email %></h3>
-
-<h2>Document Text:</h2>
-<%= @document.body %>
+<%= render "doc_info", doc: @document %>
 
 <%= render "annotatings/anno_list", annotations: @document.annotations %>
 

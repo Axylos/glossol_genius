@@ -1,0 +1,33 @@
+<% if doc.persisted? %>
+  <% action = document_url(doc) %>
+<% else %>
+  <% action = user_documents_url(current_user) %>
+<% end %>
+
+<form action="<%= action %>" method="POST">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <% if doc.persisted? %>
+    <input type="hidden" name="_method" value="put">
+  <% end %>
+  <label for "title">Title</label>
+  <br>
+  <input
+    type="text"
+    name="document[title]"
+    id="title"
+    value="<%= doc.title %>">
+  <br>
+  <label for "doc-body">Body</label>
+  <br>
+  <textarea rows="40" cols="100" name="document[body]" id="doc-body">
+    <%= doc.body %>
+  </textarea>
+
+  <br>
+  <button>Create Document</button>
+
+</form>

@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
   end
 
   def add_notice(notice)
-    flash[:notice] ||= []
-    flash[:notice] << notice
+    flash[:notices] ||= []
+    flash[:notices] << notice
   end
 end

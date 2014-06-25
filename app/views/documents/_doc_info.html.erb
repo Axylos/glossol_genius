@@ -1,0 +1,8 @@
+<h1><%= doc.title %></h1>
+
+<h3>Author: <br><%= doc.author.email %></h3>
+
+<h2>Document Text:</h2>
+<%= doc.body %>
+<br>
+<%= link_to "Edit Document", edit_document_url(doc) %>

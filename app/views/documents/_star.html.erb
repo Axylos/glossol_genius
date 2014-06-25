@@ -1,0 +1,17 @@
+<% unless already_liked?(doc) %>
+
+  <form action="<%= document_stars_url(doc) %>" method="POST">
+    <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+
+    <input type="submit" value="Add Star to this Document">
+
+  </form>
+
+<% else %>
+
+  <h3>You Like This</h3>
+
+<% end %>

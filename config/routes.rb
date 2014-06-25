@@ -7,6 +7,7 @@ GlossolHellYeah::Application.routes.draw do
     end
     resource :session, only: [:create, :new, :destroy]
   resources :documents do
+    resources :stars, only: [:create, :destroy]
     resources :annotatings, only: [:create, :new]
     resources :references, only: [:new, :create]
   end

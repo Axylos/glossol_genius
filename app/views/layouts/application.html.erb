@@ -9,37 +9,18 @@
 <body>
 
   <header>
+    <%= render "layouts/flash_messages", messages: flash[:errors] %>
+    <%= render "layouts/flash_messages", messages: flash[:notices] %>
+
     <% if signed_in? %>
       <h2>Welcome <%= current_user.email %>!</h2>
-      <%= render "layouts/flash_messages", messages: flash[:errors] %>
-      <%= render "layouts/flash_messages", messages: flash[:notices] %>
-
-      <form action="<%= session_url %>" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input
-          type="hidden"
-          name="authenticity_token"
-          value="<%= form_authenticity_token %>">
-        <input type="submit" value="Sign Out">
-      </form>
-
+      <%= render "layouts/sign_out" %>
       <%= link_to "Home", user_documents_url(current_user) %>
     <% else %>
       <%= link_to "Sign In", new_session_url %>
       <%= link_to "Sign Up", new_user_url %>
-      <form action="<%= session_url %>" method="POST">
-        <input
-          type="hidden"
-          name="authenticity_token"
-          value="<%= form_authenticity_token %>">
-        <input type="hidden" name="user[email]" value="demo@demo.com">
-        <input type="hidden" name="user[password]" value="drowssap">
-        <input type="submit" value="Sign in as Demo User">
-      </form>
+      <%= render "layouts/demo_user" %>
     <% end %>
-
-
-
   </header>
 
 <%= yield %>

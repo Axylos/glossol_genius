@@ -7,7 +7,8 @@ GlossolHellYeah::Application.routes.draw do
   end
   resource :session, only: [:create, :new, :destroy]
   resources :documents do
-    resources :annotations, only: [:create, :new]
+    resources :annotations, only: [:create]
+    resources :references, only: [:new, :create]
   end
 
   root to: "documents#index"

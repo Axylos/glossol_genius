@@ -15,10 +15,10 @@ class Document < ActiveRecord::Base
   )
 
   has_many :annotations, through: :references, source: :annotation
-  has_many :annotated_texts, through: :annotated_docs, source: :source_document
+  has_many :referenced_texts, through: :annotated_docs, source: :source_document
 
   def parent
-    self.annotated_texts.first
+    self.referenced_texts.first
   end
 
 end

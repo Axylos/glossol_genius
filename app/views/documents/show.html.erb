@@ -30,7 +30,7 @@
         <%= link_to source_doc.title, document_url(source_doc) %>
         authored by <%= source_doc.author.email %>
         <p>
-          <%= text_selection(annotation) %>
+          <%= annotation.text_selection %>
         </p>
       </li>
     <% end %>
@@ -40,4 +40,4 @@
   <p>No Annotated Texts</p>
 <% end %>
 
-<%= link_to "Add References", new_document_annotation_url(@document) %>
+<%= link_to "Add References", new_document_reference_url(@document) %>

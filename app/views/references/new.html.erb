@@ -1,0 +1,34 @@
+<h1>Add References</h1>
+<h2>for <%= link_to @document.title, document_url(@document) %></h2>
+
+<h1>Existing References:</h1>
+
+<ul>
+  <% @document.annotated_docs.each do |annotation| %>
+    <li>
+      <%= annotation.source_document.title %>:
+      <%= annotation.text_selection %>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Done Adding References", document_url(@document) %>
+
+
+<ul>
+  <% @docs.each do |doc| %>
+    <li>
+      <%= link_to doc.title, document_url(doc) %>
+      written by: <%= doc.author.email%>
+      <br>
+      <p>
+        <%= doc.body %>
+      <p>
+        <%= render "form", ref: doc.id, base_text: @document %>
+        <br>
+        <br>
+    </li>
+
+  <% end %>
+</ul>

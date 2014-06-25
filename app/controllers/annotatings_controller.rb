@@ -1,9 +1,9 @@
 class AnnotatingsController <ApplicationController
 
-  before_filter :ensure_current_is_author
 
   def create
     if doc_params[:ref_text]
+      ensure_current_is_author
       add_reference
     else
       add_annotation

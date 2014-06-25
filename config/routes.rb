@@ -1,6 +1,4 @@
 GlossolHellYeah::Application.routes.draw do
-
-
   shallow do
     resources :users, only: [:create, :new, :update, :destroy] do
       resources :documents
@@ -14,10 +12,5 @@ GlossolHellYeah::Application.routes.draw do
 end
 
 resources :annotatings, only: [:destroy]
-
-
-
   root to: "documents#index"
-
-
 end

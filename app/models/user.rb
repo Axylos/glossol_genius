@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_many :documents, class_name: "Document", source: :user_id
+  has_many :documents, class_name: "Document", foreign_key: :user_id
 
 
   def password=(password)

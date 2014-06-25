@@ -1,16 +1,14 @@
 class DocumentsController < ApplicationController
 
   def index
-    @documents = current_user.documents
-    @documents << Document.all.last(10)
+    @my_documents = current_user.documents
   end
 
   def new
   end
 
   def create
-    @document = Document.new(doc_params)
-    @document.author = current_user
+    @document = current_user.documents.new(doc_params)
     if @document.save
       redirect_to document_url(@document)
     else

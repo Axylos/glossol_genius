@@ -22,11 +22,10 @@ class ReferencesController < ApplicationController
   private
 
   def make_reference
-    src_text = ref_params[:source_text].split
-    a = annotating.new(
+    Annotating.new(
       source_document_id: ref_params[:ref_text],
       annotation_id: params[:document_id],
-      source_text: src_text
+      source_text: ref_params[:source_text].split
     )
   end
 

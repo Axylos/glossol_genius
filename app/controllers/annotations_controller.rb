@@ -4,8 +4,7 @@ class AnnotationsController <ApplicationController
     @document = Document.new(
           body: doc_params[:body],
           title: doc_params[:title],
-          author: current_user,
-          parent: params[:document_id])
+          author: current_user)
 
     unless annotation_created
       flash[:errors] << @document.errors.full_messages

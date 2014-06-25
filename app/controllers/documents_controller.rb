@@ -1,10 +1,11 @@
 class DocumentsController < ApplicationController
 
   def index
+    @documents = Document.where(author: current_user)
+    @documents << Document.all.last(10)
   end
 
   def new
-    fail
   end
 
   def create

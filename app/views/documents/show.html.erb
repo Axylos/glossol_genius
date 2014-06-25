@@ -2,6 +2,8 @@
 
 <h2>Document:</h2>
 <%= @document.body %>
+<br>
+<h3>Author: <br><%= @document.author.email %></h3>
 
 <h2>Annotations<h2>
 <% unless @document.annotations.empty? %>

@@ -10,7 +10,7 @@ GlossolHellYeah::Application.routes.draw do
     resources :annotations, only: [:create]
   end
 
-  root to: "users#new"
+  root to: "documents#index"
 
 
 end

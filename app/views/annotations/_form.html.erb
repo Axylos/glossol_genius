@@ -9,17 +9,17 @@
     value="<%= form_authenticity_token %>">
 
   <label for "note-title">Annotation Title</label>
-  <input type="text" name="annotation[title]" id="note-title">
+  <input type="text" name="annotating[title]" id="note-title">
 
   <br>
 
   <label for "note-body">Annotation Text</label>
-  <textarea name="annotation[body]" id="note-body"></textarea>
+  <textarea name="annotating[body]" id="note-body"></textarea>
 
   <br>
 
   <label for="selection">Start and Stop</label>
-  <input type="text" name="annotation[source_text]" id="selection">
+  <input type="text" name="annotating[source_text]" id="selection">
 
   <input type="submit" value="Create Annotation">
 </form>

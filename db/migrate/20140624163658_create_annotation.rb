@@ -1,12 +1,12 @@
-class CreateAnnotation < ActiveRecord::Migration
+class CreateAnnotating < ActiveRecord::Migration
   def change
-    create_table :annotations, force: true do |t|
+    create_table :annotatings, force: true do |t|
       t.integer :source_document_id
       t.integer :annotation_id
 
       t.timestamps
     end
-    add_index :annotations, :source_document_id
-    add_index :annotations, :annotation_id
+    add_index :annotatings, :source_document_id
+    add_index :annotatings, :annotation_id
   end
 end

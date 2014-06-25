@@ -9,6 +9,6 @@
 
 <%= render "annotations/form", document: @document, refs: false %>
 
-<%= render "annotations/ref_list", annotations: @document.annotated_docs %>
+<%= render "annotations/ref_list", annotations: @document.references %>
 
 <%= link_to "Add References", new_document_reference_url(@document) %>

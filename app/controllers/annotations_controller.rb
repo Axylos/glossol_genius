@@ -1,16 +1,15 @@
-class AnnotationsController <ApplicationController
+class AnnotatingsController <ApplicationController
 
   def create
-    @document = Document.new(
+    @document = current_user.documents.new(
           body: doc_params[:body],
-          title: doc_params[:title],
-          author: current_user)
+          title: doc_params[:title])
 
-    if annotation_created
+    if annotating_created
       redirect_to document_url(@document)
     else
-      flash[:errors] << @document.errors.full_messages
-      flash[:errors] << @annotation.errors.full_messages if @annotation
+      add_error(@document.errors.full_messages)
+      add_error(@annotating.errors.full_messages) if @annotating
       redirect_to document_url(params[:document_id])
     end
 
@@ -25,18 +24,18 @@ class AnnotationsController <ApplicationController
   private
 
   def doc_params
-    params.require(:annotation).permit(:body, :source_text, :title)
+    params.require(:annotating).permit(:body, :source_text, :title)
   end
 
   def join_docs
     src_text = doc_params[:source_text].split
-    @annotation = Annotation.create(
+    @annotating = Annotating.create(
       source_document_id: params[:document_id],
       annotation_id: @document.id,
       source_text: src_text)
   end
 
-  def annotation_created
+  def annotating_created
     ActiveRecord::Base.transaction do
       @document.save
       join_docs

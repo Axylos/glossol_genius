@@ -1,4 +1,4 @@
-class Annotation < ActiveRecord::Base
+class Annotating < ActiveRecord::Base
   serialize :source_text
 
   belongs_to(

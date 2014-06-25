@@ -10,9 +10,8 @@ class ReferencesController < ApplicationController
   def create
     @reference = make_reference
     if @reference.save
-      flash[:notices] ||= []
-      flash[:notices] << "#{@reference.text_selection} saved from
-                          #{@reference.source_document.title}"
+      add_error("#{@reference.text_selection} saved from
+                          #{@reference.source_document.title}")
     else
       add_error(@reference.errors.full_messages)
     end
@@ -24,7 +23,7 @@ class ReferencesController < ApplicationController
 
   def make_reference
     src_text = ref_params[:source_text].split
-    a = Annotation.new(
+    a = annotating.new(
       source_document_id: ref_params[:ref_text],
       annotation_id: params[:document_id],
       source_text: src_text

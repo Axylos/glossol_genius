@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624194055) do
+ActiveRecord::Schema.define(version: 20140625151839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "annotations", force: true do |t|
+  create_table "annotatings", force: true do |t|
     t.integer  "source_document_id"
     t.integer  "annotation_id"
     t.datetime "created_at"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20140624194055) do
     t.text     "source_text"
   end
 
-  add_index "annotations", ["annotation_id"], name: "index_annotations_on_annotation_id", using: :btree
-  add_index "annotations", ["source_document_id"], name: "index_annotations_on_source_document_id", using: :btree
+  add_index "annotatings", ["annotation_id"], name: "index_annotatings_on_annotation_id", using: :btree
+  add_index "annotatings", ["source_document_id"], name: "index_annotatings_on_source_document_id", using: :btree
 
   create_table "documents", force: true do |t|
     t.integer  "user_id"

@@ -34,7 +34,7 @@ crit = Document.create(
         title: "what is this garbage",
         body: "roflcoaster")
 
-critical_note = Annotation.create(
+critical_note = Annotating.create(
         source_document_id: 2,
         annotation_id: 3,
         source_text: [1, 60])

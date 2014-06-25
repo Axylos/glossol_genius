@@ -4,18 +4,18 @@ class Document < ActiveRecord::Base
 
   has_many(
     :annotatings,
-    class_name: "Annotation",
+    class_name: "Annotating",
     foreign_key: :source_document_id
   )
 
   has_many(
-    :annotated_docs,
-    class_name: "Annotation",
+    :references,
+    class_name: "Annotating",
     foreign_key: :annotation_id
   )
 
   has_many :annotations, through: :annotatings, source: :annotation
-  has_many :referenced_texts, through: :annotated_docs, source: :source_document
+  has_many :referenced_texts, through: :references, source: :source_document
 
   def parent
     self.referenced_texts.first

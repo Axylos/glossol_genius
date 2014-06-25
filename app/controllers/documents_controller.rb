@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
 
   def index
-    @documents = Document.where(author: current_user)
+    @documents = current_user.documents
     @documents << Document.all.last(10)
   end
 
@@ -14,7 +14,7 @@ class DocumentsController < ApplicationController
     if @document.save
       redirect_to document_url(@document)
     else
-      flash.now[:errors] = @document.errors.full_messages
+      add_error(@document.errors.full_messages)
       render :new
     end
   end

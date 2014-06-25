@@ -1,0 +1,16 @@
+<ul>
+  <% docs.each do |doc| %>
+    <li>
+      <%= link_to doc.title, document_url(doc) %>
+      written by: <%= doc.author.email%>
+      <br>
+      <p>
+        <%= doc.body %>
+      <p>
+        <%= render "form", ref: doc.id, base_text: @document %>
+        <br>
+        <br>
+    </li>
+
+  <% end %>
+</ul>

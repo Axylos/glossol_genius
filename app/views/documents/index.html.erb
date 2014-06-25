@@ -1,17 +1,9 @@
 <h1>Documents Index<h1>
 
 <h3>My Documents</h3>
-<ul>
-  <% current_user.documents.each do |document| %>
-    <li><%= link_to document.title, document_url(document) %></li>
-  <% end %>
-</ul>
+<%= render "title_list", documents: current_user.documents %>
 
 <h3>Other Documents</h3>
-<ul>
-  <% sample_documents.each do |document| %>
-    <li><%= link_to document.title, document_url(document) %></li>
-  <% end %>
-</ul>
+<%= render "title_list", documents: sample_documents %>
 
 <%= link_to "Create Document", new_user_document_url(current_user)%>

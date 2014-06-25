@@ -1,0 +1,5 @@
+<ul>
+  <% documents.each do |doc| %>
+    <li><%= link_to doc.title, document_url(doc) %></li>
+  <% end %>
+</ul>

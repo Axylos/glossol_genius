@@ -1,15 +1,15 @@
 <h1><%= @document.title %></h1>
 
-<h2>Document:</h2>
-<%= @document.body %>
-<br>
 <h3>Author: <br><%= @document.author.email %></h3>
 
-<%= render "annotations/anno_list", annotations: @document.annotations %>
+<h2>Document Text:</h2>
+<%= @document.body %>
 
-<%= render "annotations/form", document: @document, refs: false %>
+<%= render "annotatings/anno_list", annotations: @document.annotations %>
 
-<%= render "annotations/ref_list", annotations: @document.references %>
+<%= render "annotatings/form", document: @document, refs: false %>
+
+<%= render "annotatings/ref_list", annotations: @document.references %>
 
 <% if current_user == @document.author %>
   <%= link_to "Add References", new_document_annotating_url(@document) %>

@@ -25,7 +25,7 @@ class AnnotatingsController <ApplicationController
   def annotating_created
     ActiveRecord::Base.transaction do
       @document.save
-      @document.reference.create(
+      @document.references.create(
               source_document_id: params[:document_id],
               source_text: doc_params[:source_text].split
             )

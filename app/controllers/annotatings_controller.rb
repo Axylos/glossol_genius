@@ -15,6 +15,23 @@ class AnnotatingsController <ApplicationController
     @document = Document.find(params[:document_id])
   end
 
+  def destroy
+    @annotating = Annotating.find(params[:id])
+    annotation = @annotating.annotation
+    if current_user = @annotating.annotation.author
+      if @annotating.destroy
+        add_notice("Reference successfully destroyed!")
+        redirect_to document_url(annotation)
+      else
+        add_error(@annotating.errors.full_messages)
+        redirect_to document_url(annotation)
+      end
+    else
+      add_error("You can't destroy an annotation that isn't yours!")
+      redirect_to document_url(annotation)
+    end
+  end
+
 
   private
 

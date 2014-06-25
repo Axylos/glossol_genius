@@ -19,6 +19,8 @@
   <h4>No Annotations Yet</h4>
 <% end %>
 
+<%= render "annotations/form", document: @document, refs: false %>
+
 <h2>Annotated Texts</h2>
 <% unless @document.annotated_docs.empty? %>
   <ul>
@@ -38,30 +40,4 @@
   <p>No Annotated Texts</p>
 <% end %>
 
-<br>
-
-<form
-  action="<%= document_annotations_url(@document) %>"
-  method="POST"
-  class="new-doc">
-
-  <input
-    type="hidden"
-    name="authenticity_token"
-    value="<%= form_authenticity_token %>">
-
-  <label for "note-title">Annotation Title</label>
-  <input type="text" name="annotation[title]" id="note-title">
-
-  <br>
-
-  <label for "note-body">Annotation Text</label>
-  <textarea name="annotation[body]" id="note-body"></textarea>
-
-  <br>
-
-  <label for="selection">Start and Stop</label>
-  <input type="text" name="annotation[source_text]" id="selection">
-
-  <input type="submit" value="Create Annotation">
-</form>
+<%= link_to "Add References", new_document_annotation_url(@document) %>

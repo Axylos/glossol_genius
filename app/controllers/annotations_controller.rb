@@ -11,7 +11,16 @@ class AnnotationsController <ApplicationController
       flash[:errors] << @annotation.errors.full_messages if @annotation
     end
 
-    redirect_to document_url(params[:document_id])
+    unless params[:annotation][:refs]
+      redirect_to document_url(params[:document_id])
+    else
+      redirect_to new_document_annotation_url(params[:annotation][:parent])
+    end
+  end
+
+  def new
+    @docs = Document.all
+    @document = Document.find(params[:document_id])
   end
 
 

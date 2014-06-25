@@ -1,0 +1,32 @@
+<form
+  action="<%= document_annotations_url(document) %>"
+  method="POST"
+  class="new-doc">
+
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <% if refs %>
+    <input type="hidden" name="annotation[refs]" value="true">
+    <input type="hidden" name="annotation[parent]" value="<%= document.id %>">
+  <% else %>
+    <input type="hidden" name="annotation[refs]" value="false">
+  <% end %>
+
+  <label for "note-title">Annotation Title</label>
+  <input type="text" name="annotation[title]" id="note-title">
+
+  <br>
+
+  <label for "note-body">Annotation Text</label>
+  <textarea name="annotation[body]" id="note-body"></textarea>
+
+  <br>
+
+  <label for="selection">Start and Stop</label>
+  <input type="text" name="annotation[source_text]" id="selection">
+
+  <input type="submit" value="Create Annotation">
+</form>

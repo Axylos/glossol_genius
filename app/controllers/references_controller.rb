@@ -11,7 +11,8 @@ class ReferencesController < ApplicationController
     @reference = make_reference
     if @reference.save
       flash[:notices] ||= []
-      flash[:notices] << "#{@reference} saved for #{@reference.text_selection}"
+      flash[:notices] << "#{@reference.text_selection} saved from
+                          #{@reference.source_document.title}"
     else
       flash[:errors] ||= []
       flash[:errors] << @reference.errors.full_messages

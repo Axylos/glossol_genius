@@ -3,7 +3,7 @@ class Document < ActiveRecord::Base
   belongs_to :author, class_name: "User", foreign_key: :user_id
 
   has_many(
-    :references,
+    :annotatings,
     class_name: "Annotation",
     foreign_key: :source_document_id
   )
@@ -14,7 +14,7 @@ class Document < ActiveRecord::Base
     foreign_key: :annotation_id
   )
 
-  has_many :annotations, through: :references, source: :annotation
+  has_many :annotations, through: :annotatings, source: :annotation
   has_many :referenced_texts, through: :annotated_docs, source: :source_document
 
   def parent

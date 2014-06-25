@@ -1,0 +1,13 @@
+<h2>Annotated Texts</h2>
+<% unless annotations.empty? %>
+  <ul>
+    <% annotations.each do |annotation| %>
+      <li>
+        <%= link_to annotation.source_document.title, document_url(annotation.source_document)%>:
+        <p><%= annotation.text_selection %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No Annotated Texts</p>
+<% end %>

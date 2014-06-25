@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :sign_in_user, :signed_in?, :current_user
+  helper_method :sign_in_user, :signed_in?, :current_user, :add_error
 
   before_filter :verify_signed_in
 
@@ -28,5 +28,10 @@ class ApplicationController < ActionController::Base
 
   def verify_signed_in
     redirect_to new_user_url unless signed_in?
+  end
+
+  def add_error(error)
+    flash[:errors] ||= []
+    flash[:errors] << error
   end
 end

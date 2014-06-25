@@ -1,0 +1,8 @@
+<ul>
+  <% annotations.each do |annotation| %>
+    <li>
+      <%= link_to annotation.source_document.title, document_url(annotation.source_document)%>:
+      <%= annotation.text_selection %>
+    </li>
+  <% end %>
+</ul>

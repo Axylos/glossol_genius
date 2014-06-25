@@ -1,5 +1,7 @@
 class ReferencesController < ApplicationController
 
+  before_filter :ensure_current_is_author
+
   def new
     @document = Document.find(params[:document_id])
     @docs = Document.all
@@ -31,5 +33,13 @@ class ReferencesController < ApplicationController
 
   def ref_params
     params.require(:reference).permit(:source_text, :ref_text)
+  end
+
+  def ensure_current_is_author
+    author = Document.find(params[:document_id]).author
+    unless author == current_user
+      add_error("You must be the author of a document to add references!")
+      redirect_to root_path
+    end
   end
 end

@@ -3,14 +3,7 @@
 
 <h1>Existing References:</h1>
 
-<ul>
-  <% @document.annotated_docs.each do |annotation| %>
-    <li>
-      <%= link_to annotation.source_document.title, document_url(annotation.source_document)%>:
-      <%= annotation.text_selection %>
-    </li>
-  <% end %>
-</ul>
+<%= render "annotations/note_list", annotations: @document.annotated_docs %>
 
 <%= link_to "Done Adding References", document_url(@document) %>
 

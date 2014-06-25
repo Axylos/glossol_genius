@@ -24,6 +24,15 @@
     <% else %>
       <%= link_to "Sign In", new_session_url %>
       <%= link_to "Sign Up", new_user_url %>
+      <form action="<%= session_url %>" method="POST">
+        <input
+          type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>">
+        <input type="hidden" name="user[email]" value="demo@demo.com">
+        <input type="hidden" name="user[password]" value="drowssap">
+        <input type="submit" value="Sign in as Demo User">
+      </form>
     <% end %>
 
 

@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def already_liked?(doc)
-    !doc.fans.where("stars.user_id = ?", current_user.id).empty?
+    doc.stars.where("stars.user_id = ?", current_user.id).first || false
   end
 
 end

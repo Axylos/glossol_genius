@@ -11,3 +11,5 @@
 <% if current_user == @document.author %>
   <%= link_to "Add References", new_document_annotating_url(@document) %>
 <% end %>
+
+<%= render "likes", stars: @document.stars.includes(:user) %>

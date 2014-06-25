@@ -1,4 +1,4 @@
-<% unless already_liked?(doc) %>
+<% unless star = already_liked?(doc) %>
 
   <form action="<%= document_stars_url(doc) %>" method="POST">
     <input
@@ -7,11 +7,18 @@
       value="<%= form_authenticity_token %>">
 
     <input type="submit" value="Add Star to this Document">
-
   </form>
 
 <% else %>
+  <h3>You Starred This</h3>
+  <form action="<%= star_url(star) %>" method="POST">
+    <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
 
-  <h3>You Like This</h3>
+    <input type="hidden" name="_method" value="DELETE">
 
+    <input type="submit" value="Un-Star this Document">
+  </form>
 <% end %>

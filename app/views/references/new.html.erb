@@ -6,7 +6,7 @@
 <ul>
   <% @document.annotated_docs.each do |annotation| %>
     <li>
-      <%= annotation.source_document.title %>:
+      <%= link_to annotation.source_document.title, document_url(annotation.source_document)%>:
       <%= annotation.text_selection %>
     </li>
   <% end %>

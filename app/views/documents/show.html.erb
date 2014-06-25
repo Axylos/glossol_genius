@@ -11,4 +11,6 @@
 
 <%= render "annotations/ref_list", annotations: @document.references %>
 
-<%= link_to "Add References", new_document_reference_url(@document) %>
+<% if current_user == @document.author %>
+  <%= link_to "Add References", new_document_annotating_url(@document) %>
+<% end %>

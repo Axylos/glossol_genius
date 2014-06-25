@@ -22,37 +22,30 @@ class AnnotatingsController <ApplicationController
     params.require(:annotating).permit(:body, :source_text, :title, :ref_text)
   end
 
-  def join_docs
-    @annotating = Annotating.create(
-      source_document_id: params[:document_id],
-      annotation_id: @document.id,
-      source_text: doc_params[:source_text].split)
-  end
-
   def annotating_created
     ActiveRecord::Base.transaction do
       @document.save
-      join_docs
+      @document.reference.create(
+              source_document_id: params[:document_id],
+              source_text: doc_params[:source_text].split
+            )
     end
   end
 
-  def make_annotating
-    Annotating.new(
+  def add_reference
+    @annotating = Annotating.new(
       source_document_id: doc_params[:ref_text],
       annotation_id: params[:document_id],
       source_text: doc_params[:source_text].split
     )
-  end
 
-  def add_reference
-    @annotating = make_annotating
     if @annotating.save
       add_notice("#{@annotating.text_selection} saved from
                           #{@annotating.source_document.title}")
     else
       add_error(@annotating.errors.full_messages)
     end
-    redirect_to new_document_reference_url(params[:document_id])
+    redirect_to new_document_annotating_url(params[:document_id])
   end
 
   def add_annotation

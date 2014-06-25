@@ -14,8 +14,7 @@ class ReferencesController < ApplicationController
       flash[:notices] << "#{@reference.text_selection} saved from
                           #{@reference.source_document.title}"
     else
-      flash[:errors] ||= []
-      flash[:errors] << @reference.errors.full_messages
+      add_error(@reference.errors.full_messages)
     end
     redirect_to new_document_reference_url(params[:document_id])
   end

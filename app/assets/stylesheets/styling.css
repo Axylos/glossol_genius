@@ -1,4 +1,3 @@
-<style>
 .main-img {
   height: 400px;
 }
@@ -17,5 +16,9 @@ a:visited {
   color: #E8DF12;
 }
 
+nav {
+  height: 70px;
+  display: block;
+}
 
-</style>
+

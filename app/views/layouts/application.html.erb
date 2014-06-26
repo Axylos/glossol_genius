@@ -6,28 +6,29 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-
-  
 </head>
 <body>
 
-  <header>
+  <nav>
+    <%= image_tag "mini_logo.png" %>
+    
 
-  </header>
+    <% if signed_in? %>
+      <h2>Welcome <%= current_user.email %>!</h2>
+      <%= render "layouts/sign_out" %>
+      <%= link_to "Home", user_documents_url(current_user) %>
+    <% else %>
+      <%= link_to "Sign In", new_session_url %>
+      <%= link_to "Sign Up", new_user_url %>
+      <%= render "layouts/demo_user" %>
+    <% end %>
+  
+  </nav>
 
-  <%= image_tag "mini_logo.png" %>
-  <%= render "layouts/flash_messages", messages: flash[:errors] %>
-  <%= render "layouts/flash_messages", messages: flash[:notices] %>
-
-  <% if signed_in? %>
-    <h2>Welcome <%= current_user.email %>!</h2>
-    <%= render "layouts/sign_out" %>
-    <%= link_to "Home", user_documents_url(current_user) %>
-  <% else %>
-    <%= link_to "Sign In", new_session_url %>
-    <%= link_to "Sign Up", new_user_url %>
-    <%= render "layouts/demo_user" %>
-  <% end %>
+  <section class="errors">
+    <%= render "layouts/flash_messages", messages: flash[:errors] %>
+    <%= render "layouts/flash_messages", messages: flash[:notices] %>
+  </section>
 
 <%= yield %>
 

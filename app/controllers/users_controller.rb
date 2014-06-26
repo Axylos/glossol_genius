@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   skip_before_filter :verify_signed_in, only: [:new, :create]
 
   def new
-
   end
 
   def create
@@ -17,7 +16,9 @@ class UsersController < ApplicationController
     end
   end
 
-
+  def edit
+    @user = User.find(params[:id])
+  end
 
   private
 

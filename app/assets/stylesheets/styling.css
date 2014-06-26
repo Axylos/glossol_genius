@@ -71,11 +71,22 @@ a:visited {
 
 nav {
   width: 800px;
-  margin: auto;
+  margin: 100px auto;
   border: solid black 2px;
 }
 
 .nav-logo {
+  float: left;
+  width: 60%;
+}
+
+.app-title {
+  float: left;
+  font-size: 25px;
+  margin: 35px 40px 0;
+}
+
+.logo-img {
   float: left;
 }
 

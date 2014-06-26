@@ -72,6 +72,7 @@ a:visited {
 nav {
   width: 800px;
   margin: auto;
+  border: solid black 2px;
 }
 
 .nav-logo {
@@ -80,13 +81,14 @@ nav {
 
 .links {
   width: 310px;
+  height: 105px;
   float: right;
 }
 
 .nav-link {
+  border-left: 2px solid black;
   float: left;
   padding: 5px 5px;
-  border-right: solid black 2px;
 }
 
 .nav-link:hover {
@@ -109,17 +111,17 @@ nav {
 
 .getting-around {
   float: right;
-  width: 130px;
-  border: solid black 2px;
+  width: 249px;
 }
 
 .getting-around .nav-link {
-  float: left;
+  font-size: 25px;
+  padding: 38px 20px;
 }
 
 .getting-around input[type="submit"] {
-  padding: 5px 5px;
   color: #00EFE6;
+  border-left: solid black 2px;
 }
 
 .getting-around li {

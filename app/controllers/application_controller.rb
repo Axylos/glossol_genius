@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
   def sign_in_user(user)
     user.session_token = user.reset_token
     session[:token] = user.session_token
+    add_notice("Welcome #{user.email}!")
   end
 
   def sign_out

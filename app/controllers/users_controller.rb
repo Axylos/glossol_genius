@@ -17,13 +17,25 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
+  end
+  
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      add_notice("Settings Successfully Updated!")
+      redirect_to documents_url
+    else
+      add_error(@user.errors.full_messages)
+      render :edit
+    end
+    
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :nick)
   end
 
 end

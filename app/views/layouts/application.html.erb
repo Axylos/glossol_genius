@@ -9,18 +9,25 @@
 </head>
 <body>
 
-  <nav>
-    <%= image_tag "mini_logo.png" %>
+  <nav class="group">
+    <container class="nav-logo group">
+      <%= image_tag "mini_logo.png" %>
+      glossolHéllYeah
+    </container>
     
-
-    <% if signed_in? %>
-      <%= render "layouts/sign_out" %>
-      <%= link_to "Home", user_documents_url(current_user) %>
-    <% else %>
-      <%= link_to "Sign In", new_session_url %>
-      <%= link_to "Sign Up", new_user_url %>
-      <%= render "layouts/demo_user" %>
-    <% end %>
+    <container class="links group">
+      <% if signed_in? %>
+        <section class="getting-around">
+        <%= render "layouts/sign_out" %>
+        <%= link_to "Home", user_documents_url(current_user) %>
+      <% else %>
+        <ul class="entrance">
+          <li><%= link_to "Sign In", new_session_url, class: "nav-link" %></li>
+          <li><%= link_to "Sign Up", new_user_url, class: "nav-link" %></li>
+          <li><%= render "layouts/demo_user" %></li>
+        </ul>
+      <% end %>
+    </container>
   
   </nav>
 

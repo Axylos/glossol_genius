@@ -1,3 +1,56 @@
+/* Resets */
+
+html body nav ul li a div section{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+button {
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: green;
+  background: transparent;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+
+input[type='submit'] {
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  box-sizing: content-box;
+  cursor: pointer;
+  
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Utility */
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Main Styles */
+
 .main-img {
   height: 400px;
 }
@@ -17,8 +70,34 @@ a:visited {
 }
 
 nav {
-  height: 70px;
-  display: block;
+  width: 800px;
+  margin: auto;
+}
+
+.nav-logo {
+  float: left;
+}
+
+.links {
+  width: 400px;
+  float: right;
+}
+
+.entrance a {
+  float: left;
+}
+
+.nav-link {
+  padding: 0 8px;
+  margin: 0 4px;
+}
+
+.nav-link:hover {
+  background: #686DFF;
+}
+
+#demo-button {
+  padding-left:8px;
 }
 
 

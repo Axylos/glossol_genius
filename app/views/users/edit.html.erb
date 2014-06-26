@@ -1,6 +1,7 @@
-<h1>Update User Settings</h1>
-
-<section class="edit-form">
+<section class="login">
+  
+  <h1>Update User Settings</h1>
+  
   <form action="<%= user_url(@user) %>" action="POST" class="edit-user">
     <input 
       type="hidden"
@@ -10,13 +11,21 @@
     <input type="hidden" name="_method" value="PATCH">
     
     <label for "email">Email</label>
-    <input type="email" name="user[email]" class="log-inputs">
+    <input 
+      type="email" 
+      name="user[email]" 
+      value="<%= @user.email %>"
+      class="log-inputs">
 
     <label for "password">Password</label>
     <input type="password" name="user[password]" class="log-inputs">
     
     <label for "nick">Nickname</label>
-    <input type="text" name="user[nick]" class="log-inputs">
+    <input 
+      type="text" 
+      name="user[nick]" 
+      class="log-inputs" 
+      value="<%= %>">
 
     <input type="submit" value="Update Attributes">
     

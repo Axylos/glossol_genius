@@ -14,5 +14,5 @@ GlossolHellYeah::Application.routes.draw do
   resources :annotatings, only: [:destroy]
     root to: "documents#index"
 
-  get 'auth/facebook/callback', to: "documents#index"
+  get 'auth/facebook/callback', to: "omniauth_callbacks#facebook"
 end

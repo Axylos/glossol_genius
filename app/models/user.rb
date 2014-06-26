@@ -6,12 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :documents, class_name: "Document", foreign_key: :user_id
 
-  has_many(
-      :stars,
-      class_name: "Star",
-      foreign_key: :user_id,
-      dependent: :destroy
-    )
+  has_many :stars, dependent: :destroy
 
   has_many :starred_documents, through: :stars, source: :document
 

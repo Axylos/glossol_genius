@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626194025) do
+ActiveRecord::Schema.define(version: 20140626221030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20140626194025) do
 
   add_index "annotatings", ["annotation_id"], name: "index_annotatings_on_annotation_id", using: :btree
   add_index "annotatings", ["source_document_id"], name: "index_annotatings_on_source_document_id", using: :btree
+
+  create_table "auths", force: true do |t|
+    t.string  "provider",   null: false
+    t.string  "uid",        null: false
+    t.integer "expires_at"
+  end
 
   create_table "documents", force: true do |t|
     t.integer  "user_id"
@@ -65,8 +71,10 @@ ActiveRecord::Schema.define(version: 20140626194025) do
     t.datetime "updated_at"
     t.string   "session_token"
     t.string   "nick"
+    t.integer  "auth_id"
   end
 
+  add_index "users", ["auth_id"], name: "index_users_on_auth_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

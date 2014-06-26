@@ -36,18 +36,14 @@ class AnnotatingsController <ApplicationController
   private
 
   def doc_params
-    params.require(:annotating).permit(:body, :source_text, :title, :ref_text)
+    params.require(:annotating).permit(:body, :title)
+  end
+  
+  def ref_params
+    params.require(:annotating).permit(:ref_text, :source_text)
   end
 
-  def annotating_created
-    ActiveRecord::Base.transaction do
-      @document.save
-      @document.references.create(
-              source_document_id: params[:document_id],
-              source_text: doc_params[:source_text].split
-            )
-    end
-  end
+  
 
   def add_reference
     @annotating = Annotating.new(
@@ -66,10 +62,7 @@ class AnnotatingsController <ApplicationController
   end
 
   def add_annotation
-    @document = current_user.documents.new(
-          body: doc_params[:body],
-          title: doc_params[:title]
-        )
+    @document = current_user.documents.new(doc_params)
 
     if annotating_created
       redirect_to document_url(@document)
@@ -78,6 +71,14 @@ class AnnotatingsController <ApplicationController
       add_error(@annotating.errors.full_messages) if @annotating
       redirect_to document_url(params[:document_id])
     end
+  end
+  
+  def annotating_created
+      @document.references.build(
+              source_document_id: params[:document_id],
+              source_text: ref_params[:source_text].split
+            )
+      @document.save
   end
 
   def ensure_current_is_author

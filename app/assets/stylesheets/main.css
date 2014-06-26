@@ -13,8 +13,9 @@ main section {
   text-size: 25px;
 }
 
-main .docs {
-  
+main .c-doc {
+  margin: 50px;
+  display: block;
 }
 
 main .cu-docs {
@@ -26,21 +27,19 @@ main .other-docs {
 }
 
 main .c-doc .create-doc {
-  display: block;
   font-size: 50px;
   background: #E3E16E;
   color: red;
-  margin: 50px;
+  padding: 20px;
   border-radius: 20px;
 }
 
-.create-doc:hover {
+.c-doc .create-doc:hover {
   border-radius: 20px;
-  
-  background: #23FF17;
+  color: #360069;
+  background: #FCBF09;
 }
 
 .c-doc a:visited {
-  margin: 20px;
   color: #1139BC;
 }

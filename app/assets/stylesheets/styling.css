@@ -1,6 +1,6 @@
 /* Resets */
 
-html, body, nav, ul, li, a, div, section{
+html, body, nav, ul, li, a, div, h1, section{
   margin: 0;
   padding: 0;
   border: 0;
@@ -42,6 +42,28 @@ ul {
   list-style: none;
 }
 
+input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="submit"] {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    background: transparent;
+    color: inherit;
+    -webkit-appearance: none;
+    box-sizing: content-box;
+    width: auto;
+    display: inline-block;
+  }
+
+  input[type="submit"] {
+    display: inline;
+    cursor: pointer;
+  }
+
 /* Utility */
 .group:after {
   content: "";
@@ -52,7 +74,7 @@ ul {
 /* Main Styles */
 
 .main-img {
-  height: 400px;
+  height: 350px;
 }
 
 body {
@@ -71,7 +93,7 @@ a:visited {
 
 nav {
   width: 800px;
-  margin: 100px auto;
+  margin: 50px auto;
   border: solid black 2px;
 }
 
@@ -142,5 +164,56 @@ nav {
 
 .getting-around li {
   display: block;
+}
+
+.login {
+  display: block;
+  width: 500px;
+  margin: auto;
+}
+
+.login h1 {
+  display: block;
+  font-size: 40px;
+  margin-bottom: 25px;
+  margin-left: 10px;
+}
+
+.login label {
+  font-size: 20px;
+  padding: 10px 10px;
+}
+
+.login .log-inputs {
+  font-size: 25px;
+  padding: 5px;
+  margin: 20px;
+  background: #116CF4;
+  color: #F4EFD9;
+  border-radius: 10px;
+}
+
+.login .log-inputs:focus {
+  border: solid #EFFF0A;
+  padding: 2px;
+}
+
+.login input[type="email"] {
+  margin-left: 58px;
+}
+
+.login input[type="submit"] {
+  display: block;
+  font-size: 40px;
+  padding: 10px;
+  margin: auto;
+  background: #187772;
+  border-radius: 10px;
+}
+
+.login input[type="submit"]:hover {
+  background: #19B3F7;
+  color: #185F11;
+  border: solid lightgreen 5px;
 }
 

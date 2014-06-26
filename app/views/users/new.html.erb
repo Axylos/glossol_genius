@@ -1,20 +1,23 @@
 <center><%= image_tag "logo.png", class: "main-img" %></center>
 
-<h1>Sign Up</h1>
+<content class="login">
+  <h1>New User</h1>
 
 
-<form class="sign-up" action="<%= users_url %>" method="post">
-  <input
-    type="hidden"
-    name="authenticity_token"
-    value="<%= form_authenticity_token %>">
+  <form class="sign-up" action="<%= users_url %>" method="post">
+    <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
 
-  <label for "email">Email</label>
-  <input type="email" id="email" name="user[email]">
+    <label for "email">Email:</label>
+    <input type="email" name="user[email]" class="log-inputs">
 
-  <label for "password">Password</label>
-  <input type="password" id="password" name="user[password]">
+    <label for "password">Password:</label>
+    <input type="password" name="user[password]" class="log-inputs">
 
-  <input type="submit" value="Sign Up!">
+    <input type="submit" value="Sign Up!">
 
-</form>
+  </form>
+
+</content>

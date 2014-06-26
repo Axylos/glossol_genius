@@ -96,13 +96,18 @@ nav {
 }
 
 .entrance input[type="submit"] {
-  padding: 5px 5px;
   color: #00EFE6;
+  border-left: solid black 2px;
 }
 
 .entrance {
-  width: 298px;
-  border: solid black 2px;
+  width: 452px;
+  float: right;
+}
+
+.entrance .nav-link {
+  font-size: 20px;
+  padding: 41px 20px;
 }
 
 .entrance li {

@@ -1,1 +1,24 @@
 <h1>Update User Settings</h1>
+
+<section class="edit-form">
+  <form action="<%= user_url(@user) %>" action="POST" class="edit-user">
+    <input 
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+    
+    <input type="hidden" name="_method" value="PATCH">
+    
+    <label for "email">Email</label>
+    <input type="email" name="user[email]" class="log-inputs">
+
+    <label for "password">Password</label>
+    <input type="password" name="user[password]" class="log-inputs">
+    
+    <label for "nick">Nickname</label>
+    <input type="text" name="user[nick]" class="log-inputs">
+
+    <input type="submit" value="Update Attributes">
+    
+    
+</section>

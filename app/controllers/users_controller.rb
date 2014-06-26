@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   
   def update
     @user = current_user
-    if @user.update(user_params)
+    if @user.update_attributes(user_params)
       add_notice("Settings Successfully Updated!")
       redirect_to documents_url
     else

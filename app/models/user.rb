@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
     self.update(session_token: User.generate_token)
     return self.session_token
   end
+  
+  def display_name
+    self.nick || self.email
+  end
 end

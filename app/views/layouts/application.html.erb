@@ -5,23 +5,49 @@
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+
+  <style>
+  .main-img {
+    height: 400px;
+  }
+
+  body {
+    background: #F4128D;
+    color: #00FF13;
+    font-family: sans-serif;
+  }
+
+  a {
+    color: #00EFE6;
+  }
+
+  a:visited {
+    color: #E8DF12;
+  }
+
+
+  </style>
 </head>
 <body>
 
   <header>
-    <%= render "layouts/flash_messages", messages: flash[:errors] %>
-    <%= render "layouts/flash_messages", messages: flash[:notices] %>
 
-    <% if signed_in? %>
-      <h2>Welcome <%= current_user.email %>!</h2>
-      <%= render "layouts/sign_out" %>
-      <%= link_to "Home", user_documents_url(current_user) %>
-    <% else %>
-      <%= link_to "Sign In", new_session_url %>
-      <%= link_to "Sign Up", new_user_url %>
-      <%= render "layouts/demo_user" %>
-    <% end %>
   </header>
+
+  <%= image_tag "mini_logo.png" %>
+  <%= render "layouts/flash_messages", messages: flash[:errors] %>
+  <%= render "layouts/flash_messages", messages: flash[:notices] %>
+
+  <% if signed_in? %>
+    <h2>Welcome <%= current_user.email %>!</h2>
+    <%= render "layouts/sign_out" %>
+    <%= link_to "Home", user_documents_url(current_user) %>
+  <% else %>
+    <%= link_to "Sign In", new_session_url %>
+    <%= link_to "Sign Up", new_user_url %>
+    <%= render "layouts/demo_user" %>
+  <% end %>
 
 <%= yield %>
 

@@ -12,6 +12,11 @@ gem 'seed_dump'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+gem 'figaro'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

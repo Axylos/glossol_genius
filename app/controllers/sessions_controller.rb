@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     sign_out
     render :new
   end
-
+  
 
   private
 

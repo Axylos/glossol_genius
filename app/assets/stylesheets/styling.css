@@ -1,0 +1,21 @@
+<style>
+.main-img {
+  height: 400px;
+}
+
+body {
+  background: #F4128D;
+  color: #00FF13;
+  font-family: sans-serif;
+}
+
+a {
+  color: #00EFE6;
+}
+
+a:visited {
+  color: #E8DF12;
+}
+
+
+</style>

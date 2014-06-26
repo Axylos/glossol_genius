@@ -47,7 +47,10 @@
     <%= render "layouts/flash_messages", messages: flash[:notices] %>
   </section>
 
-<%= yield %>
+
+  <main>
+    <%= yield %>
+  </main>
 
 </body>
 </html>

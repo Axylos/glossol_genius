@@ -1,0 +1,46 @@
+main {
+  margin: auto;
+  width: 600px;
+}
+
+main h1 {
+  display: block;
+  padding: 0 50px 0 50px;
+  font-size: 60px;
+}
+
+main section {
+  text-size: 25px;
+}
+
+main .docs {
+  
+}
+
+main .cu-docs {
+  float: left;
+}
+
+main .other-docs {
+  float: right;
+}
+
+main .c-doc .create-doc {
+  display: block;
+  font-size: 50px;
+  background: #E3E16E;
+  color: red;
+  margin: 50px;
+  border-radius: 20px;
+}
+
+.create-doc:hover {
+  border-radius: 20px;
+  
+  background: #23FF17;
+}
+
+.c-doc a:visited {
+  margin: 20px;
+  color: #1139BC;
+}

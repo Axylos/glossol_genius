@@ -17,8 +17,11 @@
   
   <section class="utility-stuff group">
    
-   
+   <% if doc.persisted? %>
+     <div class="submitter"><button>Update Document</button></div>
+   <% else %>
     <div class="submitter"><button>Create Document</button></div>
+    <% end %>
    
     <section class="title-stuff"> 
       <label for "doc-title">Title:</label>

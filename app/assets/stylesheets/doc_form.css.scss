@@ -1,0 +1,54 @@
+.doc-form > label {
+  font-size: 30px;
+  color: #9EBEE8;
+}
+
+.new-doc {
+  display: block;
+  width: 1100px;
+  
+  #doc-body {
+    background: #A0EBA5;
+    font-size: 15px;
+    border-radius: 10%;
+    color: #0F00B5;
+    padding: 20px;
+  }
+}
+
+
+.doc-form {
+
+  #doc-title:focus {
+    font-size: 20px;
+    border: solid #51EB30 5px;
+  }
+  
+  #doc-body {
+    background: #A0EBA5;
+    font-size: 15px;
+    border-radius: 10%;
+    color: #0F00B5;
+    padding: 20px;
+  }
+  
+  #doc-title {
+    background: #F1F3D2;
+    font-size: 18px;
+    padding: 5px;
+    color: #001EFA;
+    border-radius: 15px
+  }
+  
+  #doc-body {
+    font-size: 20px;
+    border: solid #4731E3 5px;
+  }
+  
+  label {
+    padding: 15px;
+    margin: 20px;
+  }
+}
+
+

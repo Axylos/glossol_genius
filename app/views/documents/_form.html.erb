@@ -4,7 +4,8 @@
   <% action = user_documents_url(current_user) %>
 <% end %>
 
-<form action="<%= action %>" method="POST">
+<form action="<%= action %>" method="POST" class="doc-form">
+  
   <input
     type="hidden"
     name="authenticity_token"
@@ -13,21 +14,19 @@
   <% if doc.persisted? %>
     <input type="hidden" name="_method" value="put">
   <% end %>
-  <label for "title">Title</label>
-  <br>
+   
+  <label for "doc-title">Title</label>
   <input
     type="text"
     name="document[title]"
-    id="title"
+    id="doc-title"
     value="<%= doc.title %>">
-  <br>
-  <label for "doc-body">Body</label>
-  <br>
-  <textarea rows="40" cols="100" name="document[body]" id="doc-body">
+  
+  <label for "doc-body"></label>
+  <textarea rows="40" cols="80" name="document[body]" id="doc-body">
     <%= doc.body %>
   </textarea>
 
-  <br>
   <button>Create Document</button>
 
 </form>

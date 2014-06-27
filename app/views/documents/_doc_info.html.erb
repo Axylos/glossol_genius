@@ -1,12 +1,19 @@
-<h1><%= doc.title %></h1>
+<section class="doc-info group">
 
-<h3>Author: <br><%= doc.author.email %></h3>
-<%= render "star", doc: doc %>
+  <h1><%= doc.title %></h1>
+  <div class="citer">
+    <h2>Author:<h2> <h3><%= doc.author.email %></h3>
+    <%= render "star", doc: doc %>
+  </div>
+
+  <div class="manipulate">
+    <% if current_user == doc.author %>
+      <%= link_to "Edit Document", edit_document_url(doc) %>
+      <%= render "doc_delete", doc: doc %>
+    <% end %>
+  </div>
+
+</section>
 
 <h2>Document Text:</h2>
 <%= doc.body %>
-<br>
-<% if current_user == doc.author %>
-  <%= link_to "Edit Document", edit_document_url(doc) %>
-  <%= render "doc_delete", doc: doc %>
-<% end %>

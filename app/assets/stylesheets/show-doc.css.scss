@@ -1,0 +1,95 @@
+.doc-show {
+  
+  .doc-info {
+    
+    color: #000;
+    background: #00F5FE;
+    border: solid #000 5px;
+    width: 500px;
+    padding: 25px;
+    margin: 25px auto;
+    border-radius: 25px;
+    
+    h1 {
+      width: 400px;
+      margin: auto;
+    }
+    
+    h3 {
+      font-size: 20px;
+      color: #FF0087;
+      font-weight: bold;
+      width: 100px;
+    }
+    
+    h2 {
+      color: #FF4C1A;
+      font-size: 30px;
+      font-weight: bold;
+      width: 400px;
+    }
+    
+    h4 {
+      color: #1200FF;
+    }
+    
+    .citer {
+      width: 300px;
+      float: left;
+    }
+    
+    .manipulate {
+      float: right;
+      margin-top: 30px;
+      
+      a {
+        padding: 15px;
+        font-size: 20px;
+        background: #5C1099;
+        color: #EACD17;
+        border-radius: 20px;
+        border: solid #FF25FD 5px;
+      }
+      
+      a:hover {
+       border: solid #FF17E7 5px; 
+       background: #F5E554;
+       color: #009965;
+      }
+      
+      .del-doc {
+        margin-top: 25px;
+        padding: 15px;
+        font-size: 20px;
+        background: #179900;
+        border-radius: 20px;
+        color: #00FFEC;
+        border: solid #FFEC2F 5px;
+      }
+      
+      .del-doc:hover {
+        background: #F00;
+        color: #00FA5B;
+        border: solid #0092FF 5px;
+      }
+    }
+    
+    .starling {
+      font-size: 20px;
+      margin-top: 10px;
+      font-weight: none;
+      padding: 10px;
+      background: #F4B923;
+      border-radius: 10px;
+      border: solid #1506FF 5px;
+      
+     
+    }
+    
+    .starling:hover {
+      background: #990089;
+      color: #2DFF0C;
+      border: solid #FF2D00 5px;
+    }
+  }
+}

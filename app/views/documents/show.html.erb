@@ -1,19 +1,20 @@
-<article class="doc-show">
+<article class="doc-show group">
 
-<container class="doc-info">
+  
   <%= render "doc_info", doc: @document %>
-</container>
 
-<%= render "annotatings/anno_list", annotations: @document.annotations %>
+  <%= render "annotatings/anno_list", annotations: @document.annotations %>
 
-<%= render "annotatings/form", document: @document, refs: false %>
+  <%= render "annotatings/form", document: @document, refs: false %>
 
-<%= render "annotatings/ref_list",
-            references: @document.references,
-            current_author: current_user == @document.author %>
+  <%= render "annotatings/ref_list",
+              references: @document.references,
+              current_author: current_user == @document.author %>
 
-<% if current_user == @document.author %>
-  <%= link_to "Add References", new_document_annotating_url(@document) %>
-<% end %>
+  <% if current_user == @document.author %>
+    <%= link_to "Add References", new_document_annotating_url(@document) %>
+  <% end %>
 
-<%= render "likes", stars: @document.stars.includes(:user) %>
+  <%= render "likes", stars: @document.stars.includes(:user) %>
+  
+</article>

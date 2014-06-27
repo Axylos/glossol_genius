@@ -1,6 +1,6 @@
 /* Resets */
 
-html, section, body, nav, ul, li, a, div, h1, section{
+html, section, article, body, nav, ul, li, a, div, h1, h2, h3, section{
   margin: 0;
   padding: 0;
   border: 0;

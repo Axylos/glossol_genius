@@ -6,12 +6,12 @@
       name="authenticity_token"
       value="<%= form_authenticity_token %>">
 
-    <input type="submit" value="Add Star to this Document">
+    <input type="submit" value="Add Star to this Document" class="starling">
   </form>
 
 <% else %>
 
-  <h3>You Starred This</h3>
+  <h4>You Starred This!</h4>
   <form action="<%= star_url(star) %>" method="POST">
     <input
       type="hidden"
@@ -20,6 +20,6 @@
 
     <input type="hidden" name="_method" value="DELETE">
 
-    <input type="submit" value="Un-Star this Document">
+    <input type="submit" value="Un-Star this Document" class="starling">
   </form>
 <% end %>

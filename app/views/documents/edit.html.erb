@@ -1,4 +1,4 @@
-<h1>Edit<%= @document.title %></h1>
+<h1>Edit <%= @document.title %></h1>
 
 <%= link_to "Back to #{@document.title}", document_url(@document) %>
 <%= render "form", doc: @document %>

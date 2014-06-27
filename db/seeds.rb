@@ -7,17 +7,17 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 till = User.create(email: "till_lindeman@gmail.com", password: "password")
-till.reset_token
+till.reset_token!
 wittgenstein = User.create(email: "ludvigwitts@yahoo.com", password: "password")
-wittgenstein.reset_token
+wittgenstein.reset_token!
 marty = User.create(email: "existentThinking@hotmail.com", password: 'drowssap')
-marty.reset_token
+marty.reset_token!
 demo = User.create(
   email: "demo@demo.com", 
   password: 'drowssap', 
   nick: "Demo User"
   )
-demo.reset_token
+demo.reset_token!
 
 
 sein = Document.create(

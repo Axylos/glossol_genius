@@ -1,3 +1,5 @@
+require "application_controller"
+
 class User < ActiveRecord::Base
 
   attr_reader :password
@@ -5,10 +7,10 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :documents, class_name: "Document", foreign_key: :user_id
-
   has_many :stars, dependent: :destroy
-
   has_many :starred_documents, through: :stars, source: :document
+  
+  has_many :auths
 
 
   def password=(password)
@@ -32,4 +34,31 @@ class User < ActiveRecord::Base
   def display_name
     self.nick || self.email
   end
+  
+  
+  
+  def self.find_or_create_with_auth(auth_hash) 
+    @user = User.find_by(auth_id: auth_hash[:uid])
+    if @user
+      return @user
+    else
+      @user = User.new(
+        email: auth_hash[:info][:email], 
+        nick: auth_hash[:info][:first_name],
+        password: User.generate_token)
+      if @user.save && self.make_auth(auth_hash)
+        return @user
+      else
+        return [false, @user]
+      end
+    end
+  end
+  
+  
+  private
+  
+  def self.make_auth(hash)
+    @user.auths.create(uid: hash[:uid], provider: hash[:provider])
+  end
+  
 end

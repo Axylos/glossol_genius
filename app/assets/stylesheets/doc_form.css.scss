@@ -5,23 +5,25 @@
 
 .new-doc {
   display: block;
-  width: 1100px;
+  width: 1000px;
   
-  #doc-body {
-    background: #A0EBA5;
-    font-size: 15px;
-    border-radius: 10%;
-    color: #0F00B5;
-    padding: 20px;
+  h1 {
+    margin: auto;
+    font-size: 70px;
+    width: 800px;
   }
 }
 
 
 .doc-form {
+  position: relative;
+  margin: auto;
 
   #doc-title:focus {
+    
     font-size: 20px;
-    border: solid #51EB30 5px;
+    border: solid #000 5px;
+    padding: 5px;
   }
   
   #doc-body {
@@ -30,25 +32,54 @@
     border-radius: 10%;
     color: #0F00B5;
     padding: 20px;
+    font-size: 20px;
+    border: solid #4731E3 5px;
+    margin: 15px auto;
   }
   
   #doc-title {
     background: #F1F3D2;
-    font-size: 18px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 10px;
     color: #001EFA;
     border-radius: 15px
+    
+  }
+
+  
+  .title-stuff {
+    width: 243px;
+    margin: 50px;
+    font-size: 40px;
+    float: left;
   }
   
-  #doc-body {
-    font-size: 20px;
-    border: solid #4731E3 5px;
+  .main-text {
+    width: 945px;
+    margin: auto;
   }
   
-  label {
+  .utility-stuff {
+    width: 945px;
+  }
+  
+  button {
+    font-size: 30px;
+    font-weight: bold;
+    float: right;
+    margin: 90px 150px 0 0;
+    background: black;
+    color: #12FF00;
     padding: 15px;
-    margin: 20px;
+    border-radius: 25px
   }
+  
+  button:hover {
+    padding: 10px;
+    border: solid #FD0 5px;
+    background: #00FFE4;
+    color: #EF002A;
+  };
 }
 
 

@@ -38,7 +38,8 @@
       font-size: 40px;
     }
 
-    .cu-docs {
+    .cu-docs, .other-docs {
+      width: 450px;
       float: left;
       
       .doc-list {
@@ -53,20 +54,24 @@
           
           a {
             margin-left: 10px;
-            font-size: 25px;
+            margin: 15px;
+            font-size: 20px;
             text-decoration: underline;
           }
           
           a:hover {
            background: black; 
            border-radius: 15px;
-           margin: 25px;
+           margin: 10px;
+           padding: 5px;
           }
         }
              
         .del-doc {
+          font-size: 15px;
           background: #F1E4BE;
-          color: #EC0500;
+          border: solid blue 5px;
+          color: #FF1403;
           font-weight: bold;
           border-radius: 25px;
           padding: 25px;
@@ -74,7 +79,7 @@
         
         .del-doc:hover {
           border: solid green 5px;
-          margin: 0;
+          background: #00FFC8;
         }
         
         input[type="submit"] {

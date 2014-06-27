@@ -1,13 +1,20 @@
 
 <section class="doc-list">
-  <ul>
-    <% documents.each do |doc| %>
-      <li>
-        <%= link_to doc.title, document_url(doc) %>
-        <% if owner == true %>
-          <div class="del-button"><%= render "doc_delete", doc: doc %></div>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+  <% unless documents.empty? %>
+    <ul>
+      <% documents.each do |doc| %>
+        <li>
+          <%= link_to doc.title, document_url(doc) %>
+          <% if owner == true %>
+            <div class="del-button"><%= render "doc_delete", doc: doc %></div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  
+  <% else %>
+  <p>No Docs Yet</p>
+  
+  <% end %>
+  
 </section>

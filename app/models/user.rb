@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
     else
       @user = User.new(
         email: auth_hash[:info][:email], 
-        nick: auth_hash[:info][:first_name],
+        #nick: auth_hash[:info][:first_name],
         password: User.generate_token,
         auth_id: auth_hash[:uid])
       if @user.save && self.make_auth(auth_hash)

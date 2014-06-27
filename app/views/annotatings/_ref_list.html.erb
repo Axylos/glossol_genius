@@ -6,7 +6,9 @@
         <%= link_to reference.source_document.title, document_url(reference.source_document)%>:
         <p><%= reference.text_selection %></p>
         <% if current_author %>
-          <%= render "annotatings/ref_delete", anno: reference %>
+          <div class="del-ref">
+            <%= render "annotatings/ref_delete", anno: reference %>
+          </div>
         <% end %>
       </li>
     <% end %>

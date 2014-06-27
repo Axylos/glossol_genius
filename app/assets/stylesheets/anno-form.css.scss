@@ -1,4 +1,7 @@
+
+
 .anno-stuff {
+  
 
   float: right;
   width: 300px;
@@ -46,5 +49,27 @@
 
 .lists {
   margin: 25px;
+  padding: 10px;
+  font-size: 25px;
   border: solid black 5px;
+}
+
+.ref-list {
+  font-size: 25px;
+  
+  .add-ref {
+    font-size: 25px;
+    margin: 25px;
+    padding: 10px;
+    border-radius: 25px;
+    background: black;
+    width: 150px;
+    
+  }
+  
+  .del-ref {
+    background: black;
+    width: 200px;
+    padding: 10px;
+  }
 }

@@ -24,13 +24,20 @@
       </section>
 
     </section>
+    
+    <div class="ref-list">
       <%= render "annotatings/ref_list",
                   references: @document.references,
                   current_author: current_user == @document.author %>
 
       <% if current_user == @document.author %>
+      <div class="add-ref">
         <%= link_to "Add References", new_document_annotating_url(@document) %>
+      </div>
       <% end %>
+      
+      </div>
+      
 
       <%= render "likes", stars: @document.stars.includes(:user) %>
   

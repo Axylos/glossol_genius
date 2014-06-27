@@ -12,7 +12,11 @@ wittgenstein = User.create(email: "ludvigwitts@yahoo.com", password: "password")
 wittgenstein.reset_token
 marty = User.create(email: "existentThinking@hotmail.com", password: 'drowssap')
 marty.reset_token
-demo = User.create(email: "demo@demo.com", password: 'drowssap')
+demo = User.create(
+  email: "demo@demo.com", 
+  password: 'drowssap', 
+  nick: "Demo User"
+  )
 demo.reset_token
 
 

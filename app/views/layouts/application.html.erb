@@ -43,8 +43,12 @@
   </nav>
 
   <section class="errors">
-    <%= render "layouts/flash_messages", messages: flash[:errors] %>
-    <%= render "layouts/flash_messages", messages: flash[:notices] %>
+    <div class="error">
+      <%= render "layouts/flash_messages", messages: flash[:errors] %>
+    </div>
+    <div class="notice">
+      <%= render "layouts/flash_messages", messages: flash[:notices] %>
+    </div>
   </section>
 
 

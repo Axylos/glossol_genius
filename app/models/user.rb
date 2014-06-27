@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
     else
       @user = User.new(
         email: auth_hash[:info][:email], 
+        #TODO: Figure Out Why nick breaks Heroku
         #nick: auth_hash[:info][:first_name],
         password: User.generate_token,
         auth_id: auth_hash[:uid])

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :stars, dependent: :destroy
   has_many :starred_documents, through: :stars, source: :document
   
-  has_many :auths
+  has_many :auths, dependent: :destroy
 
 
   def password=(password)
@@ -45,7 +45,8 @@ class User < ActiveRecord::Base
       @user = User.new(
         email: auth_hash[:info][:email], 
         nick: auth_hash[:info][:first_name],
-        password: User.generate_token)
+        password: User.generate_token,
+        auth_id: auth_hash[:uid])
       if @user.save && self.make_auth(auth_hash)
         return @user
       else

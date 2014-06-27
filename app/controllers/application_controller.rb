@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   before_filter :verify_signed_in
 
   def current_user
-    User.find_by(session_token: session[:token])
+    @current_user ||= User.find_by(session_token: session[:token])
   end
 
   def signed_in?
@@ -16,8 +16,10 @@ class ApplicationController < ActionController::Base
   end
 
   def sign_in_user(user)
-    user.session_token = user.reset_token
-    session[:token] = user.session_token
+    @user.session_token = @user.reset_token
+    session[:token] = @user.session_token
+    @user.save
+    @current_user = @user
     add_notice("Welcome #{user.display_name}!")
   end
 

@@ -1,4 +1,8 @@
-<%= render "doc_info", doc: @document %>
+<article class="doc-show">
+
+<container class="doc-info">
+  <%= render "doc_info", doc: @document %>
+</container>
 
 <%= render "annotatings/anno_list", annotations: @document.annotations %>
 

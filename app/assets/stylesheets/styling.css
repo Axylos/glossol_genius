@@ -170,54 +170,6 @@ nav {
   display: block;
 }
 
-.login {
-  display: block;
-  width: 500px;
-  margin: auto;
-}
 
-.login h1 {
-  display: block;
-  font-size: 40px;
-  margin-bottom: 25px;
-  margin-left: 10px;
-}
 
-.login label {
-  font-size: 20px;
-  padding: 10px 10px;
-}
-
-.login .log-inputs {
-  font-size: 25px;
-  padding: 5px;
-  margin: 20px;
-  background: #116CF4;
-  color: #F4EFD9;
-  border-radius: 10px;
-}
-
-.login .log-inputs:focus {
-  border: solid #EFFF0A;
-  padding: 2px;
-}
-
-.login input[type="email"] {
-  margin-left: 58px;
-}
-
-.login input[type="submit"] {
-  display: block;
-  font-size: 40px;
-  padding: 10px;
-  margin: auto;
-  background: #187772;
-  border-radius: 10px;
-}
-
-.login input[type="submit"]:hover {
-  background: #19B3F7;
-  color: #185F11;
-  border: solid lightgreen 5px;
-}
 

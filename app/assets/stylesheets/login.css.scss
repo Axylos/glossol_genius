@@ -1,0 +1,73 @@
+.login {
+  display: block;
+  width: 515px;
+  margin: auto;
+  
+  h1 {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+  }
+  
+  label {
+    font-size: 20px;
+    padding: 10px 10px;
+  }
+
+  .log-inputs {
+    font-size: 25px;
+    padding: 5px;
+    margin: 20px;
+    background: #116CF4;
+    color: #F4EFD9;
+    border-radius: 10px;
+  }
+
+  .log-inputs:focus {
+    border: solid #EFFF0A;
+    padding: 2px;
+  }
+
+  input[type="email"] {
+    margin-left: 58px;
+  }
+
+  input[type="submit"] {
+    display: block;
+    font-size: 40px;
+    padding: 10px;
+    margin: 10px;
+    background: #187772;
+    border-radius: 10px;
+  }
+
+  input[type="submit"]:hover {
+    background: #19B3F7;
+    color: #185F11;
+    margin: 5px;
+    border: solid lightgreen 5px;
+  }
+  
+  .stand {
+    float: left;
+  }
+  #fb-butt {
+    margin-top: 10px;
+    margin-right: 5px;
+    float: right;
+    padding: 20px;
+    background: #0021FF;
+    border-radius: 10px;
+    color: #E3FF1B;
+    font-size: 25px;
+  }
+  
+  #fb-butt:hover {
+    background: #1CFF2E;
+    color: black;
+    border: solid #2453E2 5px;
+    margin-top: 5px;
+  }
+  
+}

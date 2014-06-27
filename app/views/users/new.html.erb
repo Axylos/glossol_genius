@@ -3,7 +3,6 @@
 <content class="login">
   <h1>New User</h1>
 
-
   <form class="sign-up" action="<%= users_url %>" method="post">
     <input
       type="hidden"
@@ -16,10 +15,16 @@
     <label for "password">Password:</label>
     <input type="password" name="user[password]" class="log-inputs">
 
-    <input type="submit" value="Sign Up!">
+    <container class="reg-buttons group">
+      <div class="stand">
+        <input type="submit" value="Sign Up!" class="reg-butt">
+      </div>
+      <div class="fb">
+        <a href="/auth/facebook" id="fb-butt">Sign up with Facebook!</a>
+      </div>
+    </container>
 
   </form>
-  
   
 
 </content>

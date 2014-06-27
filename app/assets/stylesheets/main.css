@@ -1,6 +1,6 @@
 main {
   margin: auto;
-  width: 900px;
+  width: 960px;
   padding: 50px;
   border: solid #F8FF84 8px;
   border-radius: 50px;
@@ -9,11 +9,7 @@ main {
 
 main h1 {
   display: block;
-  padding: 0 50px 0 50px;
   font-size: 60px;
 }
 
-main section {
-  text-size: 25px;
-}
 

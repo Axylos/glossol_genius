@@ -2,7 +2,7 @@ class AnnotatingsController <ApplicationController
 
 
   def create
-    if doc_params[:ref_text]
+    if ref_params[:ref_text]
       ensure_current_is_author
       add_reference
     else
@@ -47,9 +47,9 @@ class AnnotatingsController <ApplicationController
 
   def add_reference
     @annotating = Annotating.new(
-      source_document_id: doc_params[:ref_text],
+      source_document_id: ref_params[:ref_text],
       annotation_id: params[:document_id],
-      source_text: doc_params[:source_text].split
+      source_text: ref_params[:source_text].split
     )
 
     if @annotating.save

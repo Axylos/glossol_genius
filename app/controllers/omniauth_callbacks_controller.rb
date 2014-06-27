@@ -7,10 +7,7 @@ class OmniauthCallbacksController < ApplicationController
     @user = User.find_or_create_with_auth(auth_hash)
     
     if @user.is_a?(User)
-      add_notice("called")
-      @user.session_token = @user.reset_token
-      session[:token] = @user.session_token
-      @user.save
+      sign_in_user(@user)
       redirect_to root_url
     else
       add_error(user[1].errors.full_messages)

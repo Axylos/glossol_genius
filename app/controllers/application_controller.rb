@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
   def sign_in_user(user)
     @user.session_token = @user.reset_token
     session[:token] = @user.session_token
-    @user.save
     @current_user = @user
     add_notice("Welcome #{user.display_name}!")
   end
@@ -27,6 +26,7 @@ class ApplicationController < ActionController::Base
     user = current_user
     user.reset_token
     session[:token] = nil
+    @current_user = nil
   end
 
   def verify_signed_in

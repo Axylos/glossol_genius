@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_filter :verify_signed_in, only: [:new, :create]
+  before_action :verify_signed_in, only: [:edit, :update]
 
   def new
   end

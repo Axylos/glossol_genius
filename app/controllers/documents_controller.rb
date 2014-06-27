@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
 
-  #before_filter :ensure_owner, only: [:edit, :update, :destroy]
+  before_action :ensure_owner, only: [:edit, :update, :destroy]
+  before_action :verify_signed_in
 
   def index
     @my_documents = current_user.documents

@@ -26,8 +26,8 @@ class User < ActiveRecord::Base
     SecureRandom::urlsafe_base64(16)
   end
 
-  def reset_token
-    self.update(session_token: User.generate_token)
+  def reset_token!
+    self.update!(session_token: User.generate_token)
     return self.session_token
   end
   

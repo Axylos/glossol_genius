@@ -1,0 +1,98 @@
+.docs {  
+  margin: 50px auto;
+  
+  h1 {
+    margin: auto;
+    width: 500px;
+  }
+  
+  .c-doc {
+    margin: 50px 280px auto;
+    width: 450px;
+  }
+  
+  .c-doc .create-doc {
+    font-size: 30px;
+    background: #E3E16E;
+    color: red;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .c-doc .create-doc:hover {
+    border-radius: 20px;
+    color: #360069;
+    background: #FCBF09;
+  }
+
+  .c-doc a:visited {
+    color: #1139BC;
+  }
+  
+  .all-docs {
+    
+    margin-top: 100px;
+    font-size: 20px;
+    
+    h3 {
+      font-size: 40px;
+    }
+
+    .cu-docs {
+      float: left;
+      
+      .doc-list {
+        margin: auto;
+        margin-left: 30px;
+        width: 150px;
+        
+        li {
+          width: 250px;
+          padding-bottom: 25px;
+          
+          
+          a {
+            margin-left: 10px;
+            font-size: 25px;
+            text-decoration: underline;
+          }
+          
+          a:hover {
+           background: black; 
+           border-radius: 15px;
+           margin: 25px;
+          }
+        }
+             
+        .del-doc {
+          background: #F1E4BE;
+          color: #EC0500;
+          font-weight: bold;
+          border-radius: 25px;
+          padding: 25px;
+        }
+        
+        .del-doc:hover {
+          border: solid green 5px;
+          margin: 0;
+        }
+        
+        input[type="submit"] {
+          padding: 10px;
+          margin: 5px;
+        }
+        
+        .del-button {
+          padding-top: 10px;
+          left: 50px;
+        }
+      }
+    }
+
+    .other-docs {
+      float: right;
+    }
+
+  }
+ 
+}

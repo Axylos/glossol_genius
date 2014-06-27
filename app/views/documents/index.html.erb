@@ -1,19 +1,25 @@
 <section class="docs group">
 
   <h1>Documents Index</h1>
-
-  <section class="cu-docs group">
-    <h3>My Documents</h3>
-    <%= render "title_list", documents: @my_documents, owner: true %>
-  </section>
-
-  <section class="other-docs group">
-    <h3>Other Documents</h3>
-    <%= render "title_list", documents: sample_documents, owner: false %>
-  </section>
-
-</section>
-
+  
   <div class="c-doc"><%= link_to "Create Document",
     new_user_document_url(current_user),
     class: "create-doc" %></div>
+
+  <section class="all-docs group" >
+    
+    <section class="cu-docs ">
+      <h3>My Documents</h3>
+      <%= render "title_list", documents: @my_documents, owner: true %>
+    </section>
+
+    <section class="other-docs ">
+      <h3>Other Documents</h3>
+      <%= render "title_list", documents: sample_documents, owner: false %>
+    </section>
+
+  </section>
+
+
+  
+</section>

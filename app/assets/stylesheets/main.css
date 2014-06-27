@@ -1,6 +1,10 @@
 main {
   margin: auto;
   width: 900px;
+  padding: 50px;
+  border: solid #F8FF84 8px;
+  border-radius: 50px;
+  background: #F4128D;
 }
 
 main h1 {
@@ -13,33 +17,3 @@ main section {
   text-size: 25px;
 }
 
-main .c-doc {
-  margin: 50px;
-  display: block;
-}
-
-main .cu-docs {
-  float: left;
-}
-
-main .other-docs {
-  float: right;
-}
-
-main .c-doc .create-doc {
-  font-size: 50px;
-  background: #E3E16E;
-  color: red;
-  padding: 20px;
-  border-radius: 20px;
-}
-
-.c-doc .create-doc:hover {
-  border-radius: 20px;
-  color: #360069;
-  background: #FCBF09;
-}
-
-.c-doc a:visited {
-  color: #1139BC;
-}

@@ -79,10 +79,10 @@ input[type="email"],
 
 body {
   position: relative;
-  background: #F4128D;
+  background: #00F5C4;
   color: #00FF13;
   font-family: sans-serif;
-  width: 1350;
+  width: 1004;
 }
 
 a {
@@ -96,7 +96,9 @@ a:visited {
 nav {
   width: 1000px;
   margin: 50px auto;
-  border: solid black 2px;
+  border: solid black 8px;
+  border-radius: 25px;
+  background: #F4128D;;
 }
 
 .nav-logo {
@@ -121,7 +123,7 @@ nav {
 }
 
 .nav-link {
-  border-left: 2px solid black;
+  border-left: 8px solid black;
   float: left;
   padding: 5px 5px;
 }
@@ -132,11 +134,11 @@ nav {
 
 .entrance input[type="submit"] {
   color: #00EFE6;
-  border-left: solid black 2px;
+  border-left: solid black 8px;
 }
 
 .entrance {
-  width: 452px;
+  width: 470px;
   float: right;
 }
 
@@ -151,7 +153,7 @@ nav {
 
 .getting-around {
   float: right;
-  width: 383px;
+  width: 401px;
 }
 
 .getting-around .nav-link {
@@ -161,7 +163,7 @@ nav {
 
 .getting-around input[type="submit"] {
   color: #00EFE6;
-  border-left: solid black 2px;
+  border-left: solid black 8px;
 }
 
 .getting-around li {

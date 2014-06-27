@@ -12,6 +12,7 @@
   }
   
   .c-doc .create-doc {
+    border: solid #000 5px;
     font-size: 30px;
     background: #E3E16E;
     color: red;
@@ -20,6 +21,7 @@
   }
 
   .c-doc .create-doc:hover {
+    border: solid #14FFFE 5px;
     border-radius: 20px;
     color: #360069;
     background: #FCBF09;
@@ -54,7 +56,7 @@
           
           a {
             margin-left: 10px;
-            margin: 15px;
+            margin: 20px;
             font-size: 20px;
             text-decoration: underline;
           }
@@ -62,7 +64,7 @@
           a:hover {
            background: black; 
            border-radius: 15px;
-           margin: 10px;
+           margin: 15px;
            padding: 5px;
           }
         }

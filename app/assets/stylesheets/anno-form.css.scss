@@ -1,0 +1,50 @@
+.anno-stuff {
+
+  float: right;
+  width: 300px;
+  .anno-form {
+    width: 300px;
+    color: #0C27E3;
+    margin: 20px auto;
+    
+    .new-anno {
+      margin: 20px auto;
+      width: 300px;
+      padding: 10px;
+      border-radius: 25px;
+      background: #37FF02;
+      
+    }
+    label {
+      margin: 10px;
+    }
+    input[type="text"], textarea {
+      background: #FF5058;
+      color: black;
+      margin-top: 10px;
+      padding: 10px;
+      border: solid #000 5px;
+      border-radius: 25px;
+      
+    }
+    
+    input[type="text"]:focus, textarea:focus {
+      border: solid #E5E5E5 5px;
+    }
+    #c-annoter {
+      margin: 10px 0;
+      padding: 15px;
+      margin: 10px;
+      color: #19FF00;
+      background: #454ACB;
+      border-radius: 25px;
+      border: solid #FF1A1F 5px;
+    }
+  }
+
+}
+
+.lists {
+  margin: 25px;
+  border: solid black 5px;
+}

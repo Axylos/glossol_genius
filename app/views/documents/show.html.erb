@@ -1,20 +1,46 @@
 <article class="doc-show group">
 
+  <section class="meta-doc">
+    
+    <section class="forms group">
+      <section class="doc-info group">
+        <%= render "doc_info", doc: @document %>
+      </section>
+    
+      <section class="anno-stuff grou">
+    
+        <section class="anno-form">
+          <%= render "annotatings/form", document: @document, refs: false %>
+        </section>
+      
+        </section>
+        
+      </section>
+    
+    
+    <section class="lists">
+      <section class="anno-list">
+        <%= render "annotatings/anno_list", annotations: @document.annotations %>
+      </section>
+
+    </section>
+      <%= render "annotatings/ref_list",
+                  references: @document.references,
+                  current_author: current_user == @document.author %>
+
+      <% if current_user == @document.author %>
+        <%= link_to "Add References", new_document_annotating_url(@document) %>
+      <% end %>
+
+      <%= render "likes", stars: @document.stars.includes(:user) %>
   
-  <%= render "doc_info", doc: @document %>
-
-  <%= render "annotatings/anno_list", annotations: @document.annotations %>
-
-  <%= render "annotatings/form", document: @document, refs: false %>
-
-  <%= render "annotatings/ref_list",
-              references: @document.references,
-              current_author: current_user == @document.author %>
-
-  <% if current_user == @document.author %>
-    <%= link_to "Add References", new_document_annotating_url(@document) %>
-  <% end %>
-
-  <%= render "likes", stars: @document.stars.includes(:user) %>
+    </section>
+  </section>
+  
+  <section class="doc-text">
+    <h2>Document Text:</h2>
+    <div class="doc-body"><%= @document.body %></div>
+  </section>
+  
   
 </article>

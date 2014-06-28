@@ -2,7 +2,12 @@
   
   <h1>Update User Settings</h1>
   
-  <form action="<%= user_url(@user) %>" method="POST" class="edit-user">
+  <form 
+    action="<%= user_url(@user) %>" 
+      method="POST" 
+      class="edit-user"
+      enctype="multipart/form-data">
+      
     <input 
       type="hidden"
       name="authenticity_token"
@@ -23,8 +28,15 @@
       name="user[nick]" 
       class="log-inputs" 
       value="<%= @user.nick %>">
+      
+    <label for="user_picture">Profile pic</label>
+    <input id="user_picture" type="file" name="user[profile_pic]">
 
     <input type="submit" value="Update Attributes">
+    
+  </form>
+  
+  
     
     
 </section>

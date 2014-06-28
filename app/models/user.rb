@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
   validates :email, presence: true, uniqueness: true
+  validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :documents, class_name: "Document", foreign_key: :user_id
@@ -11,6 +12,12 @@ class User < ActiveRecord::Base
   has_many :starred_documents, through: :stars, source: :document
   
   has_many :auths, dependent: :destroy
+  
+  has_attached_file :profile_pic, styles: {
+    big: "600x600>",
+    small: "100x100#"
+  }
+  validates_attachment_content_type :profile_pic, :content_type => /\Aimage\/.*\Z/
 
 
   def password=(password)

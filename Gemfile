@@ -52,6 +52,8 @@ group :test do
   gem 'launchy'
 end
 
+gem 'backbone-on-rails'
+
 #gravatar stuff
 
 gem 'paperclip'

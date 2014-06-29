@@ -4,7 +4,7 @@ window.GlossolApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new GlossolApp.Routers.AppRouter({
+    this.RootRouter = new GlossolApp.Routers.AppRouter({
       container: $('.backbone'),
       nav: $('enter-links'),
       announcement: $('.announce')

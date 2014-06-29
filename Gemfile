@@ -17,6 +17,9 @@ gem 'omniauth-facebook'
 
 gem 'figaro'
 
+#fuck you WEBrick
+gem 'thin'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

@@ -14,25 +14,33 @@ GlossolApp.Views.Login = Backbone.View.extend({
   },
   
   login: function(event) {
-	event.preventDefault();
+    var that = this;
+  	event.preventDefault();
   
-  var params = $(event.currentTarget).find('form').serializeJSON();
+    var params = $(event.currentTarget).find('form').serializeJSON();
   
-  if(params.isUserNew == "true") {
-    var user = new GlossolApp.Models.User({user: params.user});
-    user.save({}, { 
-      success: this.success,
-      error: this.success
-    });
-  }
-	// var session = new GlossolApp.Models.Session({params: params});
-//   session.save({}, { success: this.success });
+    if(params.isUserNew == "true") {
+      var user = new GlossolApp.Models.User({user: params.user});
+      user.save({}, { 
+        success: this.success,
+        error: this.invalid
+      });
+    }
+
   },
   
   success: function(model, res, options) {
-    debugger
     alert("whoo!");
+  },
+  
+  invalid: function(model, res, options) {
+   GlossolApp.RootRouter.displayErrors(res.responseJSON)
   }
+  
+  
+  
+  
+  
   
   
 });

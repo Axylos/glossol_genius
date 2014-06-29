@@ -22,7 +22,8 @@ class UsersController < ApplicationController
           render :new
         end
         
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, 
+            status: 418 }
       end
     end
   end

@@ -23,15 +23,12 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
 		$('input[name="userIsNew"]').val(true);
     this.$announcement.text("Welcome!");
     $('#fb-butt').text("Sign up with Facebook!");
-    
-//     this._swapView(welcomeView);
   },
   
   glossolLogin: function() {
 		$('input[name="userIsNew"]').val(false);
     $('#nick').hide();
     $('#fb-butt').text("Sign in with Facebook!");
-    // var loginView = new GlossolApp.Views.Login();
     this.$announcement.text("Welcome Back!");
   },
   
@@ -41,9 +38,18 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
     }
     
     this.$container.html(newView.render().$el);
-    
     this.currentView = newView;
+  },
+  
+  displayErrors: function(errors) {
+    var content = $('<div></div>');
+    Object.keys(errors).forEach(function(error) {      
+      content.append("<p>" + error + " " + errors[error].join() + "</p>");
+    });
+    this.$announcement.html(content);
   }
+  
+  
   
   
 });

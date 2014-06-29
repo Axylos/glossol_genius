@@ -47,6 +47,14 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
       content.append("<p>" + error + " " + errors[error].join() + "</p>");
     });
     this.$announcement.html(content);
+  },
+  
+  home: function() {
+    var content = new GlossolApp.Views.Home();
+    this.$announcement.text("You Made It!");
+    var navContent = JST['navContent'];
+    this.$navLinks.html(navContent);
+    this._swapView(content);
   }
   
   

@@ -4,10 +4,14 @@ window.GlossolHellYeah = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new GlossolHellYeah.Routers.GlossolHellYeahRouter();
+    Backbone.history.start();
   }
 };
 
 $(document).ready(function(){
   GlossolHellYeah.initialize();
 });
+
+
+// var welcome = new GlossolHellYeah.Views.Welcome();

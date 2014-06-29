@@ -15,4 +15,17 @@ GlossolHellYeah::Application.routes.draw do
     root to: "documents#index"
 
   get 'auth/facebook/callback', to: "omniauth_callbacks#facebook"
+  
+  namespace :api do
+    shallow do
+      
+      resources :users do
+        resources :documents
+      end
+    end
+    
+    resource :session, only: [:create, :new, :destroy]
+  end
+  
+  get 'bb/', to: "site#root"
 end

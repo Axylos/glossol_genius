@@ -10,11 +10,19 @@ GlossolApp.Views.Login = Backbone.View.extend({
   },
   
   events: {
-    "click submit": "login"
+    "submit": "login"
   },
   
   login: function(event) {
-    alert("clicked")
+	event.preventDefault();
+    var params = $(event.currentTarget).find('form').serializeJSON();
+	var session = new GlossolApp.Models.Session({params: params});
+	
+	session.save({
+		success: function(res) { alert("success!");}
+	});
+	
+	
   }
   
   

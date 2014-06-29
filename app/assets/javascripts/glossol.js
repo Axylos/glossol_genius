@@ -9,6 +9,7 @@ window.GlossolApp = {
       nav: $('enter-links'),
       announcement: $('.announce')
     });
+	this.curr_user = null;
     Backbone.history.start();
   }
 };

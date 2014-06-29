@@ -1,6 +1,8 @@
 <content class="login">
 
   <form class="sign-up">
+  
+  <input type="hidden" name="userIsNew" id="#isUserNew" value="true">
    
     <ul class="user-data">
       <li>
@@ -12,6 +14,12 @@
     <li>
       <label>Password:
         <input type="password" name="user[password]" class="log-inputs">
+      </label>
+    </li>
+	
+    <li id="nick" >
+      <label>Nickname:
+        <input type="text" name="user[nick]" class="log-inputs">
       </label>
     </li>
   </ul>

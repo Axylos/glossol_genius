@@ -7,16 +7,27 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
   },
   
   routes: {
-    "": "glossolWelcome"
+    "": "glossolWelcome",
+    "welcome/start": "glossolWelcome",
+    "welcome/return": "glossolLogin"
   },
   
   
   glossolWelcome: function() {
-    var welcomeView = new GlossolApp.Views.Welcome({
-      links: this.$nav
-    });
+    $('#nick').show();
+    // var welcomeView = new GlossolApp.Views.Welcome();
     this.$announcement.text("Welcome!");
-    this._swapView(welcomeView);
+    $('#fb-butt').text("Sign up with Facebook!");
+    
+//     this._swapView(welcomeView);
+  },
+  
+  glossolLogin: function() {
+    $('#nick').hide();
+    $('#fb-butt').text("Sign in with Facebook!");
+    // var loginView = new GlossolApp.Views.Login();
+    this.$announcement.text("Welcome Back!");
+//     this._swapView(loginView);
   },
   
   _swapView: function(newView) {
@@ -28,4 +39,6 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
     
     this.currentView = newView;
   }
+  
+  
 });

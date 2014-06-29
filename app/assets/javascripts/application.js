@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
-//= require glossol_hell_yeah
+//= require glossol
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

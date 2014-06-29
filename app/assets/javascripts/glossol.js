@@ -1,16 +1,19 @@
-window.GlossolHellYeah = {
+window.GlossolApp = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
-    new GlossolHellYeah.Routers.GlossolHellYeahRouter();
+    new GlossolApp.Routers.AppRouter({
+      container: $('backbone'),
+      announcement: $('.announce')
+    });
     Backbone.history.start();
   }
 };
 
 $(document).ready(function(){
-  GlossolHellYeah.initialize();
+  GlossolApp.initialize();
 });
 
 

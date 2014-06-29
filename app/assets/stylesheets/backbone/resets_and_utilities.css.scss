@@ -1,0 +1,74 @@
+//Resets:
+
+html, section, article, body, nav, ul, li, a, div, h1, h2, h3, section{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+button {
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: green;
+  background: transparent;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+
+input[type='submit'] {
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  box-sizing: content-box;
+  cursor: pointer;
+  
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  textarea {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    background: transparent;
+    color: inherit;
+    -webkit-appearance: none;
+    box-sizing: content-box;
+    width: auto;
+    display: inline-block;
+}
+
+input[type="submit"] {
+  display: inline;
+  cursor: pointer;
+}
+
+//  Utilities: 
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}

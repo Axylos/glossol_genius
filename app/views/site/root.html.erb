@@ -6,5 +6,30 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
+<body>
+  <nav class="navigation group">
+    <ul class="nav-sections group">
+      <li class="nav-logo group">
+          <ul>
+            <li><%= image_tag "bunny-logo.png", class: "logo-img" %></li>
+            <li><div class="app-title">glossolHéllYeah</div></li>
+          </ul>
+      </li>
+      <li class="enter-links">
+        <ul class="group">
+          <li><a href="#" id="new-user">Sign Up</a></li>
+          <li><a href="#" id="returning-user">Sign In</a></li>
+          <li><a href="#" id="demo-user">Demo User</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  
+  <container class="announcement">
+    <div class="announce group"></div>
+  </container>
+  <backbone></backbone>
+</body>
 </html>
   

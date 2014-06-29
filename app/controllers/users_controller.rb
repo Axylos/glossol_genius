@@ -9,10 +9,21 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in_user(@user)
-      redirect_to user_documents_url(@user)
+      
+      respond_to do |format|
+        format.html { redirect_to user_documents_url(@user) }
+        format.json { render json: @user } 
+      end
+        
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
+      respond_to do |format|
+        format.html do
+          flash.now[:errors] = @user.errors.full_messages
+          render :new
+        end
+        
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -35,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :nick, :profile_pic)
+    params.require(:user).permit(:email, :password, :nick, :profile_pic) 
   end
 
 end

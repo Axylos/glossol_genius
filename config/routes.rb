@@ -16,7 +16,7 @@ GlossolHellYeah::Application.routes.draw do
 
   get 'auth/facebook/callback', to: "omniauth_callbacks#facebook"
   
-  namespace :api do
+  namespace :api, defaults: {format: :json } do
     shallow do
       
       resources :users do
@@ -24,7 +24,11 @@ GlossolHellYeah::Application.routes.draw do
       end
     end
     
+  end
+  
+  namespace :api do
     resource :session, only: [:create, :new, :destroy]
+    
   end
   
   get 'bb/', to: "site#root"

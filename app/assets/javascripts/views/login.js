@@ -15,14 +15,23 @@ GlossolApp.Views.Login = Backbone.View.extend({
   
   login: function(event) {
 	event.preventDefault();
-    var params = $(event.currentTarget).find('form').serializeJSON();
-	var session = new GlossolApp.Models.Session({params: params});
-	
-	session.save({
-		success: function(res) { alert("success!");}
-	});
-	
-	
+  
+  var params = $(event.currentTarget).find('form').serializeJSON();
+  
+  if(params.isUserNew == "true") {
+    var user = new GlossolApp.Models.User({user: params.user});
+    user.save({}, { 
+      success: this.success,
+      error: this.success
+    });
+  }
+	// var session = new GlossolApp.Models.Session({params: params});
+//   session.save({}, { success: this.success });
+  },
+  
+  success: function(model, res, options) {
+    debugger
+    alert("whoo!");
   }
   
   

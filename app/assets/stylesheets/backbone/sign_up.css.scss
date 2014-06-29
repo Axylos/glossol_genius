@@ -1,0 +1,73 @@
+.sign-up {
+  
+  .user-data {
+     
+    display: block;
+    width: 215px;
+    margin: 5px auto;
+  
+    label {
+      font-size: 20px;
+      display: block;
+      margin: 20px 0 5px 0;
+    }
+  
+    li {
+      color: #0FF;
+      margin: auto;
+      display: block;
+    }
+  
+    input {
+      margin: 10px 0;
+      border: solid #3B3B3B 2px;
+      padding: 7px;
+    }
+  
+    input:focus {
+      border: solid #00F2C5 2px;
+      -webkit-transition: 1s;
+//      transition: focus 1s;
+    }
+  }
+  
+  .reg-buttons {
+  
+    
+    font-size: 25px;
+    padding-top: 20px;
+    display: block;
+    width: 500px;
+    margin: auto;
+    
+    a, input {
+      margin: auto;
+      border: solid #75CB87 3px;
+      font-weight: bold;
+      padding: 8px;
+      border-radius: 5px;
+    }
+    
+    #reg-butt {
+      background: #FF7D01;
+      float: left;
+    }
+    
+    #fb-butt {
+      color: white;
+      background: #0D6EFF;
+      float: right;
+    }
+    
+    #reg-butt:hover {
+      color: #D9E3AE;
+      border: solid #00FF41 3px;
+      background: #D26D22;
+    }
+    
+    #fb-butt:hover {
+      background: #464DFF;
+      border: solid #FF2300 3px;
+    }
+  }
+}

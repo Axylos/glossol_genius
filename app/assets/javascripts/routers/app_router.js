@@ -1,6 +1,7 @@
 GlossolApp.Routers.AppRouter = Backbone.Router.extend({
   
   initialize: function(options){
+    this.$navLinks = options.nav
     this.$container = options.container;
     this.$announcement = options.announcement;
   },
@@ -11,7 +12,9 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
   
   
   glossolWelcome: function() {
-    var welcomeView = new GlossolApp.Views.Welcome();
+    var welcomeView = new GlossolApp.Views.Welcome({
+      links: this.$nav
+    });
     this.$announcement.text("Welcome!");
     this._swapView(welcomeView);
   },

@@ -5,7 +5,8 @@ window.GlossolApp = {
   Routers: {},
   initialize: function() {
     new GlossolApp.Routers.AppRouter({
-      container: $('backbone'),
+      container: $('.backbone'),
+      nav: $('enter-links'),
       announcement: $('.announce')
     });
     Backbone.history.start();

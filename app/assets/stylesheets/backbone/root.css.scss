@@ -1,20 +1,24 @@
 body {
   font-family: sans-serif;
+  background: #222;
 }
 
 .navigation {
   background: #3D3D3D;
   float: left;
   width: 100%;
+  border-bottom: solid #838383 5px;
   
   
   .nav-logo {
     display: block;
     float: left;
+    height: 53px;
     width: 20%;
     border-right: solid #838383 2px;
    
       ul {
+        
         li {
           float: left;
         }
@@ -34,24 +38,26 @@ body {
   .enter-links {
     float: right;
     display: block;
+    border-left: solid #FF0300 4px;
      
     a {
       display: block;
       margin: auto;
-      background: #3E4D99;
+      background: #00EAF2;
       font-size: 20px;
-      color: #81D955;
+      color: #F31100;
       font-weight: bold;
       padding: 15px;
     }
     
     a:hover {
-      background: #00B91A;
+      background: #0028FF;
+      color: #FAD900;
     }
     
     li {
       float: left;
-      border-right: solid #7A0005 4px;
+      border-right: solid #FF0300 4px;
     }
     
     li:nth-child(3) {
@@ -61,16 +67,18 @@ body {
 }
 
 .announcement {
-  display: block;
-  margin: auto;
   height: 50px;
   font-size: 40px;
-  color: #363E99;
   padding: 2px;
   
   .announce {
-    height: 40px;
+    position: relative;
+    color: #FFF200;
+    margin-top: 0;
     text-align: center;
   }
+}
+
+.backbone {
 }
 

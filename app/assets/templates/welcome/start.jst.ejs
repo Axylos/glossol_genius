@@ -2,19 +2,29 @@
 
   <form class="sign-up">
    
-    <label for "email">Email:</label>
-    <input type="email" name="user[email]" class="log-inputs">
+    <ul class="user-data">
+      <li>
+      <label>Email:
+      <input type="email" name="user[email]" class="log-inputs">
+      </label>
+    </li>
 
-    <label for "password">Password:</label>
-    <input type="password" name="user[password]" class="log-inputs">
+    <li>
+      <label>Password:
+        <input type="password" name="user[password]" class="log-inputs">
+      </label>
+    </li>
+    
+    <li>
+      <label>Nickname:
+        <input type="text" name="user[nick]" class="log-inputs">
+      </label>
+    </li>
+  </ul>
 
     <container class="reg-buttons group">
-      <div class="stand">
-        <input type="submit" value="Sign Up!" class="reg-butt">
-      </div>
-      <div class="fb">
+        <input type="submit" value="Sign Up!" id="reg-butt">
         <a href="/auth/facebook" id="fb-butt">Sign up with Facebook!</a>
-      </div>
     </container>
 
   </form>

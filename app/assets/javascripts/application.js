@@ -16,6 +16,7 @@
 //= require jquery.serializeJSON
 //= require backbone
 //= require glossol
+
 //= require_tree ../templates
 
 //= require_tree ./

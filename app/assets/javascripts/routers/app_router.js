@@ -15,7 +15,6 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
   glossolWelcome: function() {
     var welcomeView = new GlossolApp.Views.Login();
     this._swapView(welcomeView);
-  	
   },
   
   

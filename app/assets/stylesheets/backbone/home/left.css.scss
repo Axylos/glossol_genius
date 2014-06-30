@@ -1,24 +1,34 @@
 .home {
-
+  display: block;
+  min-height: 75%;
+  
+//  For development
+  border: solid yellow 10px;
+  
+  color: #C200C6;
+  
   .lefty {
+    width: 50%;
     float: left;
     
     .left-pane {
-      background: #B1B1B1;
       display: block;
-      border: solid blue 5px;
+      padding: 20px;
+      height: 100%;
+      border-right: solid #00E2BF 3px;
+      
+      li {
+        margin: 10px;
+      }
     }
   }
   
   .righty {
     float: right;
+    width: 50%;
     
     .right-pane {
-      background: #F5FF00;
       display: block;
-      height: 500px;
-      width: 500px;
-      border: solid red 10px;
       
     }
   }

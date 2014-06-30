@@ -1,10 +1,12 @@
 main {
   margin: auto;
   width: 960px;
+  min-height: 70%;
   padding: 50px;
   border: solid #F8FF84 8px;
   border-radius: 50px;
   background: #F4128D;
+  font-family: sans-serif;
 }
 
 main h1 {

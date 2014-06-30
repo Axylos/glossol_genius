@@ -23,7 +23,7 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
       if (GlossolApp.signed_in == true) {
         GlossolApp.allDocs.fetch({
           success: function(model, res, options) {
-            GlossolApp.allDocs = new GlossolApp.Collections.Documents();
+            console.log("called", GlossolApp.allDocs);
             GlossolApp.RootRouter.home();
           }
         });

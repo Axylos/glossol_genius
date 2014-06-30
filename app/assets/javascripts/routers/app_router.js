@@ -17,15 +17,19 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
     alert("fb completed");
   },
 
+
   glossolWelcome: function() {
-    if(this.isSignedIn) {
-      this.home();
-    } else {
+    GlossolApp.RootRouter.signed_in(function() {
       GlossolApp.allDocs = new GlossolApp.Collections.Documents();
       GlossolApp.allDocs.fetch();
-      var welcomeView = new GlossolApp.Views.Login();
-      this._swapView(welcomeView);
-    }
+      if (GlossolApp.signed_in == true) {
+        GlossolApp.RootRouter.home();
+      } else {
+        var welcomeView = new GlossolApp.Views.Login();
+        GlossolApp.RootRouter._swapView(welcomeView);
+      }
+    });
+
   },
 
   glossolSignUp: function() {
@@ -89,9 +93,13 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
   },
   
   isSignedIn: function() {
-    GlossolApp.RootRouter.signed_in(function() 
-      { console.log(GlossolApp.signed_in) 
+    var ret = false;
+    GlossolApp.RootRouter.signed_in(function() {
+      if (GlossolApp.signed_in == true) {
+        return ret = true;
+      }
     });
+    return ret;
   }
   
   

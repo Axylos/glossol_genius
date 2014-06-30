@@ -20,10 +20,14 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
 
   glossolWelcome: function() {
     GlossolApp.RootRouter.signed_in(function() {
-      GlossolApp.allDocs = new GlossolApp.Collections.Documents();
-      GlossolApp.allDocs.fetch();
       if (GlossolApp.signed_in == true) {
-        GlossolApp.RootRouter.home();
+        GlossolApp.allDocs.fetch({
+          success: function(model, res, options) {
+            GlossolApp.allDocs = new GlossolApp.Collections.Documents();
+            GlossolApp.RootRouter.home();
+          }
+        });
+        
       } else {
         var welcomeView = new GlossolApp.Views.Login();
         GlossolApp.RootRouter._swapView(welcomeView);

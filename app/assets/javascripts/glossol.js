@@ -4,6 +4,7 @@ window.GlossolApp = {
   Views: {},
   Routers: {},
   initialize: function() {
+    this.allDocs = new GlossolApp.Collections.Documents();
     this.RootRouter = new GlossolApp.Routers.AppRouter({
       container: $('.backbone'),
       nav: $('.enter-links'),

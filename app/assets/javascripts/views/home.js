@@ -4,6 +4,7 @@ GlossolApp.Views.Home = Backbone.View.extend({
   
   render: function() {
     this.$el = this.template;
+   
     return this;
   }
-})
+});

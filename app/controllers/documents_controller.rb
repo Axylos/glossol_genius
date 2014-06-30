@@ -5,8 +5,6 @@ class DocumentsController < ApplicationController
 
   def index
     @my_documents = current_user.documents
-    
-    format.html  { @my_documents  }      
   end
 
   def new

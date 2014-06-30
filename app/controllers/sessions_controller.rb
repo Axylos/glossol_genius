@@ -24,6 +24,14 @@ class SessionsController < ApplicationController
       end
     end
   end
+  
+  def show
+    if signed_in?
+      render json: { ret: true, user: current_user, status: 200 }
+    else
+      render json: { ret: false, status: :unprocessable_entity }
+    end
+  end
 
   def destroy
     sign_out

@@ -1,0 +1,25 @@
+.home {
+
+  .lefty {
+    float: left;
+    
+    .left-pane {
+      background: #B1B1B1;
+      display: block;
+      border: solid blue 5px;
+    }
+  }
+  
+  .righty {
+    float: right;
+    
+    .right-pane {
+      background: #F5FF00;
+      display: block;
+      height: 500px;
+      width: 500px;
+      border: solid red 10px;
+      
+    }
+  }
+}

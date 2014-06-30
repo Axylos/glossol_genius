@@ -3,7 +3,7 @@ GlossolHellYeah::Application.routes.draw do
     resources :users, only: [:create, :new, :edit, :update, :show, :destroy] do
       resources :documents
     end
-    resource :session, only: [:create, :new, :destroy]
+    resource :session, only: [:create, :new, :destroy, :show]
     resources :documents do
       resources :stars, only: [:create, :destroy]
       resources :annotatings, only: [:create, :new]

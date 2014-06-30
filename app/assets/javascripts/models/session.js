@@ -1,5 +1,5 @@
 GlossolApp.Models.Session = Backbone.Model.extend({
-	url: "/session",
+	url: "session",
 	
 	initialize: function(options) {
 		this.user = options.user

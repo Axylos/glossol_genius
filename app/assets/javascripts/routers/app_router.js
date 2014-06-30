@@ -18,10 +18,14 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
   },
 
   glossolWelcome: function() {
-    GlossolApp.allDocs = new GlossolApp.Collections.Documents();
-    GlossolApp.allDocs.fetch();
-    var welcomeView = new GlossolApp.Views.Login();
-    this._swapView(welcomeView);
+    if(this.isSignedIn) {
+      this.home();
+    } else {
+      GlossolApp.allDocs = new GlossolApp.Collections.Documents();
+      GlossolApp.allDocs.fetch();
+      var welcomeView = new GlossolApp.Views.Login();
+      this._swapView(welcomeView);
+    }
   },
 
   glossolSignUp: function() {
@@ -61,6 +65,33 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
     var navContent = JST['navContent'];
     this.$navLinks.html(navContent);
     this._swapView(content);
+  },
+  
+  signed_in: function(callback) {
+    var curr_session = new GlossolApp.Models.Session({user: null});
+    curr_session.fetch({
+      success: function(model, res, options) {
+        
+        if (res["ret"] == true) {
+          GlossolApp.signed_in = true;
+          GlossolApp.curr_user = res["user"]
+          
+        } else {
+          GlossolApp.signed_in = false;
+          GlossolApp.curr_user = null;
+        }
+        callback.call();
+         
+      },
+      error: function(model, res, options) { GlossolApp.signed_in = false }
+    });
+    
+  },
+  
+  isSignedIn: function() {
+    GlossolApp.RootRouter.signed_in(function() 
+      { console.log(GlossolApp.signed_in) 
+    });
   }
   
   

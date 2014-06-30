@@ -8,7 +8,10 @@ class OmniauthCallbacksController < ApplicationController
     
     if @user.is_a?(User)
       sign_in_user(@user)
-      redirect_to root_url
+      redirect_to "/bb#fbLogin"
+      
+      #for rails-only version
+      # redirect_to root_url
     else
       add_error(user[1].errors.full_messages)
       redirect_to documents_url

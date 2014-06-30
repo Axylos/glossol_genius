@@ -9,7 +9,12 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "": "glossolWelcome",
     "welcome/start": "glossolSignUp",
-    "welcome/return": "glossolLogin"
+    "welcome/return": "glossolLogin",
+    "fbLogin": "fbCallback"
+  },
+  
+  fbCallback: function() {
+    alert("fb completed");
   },
 
   glossolWelcome: function() {

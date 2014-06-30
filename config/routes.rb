@@ -28,7 +28,10 @@ GlossolHellYeah::Application.routes.draw do
   
   namespace :api do
     resource :session, only: [:create, :new, :destroy]
-    
+  end
+  
+  namespace :api, defaults: { format: :json } do
+    resources :documents
   end
   
   get 'bb/', to: "site#root"

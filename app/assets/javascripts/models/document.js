@@ -1,4 +1,4 @@
 GlossolApp.Models.Document = Backbone.Model.extend({
-  url: "documents/id",
+  urlRoot: "api/documents",
   collection: GlossolApp.Collections.Documents
 });

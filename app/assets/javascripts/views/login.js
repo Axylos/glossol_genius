@@ -64,7 +64,7 @@ GlossolApp.Views.Login = Backbone.View.extend({
   },
   
   sessionSuccess: function(model, res, options) {
-    GlossolApp.curr_user = model;
+    GlossolApp.curr_user = new GlossolApp.Models.User(res);
     GlossolApp.RootRouter.home();
   },
   

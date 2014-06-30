@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 
   def new
   end
+  
+  def show
+    render json: current_user
+  end
 
   def create
     @user = User.new(user_params)

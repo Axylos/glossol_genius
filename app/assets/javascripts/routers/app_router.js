@@ -18,6 +18,8 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
   },
 
   glossolWelcome: function() {
+    GlossolApp.allDocs = new GlossolApp.Collections.Documents();
+    GlossolApp.allDocs.fetch();
     var welcomeView = new GlossolApp.Views.Login();
     this._swapView(welcomeView);
   },

@@ -31,7 +31,13 @@ GlossolHellYeah::Application.routes.draw do
   end
   
   namespace :api, defaults: { format: :json } do
-    resources :documents
+    
+    shallow do
+      resources :users do
+        resources :documents
+      end
+    end
+    resources :documents, only: [:show, :index]
   end
   
   get 'bb/', to: "site#root"

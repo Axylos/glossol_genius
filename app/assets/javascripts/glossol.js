@@ -8,14 +8,19 @@ window.GlossolApp = {
       container: $('.backbone'),
       nav: $('.enter-links'),
       announcement: $('.announce')
-    });
+    })
 	this.curr_user = null;
     Backbone.history.start();
+    
+    
   }
+  
+  
 };
 
 $(document).ready(function(){
   GlossolApp.initialize();
+  
 });
 
 

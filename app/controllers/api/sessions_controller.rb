@@ -10,6 +10,15 @@ class Api::SessionsController < ApplicationController
     
   end
   
+  def destroy
+    sign_out
+    unless signed_in?
+      redirect_to "/bb"
+    else
+      render json: { status: 418 }
+    end
+  end
+  
   
   private
   

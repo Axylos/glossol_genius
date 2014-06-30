@@ -1,5 +1,15 @@
 <ul class="group">
   <li><a href="#" id="home">Home</a></li>
   <li><a href="#" id="returning-user">Settings</a></li>
-  <li><a href="#" id="demo-user">Sign Out</a></li>
+  <li><form action="api/session" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="$('meta[name=\"csrf-token\"])'.attr('content')">
+  <input type="submit" id="demo-user" value="Sign Out" class="nav-link"></li>
+</form>
+    
+    
+    <!-- <a href="#" id="demo-user">Sign Out</a></li> -->
 </ul>

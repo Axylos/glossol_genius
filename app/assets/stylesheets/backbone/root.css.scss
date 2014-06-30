@@ -35,12 +35,13 @@ body {
     }
   }
   
+//  Also for nav links
   .enter-links {
     float: right;
     display: block;
     border-left: solid #FF0300 4px;
      
-    a {
+    a, input[type="submit"] {
       display: block;
       margin: auto;
       background: #00EAF2;

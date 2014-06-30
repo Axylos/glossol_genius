@@ -9,11 +9,19 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: user_params[:email])
     if @user && @user.is_password?(user_params[:password])
       sign_in_user(@user)
-      redirect_to user_documents_url(@user)
+      respond_to do |format| 
+        format.html { redirect_to user_documents_url(@user) }
+        format.json { render json: @user }
+      end
+      
     else
       flash.now[:errors] ||= []
       flash.now[:errors] << "Invalid Credentials"
-      render :new
+      
+      respond_to do |format|
+        format.html { render :new }
+        format.json { render json: "Invalid Credentials"}
+      end
     end
   end
 

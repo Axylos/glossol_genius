@@ -11,22 +11,21 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
     "welcome/start": "glossolSignUp",
     "welcome/return": "glossolLogin"
   },
-  
+
   glossolWelcome: function() {
     var welcomeView = new GlossolApp.Views.Login();
     this._swapView(welcomeView);
   },
-  
-  
+
   glossolSignUp: function() {
     $('#nick').show();
-		$('input[name="userIsNew"]').val(true);
+		$('input[name="isUserNew"]').val(true);
     this.$announcement.text("Welcome!");
     $('#fb-butt').text("Sign up with Facebook!");
   },
   
   glossolLogin: function() {
-		$('input[name="userIsNew"]').val(false);
+		$('input[name="isUserNew"]').val(false);
     $('#nick').hide();
     $('#fb-butt').text("Sign in with Facebook!");
     this.$announcement.text("Welcome Back!");

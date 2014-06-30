@@ -6,7 +6,7 @@ window.GlossolApp = {
   initialize: function() {
     this.RootRouter = new GlossolApp.Routers.AppRouter({
       container: $('.backbone'),
-      nav: $('enter-links'),
+      nav: $('.enter-links'),
       announcement: $('.announce')
     });
 	this.curr_user = null;

@@ -1,11 +1,12 @@
 window.GlossolApp = {
   Models: {},
   Collections: {},
+  Subsets: {},
   Views: {},
   Routers: {},
   initialize: function() {
   	this.curr_user = null;
-    this.allDocs = new GlossolApp.Collections.Documents([], {user: {id: ""}});
+    this.allDocs = new GlossolApp.Collections.Documents([], {user: ""});
     this.RootRouter = new GlossolApp.Routers.AppRouter({
       container: $('.backbone'),
       nav: $('.enter-links'),

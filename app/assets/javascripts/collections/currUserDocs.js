@@ -1,10 +1,8 @@
-GlossolApp.Collections.Documents = Backbone.Collection.extend({
-
+GlossolApp.Subsets.CurrUserDocs = Backbone.Subset.extend({
   url: function() {
     if (!this.user) {
       return "api/documents";
     } else {
-      debugger
       return "api/users/" + this.user.id + "/documents" ;
     };
   },

@@ -71,9 +71,12 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
   },
 
   fetchDocs: function() {
-    GlossolApp.userDocs = GlossolApp.curr_user.documents();
-    GlossolApp.userDocs.fetch();
+    GlossolApp.userDocs = new GlossolApp.Subsets.CurrUserDocs([], {
+      parentCollection: GlossolApp.allDocs
+    });
     GlossolApp.allDocs.fetch();
+    GlossolApp.userDocs.fetch();
+
   },
 
   signed_in: function(callback) {

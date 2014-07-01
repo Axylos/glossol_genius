@@ -10,10 +10,6 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
 
     var leftPaneView = new GlossolApp.Views.LeftPane();
 
-    // var leftPaneView = new GlossolApp.Views.Docs({
-//       collection: GlossolApp.userDocs
-//     });
-
     var rightPaneView = new GlossolApp.Views.Docs({
       collection: GlossolApp.allDocs
     });

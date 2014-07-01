@@ -6,7 +6,10 @@ GlossolApp.Models.User = Backbone.Model.extend({
 
     var user = this;
     this._documents = this._documents ||
-      new GlossolApp.Collections.Documents([], { user: user });
+      new GlossolApp.Subsets.UserDocuments([], {
+        user: user,
+        parentCollection: GlossolApp.allDocs
+      });
     return this._documents
   }
 });

@@ -6,7 +6,6 @@ window.GlossolApp = {
   initialize: function() {
   	this.curr_user = null;
     this.allDocs = new GlossolApp.Collections.Documents([], {user: {id: ""}});
-    
     this.RootRouter = new GlossolApp.Routers.AppRouter({
       container: $('.backbone'),
       nav: $('.enter-links'),
@@ -18,7 +17,7 @@ window.GlossolApp = {
 
 $(document).ready(function(){
   GlossolApp.initialize();
-  
+
 });
 
 

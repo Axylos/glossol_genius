@@ -1,17 +1,19 @@
 <section class="docs group">
 
   <h1>Documents Index</h1>
-  
+
   <br>
   <%= image_tag current_user.profile_pic.url(:small) if current_user.try(:profile_pic) %>
   <br>
-  
+
   <div class="c-doc"><%= link_to "Create Document",
     new_user_document_url(current_user),
     class: "create-doc" %></div>
 
+    <%= render "layouts/sign_out" %>
+
   <section class="all-docs group" >
-    
+
     <section class="cu-docs ">
       <h3>My Documents</h3>
       <%= render "title_list", documents: @my_documents, owner: true %>
@@ -25,5 +27,5 @@
   </section>
 
 
-  
+
 </section>

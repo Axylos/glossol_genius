@@ -1,10 +1,12 @@
 GlossolApp.Models.User = Backbone.Model.extend({
-	
+
   urlRoot: "api/users",
-  collection: GlossolApp.Collections.Users,
-  
-  initialize: function() {
-    this.documents = new GlossolApp.Collections.Documents({},
-      {author_id: this.id});
+
+  documents: function() {
+
+    var user = this;
+    this._documents = this._documents ||
+      new GlossolApp.Collections.Documents([], { user: user });
+    return this._documents
   }
 });

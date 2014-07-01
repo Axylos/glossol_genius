@@ -21,13 +21,8 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
   glossolWelcome: function() {
     GlossolApp.RootRouter.signed_in(function() {
       if (GlossolApp.signed_in == true) {
-        GlossolApp.allDocs.fetch({
-          success: function(model, res, options) {
-            console.log("called", GlossolApp.allDocs);
-            GlossolApp.RootRouter.home();
-          }
-        });
-        
+        GlossolApp.allDocs.fetch();
+        GlossolApp.RootRouter.home();
       } else {
         var welcomeView = new GlossolApp.Views.Login();
         GlossolApp.RootRouter._swapView(welcomeView);

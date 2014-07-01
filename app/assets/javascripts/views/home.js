@@ -9,9 +9,7 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
 
     this.leftPaneView = new GlossolApp.Views.LeftPane();
 
-    this.rightPaneView = new GlossolApp.Views.Docs({
-      collection: GlossolApp.allDocs
-    });
+    this.rightPaneView = new GlossolApp.Views.RightPane();
 
     this.listenTo(this.leftPaneView, "showDoc", this.showDoc)
 
@@ -20,7 +18,19 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
   },
 
   homer: function() {
-    this.leftPaneView.goHome(this.leftPaneView);
+    this.leftPaneView.goHome();
+    this.rightPaneView.goHome()
   },
+
+  events: {
+    "click .doc-preview": "showDoc"
+  },
+
+  showDoc: function(event) {
+    var docId = parseInt(event.target.id);
+    var showDoc = GlossolApp.allDocs.get(docId);
+
+    this.leftPaneView.renderDoc(showDoc);
+  }
 
 });

@@ -20,13 +20,8 @@ GlossolApp.Views.LeftPane = Backbone.CompositeView.extend({
     this.addSubView('.user-docs', this.userdocsView);
   },
 
-  events: {
-    "click .doc-preview": "renderDoc"
-  },
-
   renderDoc: function(showDoc) {
-    var docId = parseInt(event.target.id);
-    var showDoc = GlossolApp.allDocs.get(docId);
+
     this.showDocView = new GlossolApp.Views.ShowDoc({
       model: showDoc
     });

@@ -4,10 +4,7 @@ GlossolApp.Views.LeftPane = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.goHome();
-    var that = this;
-    $('#home').click(function() {
-      that.goHome();
-    });
+
   },
 
   goHome: function() {
@@ -16,28 +13,32 @@ GlossolApp.Views.LeftPane = Backbone.CompositeView.extend({
       collection: GlossolApp.userDocs
     });
 
-    if (this.showDocView) this.removeSubview('.main-doc', this.showDocView);
-    this.addSubView('.user-docs', this.userdocsView);
-  },
-
-  events: {
-    "click .doc-preview": "renderDoc"
+    this._swapView('.user-docs', this.userdocsView);
   },
 
   renderDoc: function(showDoc) {
-    var docId = parseInt(event.target.id);
-    var showDoc = GlossolApp.allDocs.get(docId);
+
     this.showDocView = new GlossolApp.Views.ShowDoc({
       model: showDoc
     });
 
-    this.removeSubview('.user-docs', this.userdocsView);
-    this.addSubView('.main-doc', this.showDocView);
-    this.render();
+    this._swapView('.main-doc', this.showDocView);
   },
 
   showDoc: function(event) {
     this.leftPaneView.renderDoc(showDoc);
+  },
+
+  _swapView: function(newSelector, newView) {
+    if (this.currentView) {
+      this.removeSubview(this.currentSelector, this.currentView);
+    }
+
+    this.addSubView(newSelector, newView);
+
+    this.render();
+    this.currentView = newView;
+    this.currentSelector = newSelector
   }
 
 

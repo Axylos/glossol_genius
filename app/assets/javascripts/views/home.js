@@ -4,6 +4,11 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
 
   initialize: function(options) {
 
+    var that = this;
+    $('#home').click(function() {
+      that.homer();
+    });
+
     this.$nav = $(options.nav);
     this.$home = this.$nav.find('#home');
 
@@ -22,5 +27,16 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
   homer: function() {
     this.leftPaneView.goHome(this.leftPaneView);
   },
+
+  events: {
+    "click .doc-preview": "showDoc"
+
+  },
+
+  showDoc: function(event) {
+    var docId = parseInt(event.target.id);
+    var showDoc = GlossolApp.allDocs.get(docId);
+    this.leftPaneView.renderDoc(showDoc);
+  }
 
 });

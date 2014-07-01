@@ -9,6 +9,7 @@ GlossolApp.Views.Docs = Backbone.View.extend({
   },
 
   render: function() {
+    console.log("called");
     var content = this.template();
     this.$el.html(content);
     var that = this;

@@ -2,18 +2,20 @@ GlossolApp.Models.Document = Backbone.Model.extend({
   urlRoot: "api/documents",
   collection: GlossolApp.Collections.Documents,
 
-  initialize: function(options) {
-    this.author_id = options.author_id;
+  initialize: function(model, options) {
+    this.user_id = options.user_id;
     this.notes = options.annotatings;
     this.refs = options.references;
+    this.annotations = this.annotations();
   },
 
-  references: function() {
+  annotations: function() {
     var that = this;
-    this._references = this._references ||
-    new GlossolApp.Collections.Documents([], {
-      annotatings: new GlossolApp.Collections.Documents([], {annotation: that})
-    });
-    return this._references
+    this._annotations = this._annotations ||
+    new GlossolApp.Subsets.Annotations([], {
+      sourceDoc: that,
+      parentCollection: GlossolApp.allDocs
+     });
+    return this._annotations;
   }
 });

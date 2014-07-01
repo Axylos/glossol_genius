@@ -7,6 +7,5 @@ GlossolApp.Subsets.CurrUserDocs = Backbone.Subset.extend({
 
   initialize: function(models, options) {
     this.user = options.user;
-    this.annotation = options.annotation
   }
 });

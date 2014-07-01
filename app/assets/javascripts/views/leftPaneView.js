@@ -4,16 +4,15 @@ GlossolApp.Views.LeftPane = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.goHome();
-
   },
 
   goHome: function() {
 
-    this.userdocsView = new GlossolApp.Views.Docs({
+    this.userDocsView = new GlossolApp.Views.Docs({
       collection: GlossolApp.userDocs
     });
 
-    this._swapView('.user-docs', this.userdocsView);
+    this._swapView('.user-docs', this.userDocsView);
   },
 
   renderDoc: function(showDoc) {

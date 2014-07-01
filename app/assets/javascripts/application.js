@@ -15,6 +15,8 @@
 //= require underscore
 //= require jquery.serializeJSON
 //= require backbone
+//= require compositeView
+//= require subset
 //= require glossol
 //= require_tree ../templates
 //= require_tree ./models

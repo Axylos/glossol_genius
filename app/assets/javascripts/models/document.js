@@ -12,7 +12,7 @@ GlossolApp.Models.Document = Backbone.Model.extend({
     var that = this;
     this._references = this._references ||
     new GlossolApp.Collections.Documents([], {
-      annotatings: new GlossolApp.Collections.Documents([that])
+      annotatings: new GlossolApp.Collections.Documents([], {annotation: that})
     });
     return this._references
   }

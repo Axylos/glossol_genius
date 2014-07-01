@@ -8,10 +8,10 @@ GlossolApp.Collections.Documents = Backbone.Collection.extend({
   },
 
   url: function() {
-    if (!this.user["id"]) {
+    if (!this.user.id) {
       return "api/documents"
     } else {
-      return "api/users/" + this.user["id"] + "/documents" ;
+      return "api/users/" + this.user.id + "/documents" ;
     }
   }
 });

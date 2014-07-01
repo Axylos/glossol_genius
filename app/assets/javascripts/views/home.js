@@ -1,37 +1,26 @@
-GlossolApp.Views.Home = Backbone.View.extend({
+GlossolApp.Views.Home = Backbone.CompositeView.extend({
 
   template: JST['home'],
 
-  initialize: function() {
-
-    GlossolApp.userDocs = GlossolApp.curr_user.documents();
-    GlossolApp.userDocs.fetch();
-    GlossolApp.allDocs.fetch();
+  events: {
+    "click .doc-preview": function() { alert("you clicked a li!"); }
   },
 
-  render: function() {
-    var that = this;
-    var $content = $(this.template());
+  initialize: function() {
 
-    //build ul on left for user docs
-    var $leftContent = new GlossolApp.Views.Docs({
-      collection: GlossolApp.userDocs
-    });
+    var leftPaneView = new GlossolApp.Views.LeftPane();
 
-    //populate left ul
-    var $renderedLeft = $leftContent.render().$el;
-    $content.find('.left-pane').append($renderedLeft);
+    // var leftPaneView = new GlossolApp.Views.Docs({
+//       collection: GlossolApp.userDocs
+//     });
 
-    //build right ul
-    var $rightContent = new GlossolApp.Views.Docs({
+    var rightPaneView = new GlossolApp.Views.Docs({
       collection: GlossolApp.allDocs
     });
-    GlossolApp.$view = $rightContent;
-    //populate right ul for all docs
-    var $renderedRight = $rightContent.render().$el;
-    $content.find('.right-pane').append($renderedRight);
 
-    this.$el.html($content);
-    return this;
+    this.addSubView(".right-pane", rightPaneView);
+    this.addSubView(".left-pane", leftPaneView);
   }
+
+
 });

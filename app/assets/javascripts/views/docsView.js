@@ -14,6 +14,8 @@ GlossolApp.Views.Docs = Backbone.View.extend({
     var that = this;
     this.collection.each(function(doc) {
 
+
+      //ugly iteration
       var view = new GlossolApp.Views.Doc({model: doc});
       that.$el.append(view.render().$el);
     })

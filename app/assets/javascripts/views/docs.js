@@ -4,9 +4,8 @@ GlossolApp.Views.Docs = Backbone.View.extend({
   
   tagName: 'ul',
   
-  initialize: function() {
-    this.listenTo(this.collection, 'sync add remove delete update', this.render);
-    this.x = 1;
+  initialize: function(options) {
+    this.listenTo(this.collection, 'sync create add remove delete update', this.render);
   },
   
   render: function() {

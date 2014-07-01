@@ -4,6 +4,7 @@ GlossolApp.Models.User = Backbone.Model.extend({
   collection: GlossolApp.Collections.Users,
   
   initialize: function() {
-    this.documents = new GlossolApp.Collections.Documents({author_id: this.id});
+    this.documents = new GlossolApp.Collections.Documents({},
+      {author_id: this.id});
   }
 });

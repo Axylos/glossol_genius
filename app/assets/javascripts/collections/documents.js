@@ -1,6 +1,13 @@
 GlossolApp.Collections.Documents = Backbone.Collection.extend({
+  
+  
   model: GlossolApp.Models.Document,
   
+  initialize: function(models, options) {
+    this.user = options.user;
+  },
   
-  url: "api/documents"
+  url: function() {
+    return "api/documents/" + this.user["id"];
+  }
 });

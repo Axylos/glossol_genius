@@ -1,6 +1,5 @@
 GlossolApp.Collections.Documents = Backbone.Collection.extend({
 
-
   model: GlossolApp.Models.Document,
 
   initialize: function(models, options) {
@@ -9,9 +8,9 @@ GlossolApp.Collections.Documents = Backbone.Collection.extend({
 
   url: function() {
     if (!this.user.id) {
-      return "api/documents"
+      return "api/documents";
     } else {
       return "api/users/" + this.user.id + "/documents" ;
-    }
+    };
   }
 });

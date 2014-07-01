@@ -1,5 +1,5 @@
-GlossolApp.Views.Doc = Backbone.View.extend({
-  template: JST['doc'],
+GlossolApp.Views.PrevDoc = Backbone.View.extend({
+  template: JST['prevDoc'],
 
   tagName: 'li',
 

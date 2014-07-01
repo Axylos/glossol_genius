@@ -1,35 +1,35 @@
 .home {
   display: block;
   min-height: 75%;
-  
+
 //  For development
   border: solid yellow 4px;
-  
+
   color: #C200C6;
-  
+
   .lefty {
     width: 50%;
     float: left;
-    
+
     .left-pane {
       display: block;
       padding: 20px;
       height: 100%;
       border-right: solid #00E2BF 3px;
-      
+
       li {
         margin: 10px;
       }
     }
   }
-  
+
   .righty {
     float: right;
     width: 50%;
-    
+
     .right-pane {
       display: block;
-      
+
     }
   }
 }

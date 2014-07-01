@@ -2,25 +2,25 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
 
   template: JST['home'],
 
-  events: {
-    "click .doc-preview": function(event) { debugger; }
-  },
+  initialize: function(options) {
 
-  initialize: function() {
+    this.$nav = $(options.nav);
+    this.$home = this.$nav.find('#home');
 
-    var leftPaneView = new GlossolApp.Views.LeftPane();
+    this.leftPaneView = new GlossolApp.Views.LeftPane();
 
-    var rightPaneView = new GlossolApp.Views.Docs({
+    this.rightPaneView = new GlossolApp.Views.Docs({
       collection: GlossolApp.allDocs
     });
 
-    this.listenTo(leftPaneView, "showDoc", this.showDoc)
+    this.listenTo(this.leftPaneView, "showDoc", this.showDoc)
 
-    this.addSubView(".right-pane", rightPaneView);
-    this.addSubView(".left-pane", leftPaneView);
+    this.addSubView(".right-pane", this.rightPaneView);
+    this.addSubView(".left-pane", this.leftPaneView);
   },
 
-  showDoc: function() {
+  homer: function() {
+    this.leftPaneView.goHome(this.leftPaneView);
+  },
 
-  }
 });

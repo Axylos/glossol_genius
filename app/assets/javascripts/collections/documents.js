@@ -4,7 +4,6 @@ GlossolApp.Collections.Documents = Backbone.Collection.extend({
     if (!this.user) {
       return "api/documents";
     } else {
-      debugger
       return "api/users/" + this.user.id + "/documents" ;
     };
   },

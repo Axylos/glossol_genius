@@ -86,11 +86,11 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
 
         if (res["ret"] == true) {
           GlossolApp.signed_in = true;
-          GlossolApp.curr_user = new GlossolApp.Models.User(res["user"]);
+          GlossolApp.currUser = new GlossolApp.Models.User(res["user"]);
 
         } else {
           GlossolApp.signed_in = false;
-          GlossolApp.curr_user = null;
+          GlossolApp.currUser = null;
         }
         callback.call();
 

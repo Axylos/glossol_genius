@@ -1,0 +1,50 @@
+.doc-create {
+
+  margin-top: 10px;
+
+  form {
+    color: #3C3C3C;
+    background: #FFB800;
+    padding-bottom: 20px;
+
+    label {
+      padding: 15px;
+      font-size: 20px;
+      display: block;
+    }
+
+    textarea {
+      display: block;
+      background: #FF62CE;
+      width: 600px;
+      height: 800px;
+      border: solid red 5px;
+      margin-left: 30px;
+      padding: 10px;
+    }
+
+    .doc-info {
+      display: block;
+      width: 600px;
+      margin-left: 30px;
+
+      button {
+        border: solid red 5px;
+        color: #16FF00;
+        background: #0735FF;
+        float: right;
+        padding: 15px;
+        font-size: 20px;
+      }
+    }
+
+    input {
+      border: solid red 5px;
+      display: block;
+      float: left;
+      padding: 15px;
+
+      background: #25CAFF;
+    }
+  }
+}

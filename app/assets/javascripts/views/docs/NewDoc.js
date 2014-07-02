@@ -27,15 +27,23 @@ GlossolApp.Views.NewDoc = Backbone.View.extend({
     });
   },
 
+  home: function() {
+    console.log("going home");
+  },
+
+  anotherNew: function() {
+    console.log("another new doc");
+  },
+
   handleSave: function() {
     var that = this;
     GlossolApp.userDocs.add(this.model);
 
     var res = confirm("Add Another Document?");
     if (res == true) {
-      that.Home();
-    } else {
       that.anotherNew();
-    }
+    } else {
+      that.home();
+    };
   }
 })

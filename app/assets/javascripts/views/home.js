@@ -35,6 +35,7 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
 
     //create doc cycle
     "click #new-doc": "newDoc",
+    "home": "homer"
   },
 
 

@@ -22,13 +22,17 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
     this.addSubView(".left-pane", this.leftPaneView);
   },
 
+  //like an event-based router
+  events: {
+    "click #my-docs": "homer",
+    "click .doc-preview": "showDoc",
+    "click #new-doc": "newDoc"
+  },
+
+
   homer: function() {
     this.leftPaneView.goHome();
     this.rightPaneView.goHome()
-  },
-
-  events: {
-    "click .doc-preview": "showDoc"
   },
 
   showDoc: function(event) {
@@ -39,6 +43,10 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
     annos.fetch()
     this.rightPaneView.renderAnnos(annos);
     this.leftPaneView.renderDoc(showDoc);
+  },
+
+  newDoc: function(event) {
+    this.leftPaneView.newDoc();
   }
 
 });

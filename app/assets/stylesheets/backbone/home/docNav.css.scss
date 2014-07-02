@@ -2,17 +2,22 @@
 
   background: #22F26B;
   margin-bottom: 25px;
+  padding: 0;
+
   ul {
     margin: 0;
-    display: block;
-    float: left;
+    padding: 0;
+    display: inline;
 
     li {
+      padding: 0;
       margin: 0;
       float: left;
 
       a {
-        padding: 10px;
+        padding: 20px 15px 20px 15px;
+        background: #FCF800;
+        margin: 0;
         display: block;
         border-right: solid #DF00F4 2px;
 

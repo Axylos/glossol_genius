@@ -4,14 +4,6 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
 
   initialize: function(options) {
 
-    var that = this;
-    $('#home').click(function() {
-      that.homer();
-    });
-
-    this.$nav = $(options.nav);
-    this.$home = this.$nav.find('#home');
-
     var docNavView = new GlossolApp.Views.DocNavView();
     this.addSubView('.doc-nav', docNavView);
 
@@ -30,21 +22,13 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
 
   },
 
-  //like an event-based router
   events: {
-    "click #my-docs": "homer",
     "click .doc-preview": "showDoc",
-
-    //create doc cycle
-    // "click #new-doc": "newDoc",
-    // "home": "homer"
   },
-
 
   homer: function() {
     this.leftPaneView.goHome();
     this.rightPaneView.goHome()
-
   },
 
   showDoc: function(event) {

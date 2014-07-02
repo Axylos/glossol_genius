@@ -4,8 +4,6 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     "doc/newdoc": "newDoc"
   },
 
-
-
   initialize: function(options) {
     this.$leftContainer = options.pane.find('.user-docs');
     this.$rightContainer = options.pane.find('.sub-docs');

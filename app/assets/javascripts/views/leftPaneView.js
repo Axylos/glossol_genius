@@ -4,7 +4,6 @@ GlossolApp.Views.LeftPane = Backbone.CompositeView.extend({
 
   initialize: function() {
     var docNavView = new GlossolApp.Views.DocNavView();
-    this.addSubView('.doc-nav', docNavView);
     this.goHome();
   },
 
@@ -27,7 +26,6 @@ GlossolApp.Views.LeftPane = Backbone.CompositeView.extend({
   showDoc: function(event) {
     this.leftPaneView.renderDoc(showDoc);
   },
-
 
   newDoc: function(event) {
     var newDoc = new GlossolApp.Models.Document({}, {

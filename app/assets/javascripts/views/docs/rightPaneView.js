@@ -4,10 +4,6 @@ GlossolApp.Views.RightPane = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.goHome();
-    var that = this;
-    $('#home').click(function() {
-      that.goHome();
-    });
   },
 
   goHome: function() {

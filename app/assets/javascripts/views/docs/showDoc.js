@@ -9,6 +9,10 @@ GlossolApp.Views.ShowDoc = Backbone.View.extend({
     this.listenTo(this.author, "sync", this.render);
   },
 
+  events: {
+    "select": function() { alert("selected"); }
+  },
+
   render: function() {
     var that = this;
 

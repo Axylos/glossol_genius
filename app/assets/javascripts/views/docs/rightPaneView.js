@@ -3,7 +3,7 @@ GlossolApp.Views.RightPane = Backbone.CompositeView.extend({
   template: JST['rightPane'],
 
   initialize: function() {
-    this.goHome();
+    // this.goHome();
   },
 
   goHome: function() {
@@ -14,13 +14,7 @@ GlossolApp.Views.RightPane = Backbone.CompositeView.extend({
     this._swapView('.sub-docs', this.allDocsView);
   },
 
-  renderAnnos: function(annos) {
-      this.annosView = new GlossolApp.Views.Docs({
-        collection: annos,
-        notice: "No annotations yet!"
-      });
-      this._swapView('.sub-docs', this.annosView);
-  },
+
 
   setNotice: function(msg) {
     var noticeView = new GlossolApp.Views.NoticeView({

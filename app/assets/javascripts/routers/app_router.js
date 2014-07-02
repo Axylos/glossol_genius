@@ -20,7 +20,10 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
 
   settings: function() {
     var settingsView = new GlossolApp.Views.SettingsView();
-    this._swapView(settingsView);
+    var that = this;
+    this.signed_in(function() {
+      that._swapView(settingsView);
+    })
   },
 
   glossolWelcome: function() {

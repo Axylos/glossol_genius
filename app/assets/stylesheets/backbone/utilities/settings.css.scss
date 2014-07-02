@@ -1,0 +1,28 @@
+.bb-settings {
+  background: #7DA6FF;
+  margin: auto;
+  width: 700px;
+  padding: 15px;
+
+
+  h1 {
+    font-size: 30px;
+    margin: 20px;
+  }
+
+  input[type="text"],
+  input[type="submit"],
+  input[type="email"] {
+    margin: 10px;
+    background: #E98B4C;
+    width: 400px;
+    border: solid black 2px;
+    display: block;
+  }
+
+  button: {
+   background: #FFD600;
+  }
+
+
+}

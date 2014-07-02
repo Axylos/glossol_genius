@@ -3,14 +3,16 @@ GlossolApp.Views.LeftPane = Backbone.CompositeView.extend({
   template: JST['leftPane'],
 
   initialize: function() {
+    var docNavView = new GlossolApp.Views.DocNavView();
+    this.addSubView('.doc-nav', docNavView);
     this.goHome();
   },
 
   goHome: function() {
     this.userDocsView = new GlossolApp.Views.Docs({
-      collection: GlossolApp.userDocs
+      collection: GlossolApp.userDocs,
+      notice: "You haven't made any documents yet!"
     });
-
     this._swapView('.user-docs', this.userDocsView);
   },
 
@@ -35,5 +37,7 @@ GlossolApp.Views.LeftPane = Backbone.CompositeView.extend({
 
     this.currentView = newView;
     this.currentSelector = newSelector
-  }
+  },
+
+
 });

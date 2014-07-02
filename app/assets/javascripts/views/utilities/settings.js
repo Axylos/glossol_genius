@@ -1,12 +1,17 @@
 GlossolApp.Views.SettingsView = Backbone.View.extend({
+
   template: JST['utilities/settings'],
 
-  render: function() {
-
-    this.$el.html(this.template());
-    return this;
+  initialize: function() {
+    this.listenTo(this.model, "sync save update remove", function() {
+      $('h1').html('<div>User successfully updated!</div>');
+    });
   },
 
+  render: function() {
+    this.$el.html(this.template({user: this.model }));
+    return this;
+  },
 
   events: {
     "submit": "updateUser"
@@ -14,6 +19,9 @@ GlossolApp.Views.SettingsView = Backbone.View.extend({
 
   updateUser: function(event) {
     event.preventDefault();
-    debugger
+    params = $(event.target).serializeJSON()["user"];
+    this.model.save(params, {
+      error: function(model, res) { $('h1').html("<div>Error Saving!</div>") }
+    });
   }
 });

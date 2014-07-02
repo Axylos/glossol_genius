@@ -2,25 +2,13 @@
 
   <h1>Update User Settings</h1>
 
-  <form
-
-  action="api/users/<%= GlossolApp.currUser.id %>"
-      method="POST"
-      class="edit-user"
-      enctype="multipart/form-data">
-
-    <input
-      type="hidden"
-      name="authenticity_token"
-      value="$('meta[name=\"csrf-token\"])'.attr('content')">
-
-    <input type="hidden" name="_method" value="PATCH">
+  <form>
 
     <label for "email">Email</label>
     <input
       type="email"
       name="user[email]"
-      value="<%= GlossolApp.currUser.escape('email') %>"
+      value="<%= user.escape('email') %>"
       class="log-inputs">
 
     <label for "nick">Nickname</label>
@@ -28,7 +16,7 @@
       type="text"
       name="user[nick]"
       class="log-inputs"
-      value="<%= GlossolApp.currUser.escape('nick') %>">
+      value="<%= user.escape('nick') %>">
 
     <label for="user_picture">Profile pic</label>
     <input id="user_picture" type="file" name="user[profile_pic]">

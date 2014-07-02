@@ -28,7 +28,7 @@
       width: 600px;
       margin-left: 30px;
 
-      button {
+      input[type="submit"] {
         border: solid red 5px;
         color: #16FF00;
         background: #0735FF;
@@ -38,7 +38,7 @@
       }
     }
 
-    input {
+    input[type="text"] {
       border: solid red 5px;
       display: block;
       float: left;

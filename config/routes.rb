@@ -30,7 +30,7 @@ GlossolHellYeah::Application.routes.draw do
         resources :documents
       end
     end
-    resources :documents, only: [:show, :index] do
+    resources :documents, only: [:show, :index, :create] do
       resources :annotations
     end
   end

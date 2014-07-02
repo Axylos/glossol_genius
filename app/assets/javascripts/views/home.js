@@ -12,9 +12,15 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
     this.$nav = $(options.nav);
     this.$home = this.$nav.find('#home');
 
-    this.leftPaneView = new GlossolApp.Views.LeftPane();
 
+
+    this.leftPaneView = new GlossolApp.Views.LeftPane();
     this.rightPaneView = new GlossolApp.Views.RightPane();
+
+    this.listenTo(
+      GlossolApp.allDocs,
+      "sync add update remove",
+      this.rightPaneView.goHome());
 
     this.listenTo(this.leftPaneView, "showDoc", this.showDoc)
 
@@ -26,7 +32,9 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
   events: {
     "click #my-docs": "homer",
     "click .doc-preview": "showDoc",
-    "click #new-doc": "newDoc"
+
+    //create doc cycle
+    "click #new-doc": "newDoc",
   },
 
 
@@ -47,6 +55,8 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
 
   newDoc: function(event) {
     this.leftPaneView.newDoc();
-  }
+  },
+
+
 
 });

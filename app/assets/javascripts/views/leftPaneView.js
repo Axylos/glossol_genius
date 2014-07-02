@@ -30,10 +30,11 @@ GlossolApp.Views.LeftPane = Backbone.CompositeView.extend({
 
 
   newDoc: function(event) {
+    var newDoc = new GlossolApp.Models.Document({}, {
+      user_id: GlossolApp.currUser.id
+    });
     this.newDocView = new GlossolApp.Views.NewDoc({
-      model: new GlossolApp.Models.Document({}, {
-        user_id: GlossolApp.currUser.id
-      })
+      model: newDoc
     });
 
     this._swapView('.main-doc', this.newDocView);

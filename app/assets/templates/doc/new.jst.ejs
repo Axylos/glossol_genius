@@ -1,17 +1,21 @@
 <container class="doc-create">
   <form id="create-doc">
 
+    <input
+      type="hidden"
+      name="document[user_id]"
+      value="<%= GlossolApp.currUser.id %>">
 
     <container class="doc-info group">
       <label id="title">Title </label>
       <input type="text" name="document[title]">
 
-      <button id="submit-doc">Create Document</button>
+      <input type="submit" id="submit-doc" value="Create Document">
     </container>
 
 
     <label id="body">Body </label>
-      <textarea name="document[body]"></textarea>
+    <textarea name="document[body]"></textarea>
 
 
 

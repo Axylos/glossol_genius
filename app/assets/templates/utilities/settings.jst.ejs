@@ -1,0 +1,42 @@
+<section class="bb-settings">
+
+  <h1>Update User Settings</h1>
+
+  <form
+    action="api/users/<%= GlossolApp.currUser.id %>"
+      method="POST"
+      class="edit-user"
+      enctype="multipart/form-data">
+
+    <input
+      type="hidden"
+      name="authenticity_token"
+      value="$('meta[name=\"csrf-token\"])'.attr('content')">
+
+    <input type="hidden" name="_method" value="PATCH">
+
+    <label for "email">Email</label>
+    <input
+      type="email"
+      name="user[email]"
+      value="<%= GlossolApp.currUser.escape('email') %>"
+      class="log-inputs">
+
+    <label for "nick">Nickname</label>
+    <input
+      type="text"
+      name="user[nick]"
+      class="log-inputs"
+      value="<%= GlossolApp.currUser.escape('nick') %>">
+
+    <label for="user_picture">Profile pic</label>
+    <input id="user_picture" type="file" name="user[profile_pic]">
+
+    <input type="submit" value="Update Attributes">
+
+  </form>
+
+
+
+
+</section>

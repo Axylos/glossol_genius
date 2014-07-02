@@ -10,11 +10,17 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
     "": "glossolWelcome",
     "welcome/start": "glossolSignUp",
     "welcome/return": "glossolLogin",
-    "fbLogin": "glossolWelcome"
+    "fbLogin": "glossolWelcome",
+    "settings": "settings"
   },
 
   fbCallback: function() {
     this.glossolWelcome();
+  },
+
+  settings: function() {
+    var settingsView = new GlossolApp.Views.SettingsView();
+    this._swapView(settingsView);
   },
 
   glossolWelcome: function() {
@@ -69,7 +75,6 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
 
     var content = new GlossolApp.Views.Home({ nav: this.$navLinks });
     this._swapView(content);
-
   },
 
   fetchDocs: function() {

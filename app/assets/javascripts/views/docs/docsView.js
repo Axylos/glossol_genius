@@ -7,6 +7,7 @@ GlossolApp.Views.Docs = Backbone.View.extend({
   initialize: function(options) {
     this.listenTo(this.collection, 'sync create add remove delete update', this.render);
     this.notice = options.notice;
+    this.title = options.title;
   },
 
   render: function() {
@@ -25,10 +26,16 @@ GlossolApp.Views.Docs = Backbone.View.extend({
 
       this.addNotice();
     }
+
+    if (this.title) this.addTitle(this.title);
     return this;
   },
 
   addNotice: function() {
     this.$el.html("<div>" + this.notice + "</div>");
+  },
+
+  addTitle: function(title) {
+    this.$el.prepend("<div>" + this.title + "</div>");
   }
 })

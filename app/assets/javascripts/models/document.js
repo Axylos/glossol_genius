@@ -7,6 +7,7 @@ GlossolApp.Models.Document = Backbone.Model.extend({
     this.notes = options.annotatings;
     this.refs = options.references;
     this.annotations = this.annotations();
+    this.author = options.author
   },
 
   annotations: function() {
@@ -18,4 +19,6 @@ GlossolApp.Models.Document = Backbone.Model.extend({
      });
     return this._annotations;
   }
+
+
 });

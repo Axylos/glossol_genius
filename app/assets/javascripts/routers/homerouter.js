@@ -17,8 +17,8 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     this.newDocView = new GlossolApp.Views.NewDoc({
       model: newDoc
     });
-
     this._leftSwapView(this.newDocView);
+    this.showDocIndex();
   },
 
   showDoc: function(id) {
@@ -26,8 +26,11 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     //build left view
     var docId = parseInt(id);
     var showDoc = GlossolApp.allDocs.get(docId);
+
+    var author = new GlossolApp.Models.User({id: showDoc.get('user_id') });
     showDocView = new GlossolApp.Views.ShowDoc({
-      model: showDoc
+      model: showDoc,
+      author: author
     });
 
     //build right pane
@@ -35,12 +38,28 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     annos.fetch();
     var annosView = new GlossolApp.Views.Docs({
       collection: annos,
-      notice: "No annotations yet!"
+      notice: "No annotations yet!",
+      title: "Annotations"
     });
 
     //swap views
     this._rightSwapView(annosView);
     this._leftSwapView(showDocView);
+  },
+
+  goHome: function() {
+
+    //build left pane
+    var userDocsView = new GlossolApp.Views.Docs({
+      collection: GlossolApp.userDocs,
+      notice: "You haven't made any documents yet!",
+      title: "User Docs"
+    });
+    this._leftSwapView(userDocsView);
+
+
+    //build right pane
+    this.showDocIndex();
   },
 
   //utility function
@@ -60,6 +79,14 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
 
     this.$rightContainer.html(newView.render().$el);
     this.rightCurrentView = newView;
+  },
+
+  showDocIndex: function() {
+    var allDocsView = new GlossolApp.Views.Docs({
+      collection: GlossolApp.allDocs,
+      title: "All Documents"
+    });
+    this._rightSwapView(allDocsView);
   }
 
 

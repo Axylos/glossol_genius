@@ -81,6 +81,7 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
     var content = new GlossolApp.Views.Home({ nav: this.$navLinks });
     this._swapView(content);
     this.router = new GlossolApp.Routers.HomeRouter({ pane: $('.home') });
+    this.router.goHome();
   },
 
   fetchDocs: function() {

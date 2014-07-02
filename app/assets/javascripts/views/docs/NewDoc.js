@@ -1,4 +1,4 @@
-GlossolApp.Views.NewDoc = Backbone.View.extend({
+GlossolApp.Views.NewDoc = Backbone.CompositeView.extend({
   template: JST['doc/new'],
 
   events: {
@@ -27,23 +27,18 @@ GlossolApp.Views.NewDoc = Backbone.View.extend({
     });
   },
 
-  home: function() {
-    console.log("going home");
-  },
-
-  anotherNew: function() {
-    console.log("another new doc");
-  },
-
   handleSave: function() {
+    //handle save and get rid of current model
     var that = this;
     GlossolApp.userDocs.add(this.model);
+    this.model.off();
 
-    var res = confirm("Add Another Document?");
-    if (res == true) {
-      that.anotherNew();
-    } else {
-      that.home();
-    };
+    //set up new model and render page
+    this.model = new GlossolApp.Models.Document({}, {
+      user_id: GlossolApp.currUser.id
+    });
+    this.listenTo(this.model, "sync save", this.handleSave);
+
+    this.render();
   }
 })

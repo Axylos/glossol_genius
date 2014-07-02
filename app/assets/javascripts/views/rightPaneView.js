@@ -19,11 +19,19 @@ GlossolApp.Views.RightPane = Backbone.CompositeView.extend({
   },
 
   renderAnnos: function(annos) {
-    this.annosView = new GlossolApp.Views.Docs({
-      collection: annos
+      this.annosView = new GlossolApp.Views.Docs({
+        collection: annos,
+        notice: "No annotations yet!"
+      });
+      this._swapView('.sub-docs', this.annosView);
+  },
+
+  setNotice: function(msg) {
+    var noticeView = new GlossolApp.Views.NoticeView({
+      msg: msg
     });
 
-    this._swapView('.sub-docs', this.annosView);
+    this._swapView('.sub-docs', noticeView);
   },
 
   _swapView: function(newSelector, newView) {

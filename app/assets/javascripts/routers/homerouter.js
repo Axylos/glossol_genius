@@ -1,7 +1,8 @@
 GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
 
   routes: {
-    "doc/newdoc": "newDoc"
+    "doc/newdoc": "newDoc",
+    "doc/show/:id(/)": "showDoc"
   },
 
   initialize: function(options) {
@@ -18,6 +19,17 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     });
 
     this._leftSwapView(this.newDocView);
+  },
+
+  showDoc: function(id) {
+    var docId = parseInt(event.target.id);
+    var showDoc = GlossolApp.allDocs.get(docId);
+
+    showDocView = new GlossolApp.Views.ShowDoc({
+      model: showDoc
+    });
+
+    this._leftSwapView(this.showDocView);
   },
 
   //utility function

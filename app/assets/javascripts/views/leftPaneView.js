@@ -15,17 +15,17 @@ GlossolApp.Views.LeftPane = Backbone.CompositeView.extend({
     this._swapView('.user-docs', this.userDocsView);
   },
 
-  renderDoc: function(showDoc) {
-    this.showDocView = new GlossolApp.Views.ShowDoc({
-      model: showDoc
-    });
-
-    this._swapView('.main-doc', this.showDocView);
-  },
-
-  showDoc: function(event) {
-    this.leftPaneView.renderDoc(showDoc);
-  },
+  // renderDoc: function(showDoc) {
+//     this.showDocView = new GlossolApp.Views.ShowDoc({
+//       model: showDoc
+//     });
+//
+//     this._swapView('.main-doc', this.showDocView);
+//   },
+//
+//   showDoc: function(event) {
+//     this.leftPaneView.renderDoc(showDoc);
+//   },
 
   //utility function
   _swapView: function(newSelector, newView) {

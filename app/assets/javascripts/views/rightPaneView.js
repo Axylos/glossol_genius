@@ -8,11 +8,9 @@ GlossolApp.Views.RightPane = Backbone.CompositeView.extend({
     $('#home').click(function() {
       that.goHome();
     });
-
   },
 
   goHome: function() {
-
     this.allDocsView = new GlossolApp.Views.Docs({
       collection: GlossolApp.allDocs
     });
@@ -25,7 +23,6 @@ GlossolApp.Views.RightPane = Backbone.CompositeView.extend({
       collection: annos
     });
 
-
     this._swapView('.sub-docs', this.annosView);
   },
 
@@ -33,13 +30,10 @@ GlossolApp.Views.RightPane = Backbone.CompositeView.extend({
     if (this.currentView) {
       this.removeSubview(this.currentSelector, this.currentView);
     }
-
     this.addSubView(newSelector, newView);
-
     this.render();
+
     this.currentView = newView;
     this.currentSelector = newSelector
   }
-
-
 });

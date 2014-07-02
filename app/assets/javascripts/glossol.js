@@ -16,8 +16,6 @@ window.GlossolApp = {
   }
 };
 
-
-
 $(document).ready(function(){
   GlossolApp.initialize();
 });

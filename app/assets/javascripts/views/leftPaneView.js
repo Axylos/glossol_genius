@@ -27,17 +27,6 @@ GlossolApp.Views.LeftPane = Backbone.CompositeView.extend({
     this.leftPaneView.renderDoc(showDoc);
   },
 
-  newDoc: function(event) {
-    var newDoc = new GlossolApp.Models.Document({}, {
-      user_id: GlossolApp.currUser.id
-    });
-    this.newDocView = new GlossolApp.Views.NewDoc({
-      model: newDoc
-    });
-
-    this._swapView('.main-doc', this.newDocView);
-  },
-
   //utility function
   _swapView: function(newSelector, newView) {
     if (this.currentView) {

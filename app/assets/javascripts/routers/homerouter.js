@@ -22,25 +22,6 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     this._leftSwapView(this.newDocView);
   },
 
-  home: function() {
-    alert("called");
-    //left pane
-    userDocsView = new GlossolApp.Views.Docs({
-      collection: GlossolApp.userDocs,
-      notice: "You haven't made any documents yet!"
-    });
-    this._leftSwapView(userDocsView);
-
-    //right pane
-    allDocsView = new GlossolApp.Views.Docs({
-      collection: GlossolApp.allDocs
-    });
-    this._rightSwapView(allDocsView);
-    this.$leftContainer = $('.user-docs');
-    this.$rightContainer = $('.sub-docs');
-  },
-
-
   //utility function
   _leftSwapView: function(newView) {
     if (this.leftCurrentView) {

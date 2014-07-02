@@ -22,14 +22,25 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
   },
 
   showDoc: function(id) {
-    var docId = parseInt(event.target.id);
-    var showDoc = GlossolApp.allDocs.get(docId);
 
+    //build left view
+    var docId = parseInt(id);
+    var showDoc = GlossolApp.allDocs.get(docId);
     showDocView = new GlossolApp.Views.ShowDoc({
       model: showDoc
     });
 
-    this._leftSwapView(this.showDocView);
+    //build right pane
+    var annos = showDoc.annotations
+    annos.fetch();
+    var annosView = new GlossolApp.Views.Docs({
+      collection: annos,
+      notice: "No annotations yet!"
+    });
+
+    //swap views
+    this._rightSwapView(annosView);
+    this._leftSwapView(showDocView);
   },
 
   //utility function

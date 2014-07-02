@@ -15,7 +15,7 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
       "sync add update remove",
       this.rightPaneView.goHome());
 
-    this.listenTo(this.leftPaneView, "showDoc", this.showDoc)
+    // this.listenTo(this.leftPaneView, "showDoc", this.showDoc)
 
     this.addSubView(".right-pane", this.rightPaneView);
     this.addSubView(".left-pane", this.leftPaneView);

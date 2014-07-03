@@ -10,7 +10,7 @@ GlossolApp.Views.ShowDoc = Backbone.View.extend({
   },
 
   events: {
-    "select": function() { alert("selected"); }
+    "mouseup .doc-text": "getText"
   },
 
   render: function() {

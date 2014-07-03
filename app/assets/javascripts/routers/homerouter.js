@@ -2,7 +2,8 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
 
   routes: {
     "doc/newdoc": "newDoc",
-    "doc/show/:id(/)": "showDoc"
+    "doc/show/:id(/)": "showDoc",
+    "doc/:id/newAnno": "newAnnotation"
   },
 
   initialize: function(options) {
@@ -60,6 +61,16 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
 
     //build right pane
     this.showDocIndex();
+  },
+
+  newAnnotation: function(id) {
+    var text = window.getSelection;
+    debugger
+    if (text.toString.length < 1) {
+      alert("No selection to annotate!");
+    } else {
+
+    }
   },
 
   //utility function

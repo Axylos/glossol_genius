@@ -16,7 +16,7 @@ GlossolApp.Views.NewAnnotationView = Backbone.CompositeView.extend({
   handleSave: function() {
     alert("Annotation Successfully Created!");
     var docId= this.model.get('annotatings')[0].get('refDoc')
-    GlossolApp.RootRouter.navigate("/doc/show/" + docId);
+    GlossolApp.RootRouter.navigate("#/doc/show/" + docId);
     // GlossolApp.
     
   },

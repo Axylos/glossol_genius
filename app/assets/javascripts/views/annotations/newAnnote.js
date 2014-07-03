@@ -7,7 +7,6 @@ GlossolApp.Views.NewAnnotationView = Backbone.CompositeView.extend({
     this.sel = options.sel
     this.sourceText = this.sel.toString();
     this.listenTo(this.model, "sync", function() {
-      debugger
       var docId = that.model.get('annotatings').get('referenced_text_ids')[0]
       GlossolApp.RootRouter.navigate("#/doc/show/" + docId);    
     });

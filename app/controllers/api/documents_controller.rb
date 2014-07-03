@@ -23,9 +23,6 @@ class Api::DocumentsController < ApplicationController
     @document.referenced_text_ids = anno_params[:referenced_text_ids]
     @document.references.last.source_text = anno_params[:source_text]
     
-    binding.pry
-    
-    
     if @document.save
       p @document
       render json: @document

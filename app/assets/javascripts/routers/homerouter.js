@@ -27,8 +27,8 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     //build left view
     var docId = parseInt(id);
     var showDoc = GlossolApp.allDocs.get(docId);
-
     var author = new GlossolApp.Models.User({id: showDoc.get('user_id') });
+    
     showDocView = new GlossolApp.Views.ShowDoc({
       model: showDoc,
       author: author
@@ -37,6 +37,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     //build right pane
     var annos = showDoc.annotations()
     annos.fetch();
+    // var annosView = new GlossolApp.Views.AnnotationsView({
     var annosView = new GlossolApp.Views.Docs({
       collection: annos,
       notice: "No annotations yet!",

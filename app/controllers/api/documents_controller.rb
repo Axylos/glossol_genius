@@ -25,13 +25,22 @@ class Api::DocumentsController < ApplicationController
       
     if @document.save
       
-      @annotating = @document.references.new(
-        source_document_id: params['annotatings'].first["refDoc"],
-        source_text: params['annotatings'].first['selection']
-      )
-      p @annotating
+      if params["annotatings"]
+        @annotating = @document.references.new(
+          source_document_id: params['annotatings'].first["refDoc"],
+          source_text: params['annotatings'].first['selection']
+        )
+        p @annotating
       
-      if @annotating.save
+        if @annotating.save
+        
+          render json: @document
+        else 
+          p @document
+          p @annotating.errors.full_messages
+          render json: { status: :unprocessable_entity }
+        end
+      else
         render json: @document
       end
     else

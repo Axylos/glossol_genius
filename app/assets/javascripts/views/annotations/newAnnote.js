@@ -2,10 +2,14 @@ GlossolApp.Views.NewAnnotationView = Backbone.CompositeView.extend({
   template: JST['doc/newAnnotation'],
   
   initialize: function(options) {
+    var that = this;
     
     this.sel = options.sel
     this.sourceText = this.sel.toString();
-    
+    this.listenTo(this.model, "sync", function() {
+      var docId = that.model.get('annotatings')[0].get('refDoc')
+      GlossolApp.RootRouter.navigate("#/doc/show/" + docId);    
+    });
     this.makeDoc();
   },
   
@@ -13,12 +17,20 @@ GlossolApp.Views.NewAnnotationView = Backbone.CompositeView.extend({
     "submit": "handleSave"
   },
   
-  handleSave: function() {
-    alert("Annotation Successfully Created!");
-    var docId= this.model.get('annotatings')[0].get('refDoc')
-    GlossolApp.RootRouter.navigate("#/doc/show/" + docId);
-    // GlossolApp.
-    
+  handleSave: function(event) {
+    event.preventDefault();
+    var that = this;
+    debugger
+    GlossolApp.allDocs.push(this.model, {
+      wait: true,
+      success: function(model, res, options) {
+        alert("Annotation Successfully Created!");
+      },
+      error: function(model, res, options) {
+        alert("New Annotation Save Failed!");
+        console.log(res);
+      }
+    });
   },
   
   makeDoc: function() {

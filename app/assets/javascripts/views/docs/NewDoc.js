@@ -39,6 +39,6 @@ GlossolApp.Views.NewDoc = Backbone.CompositeView.extend({
     });
     this.listenTo(this.model, "sync save", this.handleSave);
 
-    // this.render();
+    this.render();
   }
 })

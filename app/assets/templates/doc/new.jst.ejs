@@ -1,15 +1,8 @@
 <container class="doc-create">
   <form id="create-doc">
 
-  
+    
       
-    <% if (doc.get('annotatings').length > 0) { %>  
-      <input
-        type="hidden"
-        name="document[annotating]"
-        value="<%= JSON.stringify(doc.get('annotatings')[0]) %>">
-    <% } %>
-
     <container class="doc-info group">
       <label id="title">Title </label>
       <input type="text" name="document[title]">

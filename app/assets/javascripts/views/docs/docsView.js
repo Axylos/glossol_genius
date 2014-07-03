@@ -18,7 +18,7 @@ GlossolApp.Views.Docs = Backbone.View.extend({
     if (this.collection.length > 0) {
       this.collection.each(function(doc) {
 
-        //ugly iteration
+        //ugly iteration TODO: move to CompositeView
         var view = new GlossolApp.Views.PrevDoc({model: doc});
         that.$el.append(view.render().$el);
       });

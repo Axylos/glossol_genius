@@ -5,18 +5,26 @@ GlossolApp.Views.AnnotationsView = Backbone.CompositeView.extend({
     this.notice = options.notice;
     this.title = options.title;
     this.makePreviewList();
+    this.listenTo(this.collection, "sync", this.makePreviewList);
   },
   
   makePreviewList: function() {
+    var that = this;
+    this.$el.html(this.template());
     if (this.collection.length > 0) {
       this.collection.each(function(anno) {
-
-        var annoView = new GlossolApp.Views.PrevAnno({model: anno});
-        this.addSubView('.anno-list', annoView);
+        var annoView = new GlossolApp.Views.AnnotationSubview({
+          model: anno
+        });
+        that.addSubView('.anno-list', annoView);
       });
     } else {
-      var noticeSub = $('<h2>' + this.notice + '</h2>');
+      // var noticeSub = $('<h2>' + this.notice + '</h2>');
+      var noticeSub = new GlossolApp.Views.NoticeSubView({
+        model: this.notice
+      });
       this.addSubView('.notice', noticeSub);
+      
     }
   }
   

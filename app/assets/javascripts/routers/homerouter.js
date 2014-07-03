@@ -38,12 +38,12 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     var annos = showDoc.annotations()
     annos.fetch();
     // var annosView = new GlossolApp.Views.AnnotationsView({
-    var annosView = new GlossolApp.Views.Docs({
+    var annosView = new GlossolApp.Views.AnnotationsView({
       collection: annos,
       notice: "No annotations yet!",
       title: "Annotations"
     });
-
+    
     //swap views
     this._rightSwapView(annosView);
     this._leftSwapView(showDocView);

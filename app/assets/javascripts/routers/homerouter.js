@@ -23,7 +23,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
   },
 
   showDoc: function(id) {
-
+    console.log("called");
     //build left view
     var docId = parseInt(id);
     var showDoc = GlossolApp.allDocs.get(docId);

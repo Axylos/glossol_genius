@@ -14,6 +14,13 @@
 //= require jquery_ujs
 //= require underscore
 //= require jquery.serializeJSON
+//= require rangy-core
+//= require rangy-cssclassapplier
+//= require rangy-highlighter
+//= require rangy-position
+//= require rangy-selectionsaverestore
+//= require rangy-serializer
+//= require rangy-textrange
 //= require backbone
 //= require compositeView
 //= require subset

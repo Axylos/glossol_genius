@@ -30,6 +30,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'rangy-rails'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

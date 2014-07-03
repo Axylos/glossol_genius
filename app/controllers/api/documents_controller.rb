@@ -1,3 +1,4 @@
+require "pry"
 class Api::DocumentsController < ApplicationController
 
   def index
@@ -16,9 +17,23 @@ class Api::DocumentsController < ApplicationController
   end
 
   def create
-    @document = current_user.documents.new(doc_params)
+   
+    @document = current_user.documents.new(
+        title: doc_params["title"], 
+        body: doc_params["body"]
+    )
+      
     if @document.save
-      render json: @document
+      
+      @annotating = @document.references.new(
+        source_document_id: params['annotatings'].first["refDoc"],
+        source_text: params['annotatings'].first['selection']
+      )
+      p @annotating
+      
+      if @annotating.save
+        render json: @document
+      end
     else
       render json: { errors: @document.errors.full_messages,
                       status: :unprocessable_entity }

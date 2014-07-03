@@ -1,5 +1,7 @@
 class Annotating < ActiveRecord::Base
   serialize :source_text
+  
+  validates :source_document, :source_text, presence: true
 
   belongs_to(
     :source_document,

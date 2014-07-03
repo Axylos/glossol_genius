@@ -15,46 +15,39 @@ class Api::DocumentsController < ApplicationController
     @document = Document.find(params[:id])
     render json: @document
   end
-
+  
+  
   def create
    
-    @document = current_user.documents.new(
-        title: doc_params["title"], 
-        body: doc_params["body"]
-    )
-      
+    @document = current_user.documents.new(doc_params)
+    @document.referenced_text_ids = anno_params[:referenced_text_ids]
+    @document.references.last.source_text = anno_params[:source_text]
+    
+    binding.pry
+    
+    
     if @document.save
-      
-      if params["annotatings"]
-        @annotating = @document.references.new(
-          source_document_id: params['annotatings'].first["refDoc"],
-          source_text: params['annotatings'].first['selection']
-        )
-        p @annotating
-      
-        if @annotating.save
-        
-          render json: @document
-        else 
-          p @document
-          p @annotating.errors.full_messages
-          render json: { status: :unprocessable_entity }
-        end
-      else
-        render json: @document
-      end
+      p @document
+      render json: @document
     else
-      render json: { errors: @document.errors.full_messages,
-                      status: :unprocessable_entity }
+      p @document.errors
+      render json: { status: :unprocessable_entity }
     end
   end
-
 
 
   private
 
   def doc_params
     params.require(:document).permit(:title, :body)
+  end
+  
+  def anno_params
+    params[:annotatings]
+  end
+  
+  def doc_is_annotation?
+    !!params["annotatings"]
   end
 
 end

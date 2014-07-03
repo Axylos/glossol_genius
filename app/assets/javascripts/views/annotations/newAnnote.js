@@ -7,7 +7,8 @@ GlossolApp.Views.NewAnnotationView = Backbone.CompositeView.extend({
     this.sel = options.sel
     this.sourceText = this.sel.toString();
     this.listenTo(this.model, "sync", function() {
-      var docId = that.model.get('annotatings')[0].get('refDoc')
+      debugger
+      var docId = that.model.get('annotatings').get('referenced_text_ids')[0]
       GlossolApp.RootRouter.navigate("#/doc/show/" + docId);    
     });
     this.makeDoc();
@@ -20,7 +21,6 @@ GlossolApp.Views.NewAnnotationView = Backbone.CompositeView.extend({
   handleSave: function(event) {
     event.preventDefault();
     var that = this;
-    debugger
     GlossolApp.allDocs.push(this.model, {
       wait: true,
       success: function(model, res, options) {

@@ -75,7 +75,6 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
         sel: sel,
         sourceDoc: GlossolApp.allDocs.get(docId)
       });
-      debugger
       var newDoc = new GlossolApp.Models.Document({}, {
         annotatings: [annotating]
       });

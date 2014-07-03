@@ -5,6 +5,13 @@
       type="hidden"
       name="document[user_id]"
       value="<%= GlossolApp.currUser.id %>">
+      
+    <% if (doc.get('annotatings').length > 0) { %>  
+      <input
+        type="hidden"
+        name="document[annotating]"
+        value="<%= JSON.stringify(doc.get('annotatings')[0]) %>">
+    <% } %>
 
     <container class="doc-info group">
       <label id="title">Title </label>

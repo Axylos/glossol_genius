@@ -21,6 +21,9 @@ GlossolApp.Views.ShowDoc = Backbone.View.extend({
       author: that.author
      }));
     return this;
+  },
+  
+  getText: function(event) {
   }
 
 });

@@ -16,7 +16,13 @@ class Api::DocumentsController < ApplicationController
   end
 
   def create
-    @document = current_user.documents.new(doc_params)
+    p doc_params
+    p JSON.parse (params['annotating'].first)
+    
+    @document = current_user.documents.new(
+        title: doc_params["title"], 
+        body: doc_params["body"]
+      )
     if @document.save
       render json: @document
     else
@@ -30,7 +36,7 @@ class Api::DocumentsController < ApplicationController
   private
 
   def doc_params
-    params.require(:document).permit(:title, :body)
+    params.require(:document).permit(:title, :body, :annotating)
   end
 
 end

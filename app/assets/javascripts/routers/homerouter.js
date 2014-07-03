@@ -3,7 +3,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
   routes: {
     "doc/newdoc": "newDoc",
     "doc/show/:id(/)": "showDoc",
-    "doc/:id/newAnno": "newAnnotation"
+    "doc/:id(/)/newAnno": "newAnnotation"
   },
 
   initialize: function(options) {
@@ -35,7 +35,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     });
 
     //build right pane
-    var annos = showDoc.annotations
+    var annos = showDoc.annotations()
     annos.fetch();
     var annosView = new GlossolApp.Views.Docs({
       collection: annos,
@@ -64,13 +64,28 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
   },
 
   newAnnotation: function(id) {
-    var text = window.getSelection;
-    debugger
-    if (text.toString.length < 1) {
+    var sel = rangy.getSelection();
+    var docId = parseInt(id);
+    
+    if (sel.toString().length < 1) {
       alert("No selection to annotate!");
+      GlossolApp.RootRouter.navigate("/doc/show/" + id);
     } else {
-
+      var annotating = new GlossolApp.Models.Annotating({}, {
+        sel: sel,
+        sourceDoc: GlossolApp.allDocs.get(docId)
+      });
+      debugger
+      var newDoc = new GlossolApp.Models.Document({}, {
+        annotatings: [annotating]
+      });
+      var annotationView = new GlossolApp.Views.NewAnnotationView({ 
+        model: newDoc,
+        sel: sel
+      });
+      this._rightSwapView(annotationView); 
     }
+    
   },
 
   //utility function

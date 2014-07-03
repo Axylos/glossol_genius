@@ -1,4 +1,3 @@
-require "pry"
 class Api::DocumentsController < ApplicationController
 
   def index

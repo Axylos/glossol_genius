@@ -73,12 +73,14 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
       alert("No selection to annotate!");
       GlossolApp.RootRouter.navigate("/doc/show/" + id);
     } else {
-      var annotating = new GlossolApp.Models.Annotating({}, {
-        sel: sel,
-        sourceDoc: GlossolApp.allDocs.get(docId)
-      });
+
+      var annotating = new GlossolApp.Models.Annotating({
+        source_document_id: docId,
+        source_text: GlossolApp.Models.Annotating.prototype.parseSel(sel)
+      })
+      
       var newDoc = new GlossolApp.Models.Document({}, {
-        annotatings: annotating
+        annotatings: [annotating]
       });
       var annotationView = new GlossolApp.Views.NewAnnotationView({ 
         model: newDoc,

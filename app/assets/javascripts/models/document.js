@@ -4,8 +4,6 @@ GlossolApp.Models.Document = Backbone.Model.extend({
 
   initialize: function(model, options) {
     this.user_id = options.user_id;
-    this.notes = options.annotatings;
-    this.refs = options.references;
     var annos = options.annotatings || [];
     this.set({
       annotatings: annos
@@ -21,5 +19,36 @@ GlossolApp.Models.Document = Backbone.Model.extend({
       parentCollection: GlossolApp.allDocs
      });
     return this._annotations;
-  }
+  },
+  
+  // annotatings: function() {
+//     if (!this._annotatings) {
+//       this._annotatings = [];
+//     }
+//
+//     return this._annotatings
+//   },
+//
+//   references: function() {
+//     if (!this._references) {
+//       this._references = [];
+//     }
+//
+//     return this._references;
+//   },
+//
+//   parse: function(jsonResponse) {
+//     if(jsonResponse.annotatings.length > 0) {
+//     this.annotatings().set(jsonResponse.annotatings);
+//       delete jsonResponse.annotatings;
+//     }
+//
+//     if (jsonResponse.references.length > 0) {
+//       debugger
+//       this.references().set(jsonResponse.references);
+//       delete jsonResponse.references;
+//     }
+//
+//     return jsonResponse
+//   }
 });

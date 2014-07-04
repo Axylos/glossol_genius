@@ -14,7 +14,6 @@ GlossolApp.Views.AnnotationsView = Backbone.CompositeView.extend({
   },
   
   highlightAnno: function(event) {
-    debugger
   },
   
   makePreviewList: function() {

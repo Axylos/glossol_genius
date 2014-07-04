@@ -39,6 +39,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     annos.fetch();
     // var annosView = new GlossolApp.Views.AnnotationsView({
     var annosView = new GlossolApp.Views.AnnotationsView({
+      docView: showDocView,
       collection: annos,
       notice: "No annotations yet!",
       title: "Annotations"

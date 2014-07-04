@@ -1,13 +1,11 @@
 class Api::DocumentsController < ApplicationController
 
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      render json: @user.documents
-    else
-      @documents = Document.all
-      render json: @documents
-    end
+
+    @documents = Document.where(' user_id = ?', 
+                  params[:user_id]).includes(:references, :annotatings)
+                  
+    render "api/documents/index"
   end
 
   def show

@@ -1,0 +1,1 @@
+var pubSub = _.extend({}, Backbone.Events);

@@ -4,10 +4,6 @@ GlossolApp.Models.Document = Backbone.Model.extend({
 
   initialize: function(model, options) {
     this.user_id = options.user_id;
-    var annos = options.annotatings || [];
-    this.set({
-      annotatings: annos
-    });
     this.author = options.author
   },
 
@@ -22,6 +18,6 @@ GlossolApp.Models.Document = Backbone.Model.extend({
   },
   
   sourceId: function() {
-    return this.get('annotatings').get('referenced_text_ids')[0];
+    return this.get('annotatings')[0].get('referenced_text_ids')[0];
   }
 });

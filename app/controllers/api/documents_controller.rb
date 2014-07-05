@@ -15,17 +15,18 @@ class Api::DocumentsController < ApplicationController
 
   def show
     @document = Document.includes(:references, :annotatings).find(params[:id])
-    render json: "api/documents/show"
+    render "api/documents/show"
   end
   
   
   def create
-   
+    # debugger
     @document = current_user.documents.new(doc_params)
     
     if anno_params
-      @document.referenced_text_ids = anno_params[:referenced_text_ids]
-      @document.references.last.source_text = anno_params[:source_text]
+      #replace first with each block later
+      @document.referenced_text_ids = anno_params.first[:referenced_text_ids]
+      @document.references.last.source_text = anno_params.first[:source_text]
     end
     
     if @document.save

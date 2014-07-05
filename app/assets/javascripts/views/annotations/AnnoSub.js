@@ -6,6 +6,7 @@ GlossolApp.Views.AnnotationSubview = Backbone.View.extend({
   },
   
   triggerHighlight: function() {
+    //super hacky but it gets the newly created reference over to show pane
     var mod = GlossolApp.allDocs.models[this.model.id].attributes
     
     GlossolApp.PubSub.trigger("highlighted", {

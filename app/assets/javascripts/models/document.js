@@ -4,8 +4,6 @@ GlossolApp.Models.Document = Backbone.Model.extend({
 
   initialize: function(model, options) {
     this.user_id = options.user_id;
-    this.notes = options.annotatings;
-    this.refs = options.references;
     var annos = options.annotatings || [];
     this.set({
       annotatings: annos

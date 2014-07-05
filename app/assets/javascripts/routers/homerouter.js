@@ -107,7 +107,11 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     var docStuff = this.buildDoc(id);
     var refs = docStuff.doc.get('references');
     var refers = refs.map(function(ref) { 
-      return GlossolApp.allDocs.get(ref.source_document_id);
+      return {
+        doc: GlossolApp.allDocs.get(ref.source_document_id),
+        source_text: ref.source_text
+      }
+        
     });
     
     var referenceColl = new GlossolApp.Subsets.References(refers, { 
@@ -150,6 +154,4 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     });
     this._rightSwapView(allDocsView);
   }
-
-
 });

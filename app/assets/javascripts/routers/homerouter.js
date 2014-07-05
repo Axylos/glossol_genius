@@ -27,6 +27,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     //build left view
     var docId = parseInt(id);
     var showDoc = GlossolApp.allDocs.get(docId);
+    
     var author = new GlossolApp.Models.User({id: showDoc.get('user_id') });
     
     showDocView = new GlossolApp.Views.ShowDoc({
@@ -36,18 +37,23 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
 
     //build right pane
     var annos = showDoc.annotations()
-    annos.fetch();
-    // var annosView = new GlossolApp.Views.AnnotationsView({
-    var annosView = new GlossolApp.Views.AnnotationsView({
-      docView: showDocView,
-      collection: annos,
-      notice: "No annotations yet!",
-      title: "Annotations"
-    });
+    var that = this;
+    annos.fetch({ 
+      success: function() {
+        
+        // var annosView = new GlossolApp.Views.AnnotationsView({
+        var annosView = new GlossolApp.Views.AnnotationsView({
+          docView: showDocView,
+          collection: annos,
+          notice: "No annotations yet!",
+          title: "Annotations"
+        });
     
-    //swap views
-    this._rightSwapView(annosView);
-    this._leftSwapView(showDocView);
+        //swap views
+        that._rightSwapView(annosView);
+        that._leftSwapView(showDocView);
+      }});
+    
   },
 
   goHome: function() {
@@ -80,8 +86,9 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
       })
       
       var newDoc = new GlossolApp.Models.Document({}, {
-        annotatings: [annotating]
+        user_id: GlossolApp.currUser
       });
+      newDoc.annotatings().set([annotating]);
       var annotationView = new GlossolApp.Views.NewAnnotationView({ 
         model: newDoc,
         sel: sel

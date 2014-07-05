@@ -4,23 +4,18 @@ GlossolApp.Views.AnnotationsView = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.notice = options.notice;
     this.title = options.title;
-    this.makePreviewList();
-    this.listenTo(this.collection, "sync", this.makePreviewList);
+    // this.makePreviewList();
+    var that = this;
+    this.collection.fetch({success: function() {that.render(); }});
     this.docView = options.docView;
   },
-  
-  events: {
-    "mouseover .doc-preview": "highlightAnno"
-  },
-  
-  highlightAnno: function(event) {
-  },
-  
-  makePreviewList: function() {
+
+  render: function() {
     var that = this;
     this.$el.html(this.template());
     if (this.collection.length > 0) {
       this.collection.each(function(anno) {
+        anno.fetch();
         var annoView = new GlossolApp.Views.AnnotationSubview({
           model: anno
         });
@@ -34,6 +29,7 @@ GlossolApp.Views.AnnotationsView = Backbone.CompositeView.extend({
       this.addSubView('.notice', noticeSub);
       
     }
+    return this;
   }
   
   

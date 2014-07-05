@@ -6,5 +6,21 @@ GlossolApp.Views.AnnotationSubview = Backbone.View.extend({
     
     this.$el.html(content);
     return this;
-  }
+  },
+  
+  initialize: function() {
+    this.listenTo(this.model, 'sync', this.render);
+  },
+  
+  events: {
+    "mouseover .doc-preview": "highlightAnno"
+  },
+  
+  highlightAnno: function(event) {
+    console.log("triggered");
+    debugger
+    GlossolApp.PubSub.trigger("highlight", {
+
+    });
+  },
 })

@@ -4,10 +4,6 @@ GlossolApp.Models.Document = Backbone.Model.extend({
 
   initialize: function(model, options) {
     this.user_id = options.user_id;
-    var annos = options.annotatings || [];
-    this.set({
-      annotatings: annos
-    });
     this.author = options.author
   },
 
@@ -21,34 +17,38 @@ GlossolApp.Models.Document = Backbone.Model.extend({
     return this._annotations;
   },
   
-  // annotatings: function() {
-//     if (!this._annotatings) {
-//       this._annotatings = [];
-//     }
-//
-//     return this._annotatings
-//   },
-//
-//   references: function() {
-//     if (!this._references) {
-//       this._references = [];
-//     }
-//
-//     return this._references;
-//   },
-//
-//   parse: function(jsonResponse) {
-//     if(jsonResponse.annotatings.length > 0) {
-//     this.annotatings().set(jsonResponse.annotatings);
-//       delete jsonResponse.annotatings;
-//     }
-//
-//     if (jsonResponse.references.length > 0) {
-//       debugger
-//       this.references().set(jsonResponse.references);
-//       delete jsonResponse.references;
-//     }
-//
-//     return jsonResponse
-//   }
+  annotatings: function() {
+    if (!this._annotatings) {
+      this._annotatings = new GlossolApp.Collections.Annotatings();
+    }
+
+    return this._annotatings
+  },
+
+  references: function() {
+    if (!this._references) {
+      this._references = new GlossolApp.Collections.References();
+    }
+
+    return this._references;
+  },
+
+  parse: function(jsonResponse) {
+    jsonResponse.annotatings = jsonResponse.annotatings || []
+    if(jsonResponse.annotatings.length > 0) {
+    this.annotatings().set(jsonResponse.annotatings);
+      delete jsonResponse.annotatings;
+    }
+    jsonResponse.references = jsonResponse.references || []
+    if (jsonResponse.references.length > 0) {
+      this.references().set(jsonResponse.references);
+      delete jsonResponse.references;
+    }
+
+    return jsonResponse
+  },
+  
+  sourceId: function() {
+    return this.annotatings().models[0].get('source_document_id');
+  }
 });

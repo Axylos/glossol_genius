@@ -1,1 +1,3 @@
-GlossolApp.Models.Reference = Backbone.Collection.extend({});
+GlossolApp.Models.Reference = Backbone.Model.extend({
+  
+});

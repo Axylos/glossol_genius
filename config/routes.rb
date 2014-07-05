@@ -32,6 +32,7 @@ GlossolHellYeah::Application.routes.draw do
     end
     resources :documents, only: [:show, :index, :create] do
       resources :annotations
+      resources :references
     end
   end
 

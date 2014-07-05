@@ -11,6 +11,7 @@ GlossolApp.Views.AnnotationSubview = Backbone.View.extend({
   },
   
   initialize: function(options) {
+    
     this.open = false;
     var that = this;
     this.model.author = new GlossolApp.Models.User({id: that.model.get('user_id')})
@@ -43,7 +44,6 @@ GlossolApp.Views.AnnotationSubview = Backbone.View.extend({
   
   render: function() {
     var content = this.template()({anno: this.model});
-    
     this.$el.html(content);
     this.removeHighlight();
     return this;

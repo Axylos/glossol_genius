@@ -51,7 +51,6 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
       notice: "No annotations yet!",
       title: "Annotations"
     });
-    
     //swap views
     this._rightSwapView(annosView);
     this._leftSwapView(docStuff.view);
@@ -94,6 +93,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
       });
       
       newDoc.set({references: [annotating]});
+      
       var annotationView = new GlossolApp.Views.NewAnnotationView({ 
         model: newDoc,
         sel: sel
@@ -105,11 +105,23 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
   
   showRefs: function(id) {
     var docStuff = this.buildDoc(id);
-    
-    debugger
     var refs = docStuff.doc.get('references');
+    var refers = refs.map(function(ref) { 
+      return GlossolApp.allDocs.get(ref.source_document_id);
+    });
     
-    this._leftSwapView(docStuff.view)
+    var referenceColl = new GlossolApp.Subsets.References(refers, { 
+      parentCollection: GlossolApp.allDocs
+    });
+    
+    var refsView = new GlossolApp.Views.ReferencesIndexView({
+      collection: referenceColl,
+      notice: "No references yet!",
+      title: "References"
+    });
+    
+    this._rightSwapView(refsView);
+    this._leftSwapView(docStuff.view);
   },
 
   //utility function

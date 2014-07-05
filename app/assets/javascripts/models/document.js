@@ -16,6 +16,16 @@ GlossolApp.Models.Document = Backbone.Model.extend({
     return this._annotations;
   },
   
+  referencedTexts: function() {
+    var that = this;
+    this._references = this._references ||
+    new GlossolApp.Subsets.References([], {
+      sourceDoc: that,
+      parentCollection: GlossolApp.allDocs
+     });
+    return this._references;
+  },
+  
   sourceId: function() {
     return this.get('references')[0].source_document_id
   }

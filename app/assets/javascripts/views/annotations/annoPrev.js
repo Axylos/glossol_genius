@@ -24,6 +24,7 @@ GlossolApp.Views.AnnotationsView = Backbone.CompositeView.extend({
         var annoView = new GlossolApp.Views.AnnotationSubview({
           model: anno
         });
+        
         that.addSubView('.anno-list', annoView);
       });
     } else {

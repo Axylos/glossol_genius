@@ -2,9 +2,14 @@ class Api::DocumentsController < ApplicationController
 
   def index
 
-    @documents = Document.where(' user_id = ?', 
-                  params[:user_id]).includes(:references, :annotatings)
-                  
+    if user_given?
+      @documents = Document.where(' user_id = ?',
+                   params[:user_id]).includes(:references, :annotatings)
+    else
+      @documents = Document.includes(:references, :annotatings).all
+    end
+    
+              
     render "api/documents/index"
   end
 
@@ -43,5 +48,10 @@ class Api::DocumentsController < ApplicationController
   def doc_is_annotation?
     !!params["annotatings"]
   end
+  
+  def user_given?
+    !!params[:user_id]
+  end
+      
 
 end

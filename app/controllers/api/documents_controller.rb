@@ -53,5 +53,4 @@ class Api::DocumentsController < ApplicationController
     !!params[:user_id]
   end
       
-
 end

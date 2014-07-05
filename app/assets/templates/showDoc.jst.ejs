@@ -1,3 +1,6 @@
-<a class='new-anno group' href=<%= "#/doc/" + doc.id + "/newAnno" %>>Make New Annotation</a>
+<container class="buttons group">
+  <a class='new-anno group' href=<%= "#/doc/" + doc.id + "/newAnno" %>>Make New Annotation</a>
+  <a class='show-refs group' href=<%= "#/doc/" + doc.id + "/showRefs" %>>See References</a>
+</container>
 <h1><%= doc.escape('title') + " by " + author.escape('email') %></h1>
 <content class="doc-text"><%= doc.escape('body') %></content>

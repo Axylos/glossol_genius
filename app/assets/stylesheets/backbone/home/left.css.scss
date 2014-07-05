@@ -19,12 +19,29 @@
 
       .new-anno {
         color: #FF3000;
-        margin: 20px;
-        display: block;
+        margin: 15px;
+        float: left;
+        width: 200px;
         padding: 15px;
         font-size: 20px;
         background: #2012E4;
         border: solid #9C00A5 3px;
+      }
+      
+      .show-refs {
+        color: #FF3000;
+        margin: 15px;
+        float: right;
+        width: 170px;
+        padding: 15px;
+        font-size: 20px;
+        background: #2012E4;
+        border: solid #9C00A5 3px;
+      }
+      
+      .buttons {
+        display: block;
+        margin: 10px;
       }
 
       li {

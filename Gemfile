@@ -15,6 +15,8 @@ gem 'sass-rails', '~> 4.0.2'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'selenium-webdriver'
+
 gem 'figaro'
 
 #fuck you WEBrick

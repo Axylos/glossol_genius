@@ -22,8 +22,11 @@ class Api::DocumentsController < ApplicationController
   def create
    
     @document = current_user.documents.new(doc_params)
-    @document.referenced_text_ids = anno_params[:referenced_text_ids]
-    @document.references.last.source_text = anno_params[:source_text]
+    
+    if anno_params
+      @document.referenced_text_ids = anno_params[:referenced_text_ids]
+      @document.references.last.source_text = anno_params[:source_text]
+    end
     
     if @document.save
       p @document

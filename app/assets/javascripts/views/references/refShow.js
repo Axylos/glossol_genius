@@ -1,7 +1,8 @@
 GlossolApp.Views.ReferencesIndexView = Backbone.CompositeView.extend({
   template: JST['ref/index'],
   
-  initialize: function(options) {    
+  initialize: function(options) {
+    this.notice = options.notice    
     this.makePreviewList();
     this.listenTo(this.collection, "sync", this.makePreviewList);
   },
@@ -16,8 +17,8 @@ GlossolApp.Views.ReferencesIndexView = Backbone.CompositeView.extend({
         });
         that.addSubView('.ref-list', refView);
       });
+      
     } else {
-
       var noticeSub = new GlossolApp.Views.NoticeSubView({
         model: this.notice
       });

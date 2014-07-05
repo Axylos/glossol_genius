@@ -13,25 +13,6 @@ GlossolApp.Views.NewAnnotationView = Backbone.CompositeView.extend({
     this.makeDoc();
   },
   
-  // events: {
-//     "submit": "handleSave"
-//   },
-//
-//   handleSave: function(event) {
-//     event.preventDefault();
-//     var that = this;
-//     GlossolApp.allDocs.push(this.model, {
-//       wait: true,
-//       success: function(model, res, options) {
-//         alert("Annotation Successfully Created!");
-//       },
-//       error: function(model, res, options) {
-//         alert("New Annotation Save Failed!");
-//         console.log(res);
-//       }
-//     });
-  // },
-  
   makeDoc: function() {
     
     var newDocView = new GlossolApp.Views.NewDoc({model: this.model});

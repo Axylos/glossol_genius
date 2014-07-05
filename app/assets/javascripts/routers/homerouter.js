@@ -77,6 +77,11 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
         sel: sel,
         sourceDoc: GlossolApp.allDocs.get(docId)
       });
+      
+      GlossolApp.PubSub.trigger("highlighted", {
+        text: annotating.get('source_text')
+      });
+      
       var newDoc = new GlossolApp.Models.Document({}, {
         user_id: GlossolApp.currUser.id
       });

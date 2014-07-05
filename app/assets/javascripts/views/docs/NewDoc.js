@@ -12,7 +12,6 @@ GlossolApp.Views.NewDoc = Backbone.CompositeView.extend({
 
 
   newlines: function(event) {
-              console.log("called");
     var value = $(event.target).val().replace(/\n/g, '&#13');
     $("textarea").html(value);
   },

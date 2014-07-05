@@ -18,6 +18,7 @@ GlossolApp.Views.ShowDoc = Backbone.View.extend({
   receiveHighlight: function(event) {
     var text = this.$el.find('.doc-text');
     var str = text.text();
+    
     var newString = str.substring(0, event.text[0] + 1) + 
       ('<span class="hilite">') + 
       (str.substring(event.text[0] + 1, event.text[1] + 1)) + 
@@ -40,11 +41,6 @@ GlossolApp.Views.ShowDoc = Backbone.View.extend({
       author: that.author
     }));
     return this;
-  },
+  }
   
-  getText: function(event) {
-  },
-  
-  
-
 });

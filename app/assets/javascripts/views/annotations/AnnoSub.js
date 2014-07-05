@@ -7,7 +7,7 @@ GlossolApp.Views.AnnotationSubview = Backbone.View.extend({
     "mouseover .doc-preview, .anno-preview": "triggerHighlight",
     "mouseleave .doc-preview, .anno-preview": "removeHighlight",
     "click .doc-preview": "openAnno",
-    "click button": "closeAnno"
+    "click .anno-close": "closeAnno"
   },
   
   initialize: function(options) {
@@ -19,8 +19,7 @@ GlossolApp.Views.AnnotationSubview = Backbone.View.extend({
   },
   
   openAnno: function() {
-    event.preventDefault();
-    
+    event.preventDefault();    
     this.open = true;
     this.render();
   },
@@ -46,6 +45,7 @@ GlossolApp.Views.AnnotationSubview = Backbone.View.extend({
     var content = this.template()({anno: this.model});
     
     this.$el.html(content);
+    this.removeHighlight();
     return this;
   }
 })

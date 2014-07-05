@@ -33,10 +33,7 @@ GlossolApp.Views.NewAnnotationView = Backbone.CompositeView.extend({
   },
   
   makeDoc: function() {
-    var annoView = new GlossolApp.Views.AnnotationSubview({
-      model: this.sourceText
-    });
-    this.addSubView('.annote', annoView);
+    
     var newDocView = new GlossolApp.Views.NewDoc({model: this.model});
     this.addSubView('.new-doc', newDocView);
   },

@@ -6,6 +6,14 @@ GlossolApp.Views.AnnotationsView = Backbone.CompositeView.extend({
     this.title = options.title;
     this.makePreviewList();
     this.listenTo(this.collection, "sync", this.makePreviewList);
+    this.showDocView = options.showDocView;
+  },
+  
+  events: {
+    "mouseover .doc-preview": "highlightAnno"
+  },
+  
+  highlightAnno: function(event) {
   },
   
   makePreviewList: function() {

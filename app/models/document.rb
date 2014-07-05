@@ -20,10 +20,10 @@ class Document < ActiveRecord::Base
   has_many :referenced_texts, through: :references, source: :source_document
 
   has_many(
-       :stars,
-       class_name: "Star",
-       foreign_key: :document_id,
-       dependent: :destroy
+     :stars,
+     class_name: "Star",
+     foreign_key: :document_id,
+     dependent: :destroy
   )
 
   has_many :fans, through: :stars, source: :user

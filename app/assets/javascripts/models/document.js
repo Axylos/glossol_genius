@@ -18,6 +18,6 @@ GlossolApp.Models.Document = Backbone.Model.extend({
   },
   
   sourceId: function() {
-    return this.get('annotatings')[0].get('referenced_text_ids')[0];
+    return this.get('references')[0].source_document_id
   }
 });

@@ -6,6 +6,8 @@ GlossolApp.Views.AnnotationSubview = Backbone.View.extend({
   },
   
   triggerHighlight: function() {
+    var mod = GlossolApp.allDocs.models[this.model.id].attributes
+    
     GlossolApp.PubSub.trigger("highlighted", {
       event: this.model
     })

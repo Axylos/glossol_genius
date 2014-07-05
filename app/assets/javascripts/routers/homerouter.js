@@ -80,7 +80,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
       var newDoc = new GlossolApp.Models.Document({}, {
         user_id: GlossolApp.currUser.id
       });
-      newDoc.set({annotatings: [annotating]});
+      newDoc.set({references: [annotating]});
       var annotationView = new GlossolApp.Views.NewAnnotationView({ 
         model: newDoc,
         sel: sel

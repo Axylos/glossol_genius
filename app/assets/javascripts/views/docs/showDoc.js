@@ -14,6 +14,7 @@ GlossolApp.Views.ShowDoc = Backbone.View.extend({
   },
   
   receiveHighlight: function(event) {
+    debugger
   },
 
   render: function() {

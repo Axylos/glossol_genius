@@ -17,7 +17,8 @@ GlossolApp.Views.NewDoc = Backbone.CompositeView.extend({
   makeDoc: function(event) {
     event.preventDefault();
     var docParams = $(event.target).serializeJSON();
-    this.model.save(docParams["document"], {
+    this.model.set(docParams);
+    this.model.save({}, {
       success: function(model, res) {
         console.log("doc added")
       },

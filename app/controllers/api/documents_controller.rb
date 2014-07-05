@@ -33,7 +33,6 @@ class Api::DocumentsController < ApplicationController
     
     if @document.save
       id = @document.id
-      binding.pry
       @document = Document.includes(:references, :annotatings).find(id)
       render "api/documents/show"
     else

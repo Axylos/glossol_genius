@@ -4,12 +4,6 @@ GlossolApp.Models.Document = Backbone.Model.extend({
 
   initialize: function(model, options) {
     this.user_id = options.user_id;
-    this.notes = options.annotatings;
-    this.refs = options.references;
-    var annos = options.annotatings || [];
-    this.set({
-      annotatings: annos
-    });
     this.author = options.author
   },
 
@@ -21,5 +15,9 @@ GlossolApp.Models.Document = Backbone.Model.extend({
       parentCollection: GlossolApp.allDocs
      });
     return this._annotations;
+  },
+  
+  sourceId: function() {
+    return this.get('references')[0].source_document_id
   }
 });

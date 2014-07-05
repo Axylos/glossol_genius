@@ -14,20 +14,28 @@ class Api::DocumentsController < ApplicationController
   end
 
   def show
-    @document = Document.find(params[:id])
-    render json: @document
+    @document = Document.includes(:references, :annotatings).find(params[:id])
+    render "api/documents/show"
   end
   
   
   def create
-   
+    
     @document = current_user.documents.new(doc_params)
-    @document.referenced_text_ids = anno_params[:referenced_text_ids]
-    @document.references.last.source_text = anno_params[:source_text]
+    
+    if ref_params
+      #replace first with each block later
+      @document.referenced_text_ids = ref_params.first[:referenced_text_ids]
+      @document.references.last.source_text = ref_params.first[:source_text]
+    end
+    
+    
     
     if @document.save
-      p @document
-      render json: @document
+      id = @document.id
+      binding.pry
+      @document = Document.includes(:references, :annotatings).find(id)
+      render "api/documents/show"
     else
       p @document.errors
       render json: { status: :unprocessable_entity }
@@ -41,17 +49,16 @@ class Api::DocumentsController < ApplicationController
     params.require(:document).permit(:title, :body)
   end
   
-  def anno_params
-    params[:annotatings]
+  def ref_params
+    params[:references]
   end
   
   def doc_is_annotation?
-    !!params["annotatings"]
+    !!params["references"]
   end
   
   def user_given?
     !!params[:user_id]
   end
       
-
 end

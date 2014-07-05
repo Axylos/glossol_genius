@@ -1,0 +1,1 @@
+json.(@document, :id, :title, :body, :user_id, :annotatings, :references)

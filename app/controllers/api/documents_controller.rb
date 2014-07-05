@@ -14,8 +14,8 @@ class Api::DocumentsController < ApplicationController
   end
 
   def show
-    @document = Document.find(params[:id])
-    render json: @document
+    @document = Document.includes(:references, :annotatings).find(params[:id])
+    render json: "api/documents/show"
   end
   
   

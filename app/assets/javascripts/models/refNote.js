@@ -1,0 +1,1 @@
+GlossolApp.Models.RefNote = Backbone.Model.extend({});

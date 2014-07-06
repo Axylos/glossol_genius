@@ -69,6 +69,11 @@ GlossolApp.Views.ShowDoc = Backbone.CompositeView.extend({
       title: "References"
     });
     
+    this.refButtonsView = new GlossolApp.Views.DocRevButtons({
+      model: this.model
+    })
+    
+    this.addSubView('.buttons', this.refButtonsView);
     this.addSubView('.existing-refs', this.refsView);
   }
   

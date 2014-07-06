@@ -28,9 +28,7 @@ class Api::DocumentsController < ApplicationController
       @document.referenced_text_ids = ref_params.first[:referenced_text_ids]
       @document.references.last.source_text = ref_params.first[:source_text]
     end
-    
-    
-    
+
     if @document.save
       id = @document.id
       @document = Document.includes(:references, :annotatings).find(id)

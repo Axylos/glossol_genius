@@ -26,7 +26,28 @@ GlossolApp.Models.Document = Backbone.Model.extend({
     return this._references;
   },
   
+  refNotes: function() {
+    var that = this;
+    this._refNotes = this._refNotes ||
+    new GlossolApp.Collections.RefNotes([], {
+      noteDoc: that,
+    });
+    return this._refNotes;
+  },
+  
   sourceId: function() {
     return this.get('references')[0].source_document_id
+  },
+  
+  parse: function(jsonResp) {
+    var that = this;
+    if (jsonResp.references) {
+      var refColl = new GlossolApp.Collections.RefNotes(jsonResp.references, {
+        noteDoc: that
+      });
+      
+      this.set({refNotes: refColl});
+    }
+    return jsonResp;
   }
 });

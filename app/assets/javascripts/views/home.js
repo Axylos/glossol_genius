@@ -1,6 +1,10 @@
 GlossolApp.Views.Home = Backbone.CompositeView.extend({
 
   template: JST['home'],
+  
+  events: {
+    "mouseup": "triggerSel"
+  },
 
   initialize: function(options) {
 
@@ -13,4 +17,9 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
     this.addSubView(".right-pane", this.rightPaneView);
     this.addSubView(".left-pane", this.leftPaneView);
   },
+  
+  triggerSel: function() {
+    var sel = rangy.getSelection();
+    this.$('.sel-show').html(sel.toString());
+  }
 });

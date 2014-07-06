@@ -1,7 +1,7 @@
 GlossolHellYeah::Application.routes.draw do
 
 
-  root to: "documents#index"
+  root to: "site#root"
   get 'auth/facebook/callback', to: "omniauth_callbacks#facebook"
 
   shallow do

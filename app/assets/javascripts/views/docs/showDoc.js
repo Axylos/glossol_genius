@@ -1,18 +1,23 @@
-GlossolApp.Views.ShowDoc = Backbone.View.extend({
+GlossolApp.Views.ShowDoc = Backbone.CompositeView.extend({
   template: JST['showDoc'],
 
   initialize: function(options) {
     this.title = options.title;
     this.author = options.author;
+
     this.author.fetch({ parse: true });
-    this.listenTo(this.model, "sync", this.render);
+
+    this.listenTo(this.author, "sync", this.show);    
+    this.listenTo(this.model, "sync", this.show);
+    
     this.listenTo(GlossolApp.PubSub, "highlighted", this.receiveHighlight);
     this.listenTo(GlossolApp.PubSub, "unhighlight", this.removeHighlight);
-    this.listenTo(this.author, "sync", this.render);
+    this.listenTo(GlossolApp.PubSub, "addRefs", this.addRefMode);
   },
 
   events: {
-    "mouseup .doc-text": "getText"
+    "mouseup .doc-text": "getText",
+    "click #new-ref": "addRefMode"
   },
   
   receiveHighlight: function(event) {
@@ -31,16 +36,40 @@ GlossolApp.Views.ShowDoc = Backbone.View.extend({
     $('span').contents().unwrap();
   },
 
-  render: function() {
+  show: function() {
     console.log("called");
-    
     var that = this;
-
     this.$el.html(this.template({
-      doc: that.model,
+      model: that.model,
       author: that.author
     }));
-    return this;
+    
+    this.fullDocView = new GlossolApp.Views.FullDocView({
+      model: this.model,
+      author: this.author
+    });
+    
+    
+    this.buttonsView = new GlossolApp.Views.DocButtons({model: this.model});
+    
+    this.addSubView('.full-doc', this.fullDocView);
+    this.addSubView('.buttons', this.buttonsView);
+  },
+  
+  addRefMode: function(event) {
+    event.preventDefault();
+    this.buttonsView.remove();
+    var refs = this.model.get('references');
+    
+    refColl = GlossolApp.Subsets.References.prototype.buildRefColl(refs);
+    
+    this.refsView = new GlossolApp.Views.ReferencesIndexView({
+      collection: refColl,
+      notice: "No references yet!",
+      title: "References"
+    });
+    
+    this.addSubView('.existing-refs', this.refsView);
   }
   
 });

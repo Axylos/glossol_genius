@@ -106,19 +106,11 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
   showRefs: function(id) {
     var docStuff = this.buildDoc(id);
     var refs = docStuff.doc.get('references');
-    var refers = refs.map(function(ref) { 
-      return {
-        doc: GlossolApp.allDocs.get(ref.source_document_id),
-        source_text: ref.source_text
-      }
-    });
     
-    var referenceColl = new GlossolApp.Subsets.References(refers, { 
-      parentCollection: GlossolApp.allDocs
-    });
+    var refColl = GlossolApp.Subsets.References.prototype.buildRefColl(refs)
     
     var refsView = new GlossolApp.Views.ReferencesIndexView({
-      collection: referenceColl,
+      collection: refColl,
       notice: "No references yet!",
       title: "References"
     });

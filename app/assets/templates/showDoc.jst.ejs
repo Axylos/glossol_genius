@@ -1,10 +1,5 @@
-<container class="buttons group">
-  <a class='new-anno group' 
-    href=<%= "#/doc/" + doc.id + "/newAnno" %>>Make New Annotation</a>
-  <a class='show-refs group' href=<%= 
-    "#/doc/" + doc.id + "/showRefs" %>>See References</a>
-  <a class='show-refs group' href=<%= 
-    "#/doc/" + "show/" + doc.id %>>See Annotations</a>
+<container class="main-doc-view">
+  <div class="buttons"></div>
+  <ul class="existing-refs"></ul>
+  <div class="full-doc"></div>
 </container>
-<h1><%= doc.escape('title') + " by " + author.escape('email') %></h1>
-<content class="doc-text"><%= doc.escape('body') %></content>

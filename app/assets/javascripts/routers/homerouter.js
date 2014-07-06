@@ -5,7 +5,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     "doc/show/:id(/)": "showDoc",
     "doc/:id(/)/newAnno": "newAnnotation",
     "doc/:id(/)/showRefs": "showRefs",
-    "right/add-refs": "addRefsIndex"
+    "documents/:id(/)/addRefs": "addRefsIndex"
   },
 
   initialize: function(options) {
@@ -30,8 +30,15 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
   },
   
   
-  addRefsIndex: function() {
-    alert("refIndex");
+  addRefsIndex: function(id) {
+	var docId = parseInt(id);
+	var noteDoc = GlossolApp.allDocs.get(docId);
+	
+	var newRefIndex = new GlossolApp.Views.NewRefIndex({
+		model: noteDoc
+	});
+	
+	this._rightSwapView(newRefIndex);
   },
 
   newDoc: function() {

@@ -77,6 +77,6 @@ GlossolApp.Views.ShowDoc = Backbone.CompositeView.extend({
     this.addSubView('.buttons', this.refButtonsView);
     this.addSubView('.existing-refs', this.refsView);
     
-    GlossolApp.HomeRouter.navigate("right/add-refs/");
+    GlossolApp.HomeRouter.navigate("documents/" + this.model.id + "/addRefs", { trigger: true });
    }
 });

@@ -9,6 +9,7 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
     
     var selectionView = new GlossolApp.Views.SelectionView();
     this.addSubView('.sel-box', selectionView);
+    
 
     this.leftPaneView = new GlossolApp.Views.LeftPane();
     this.rightPaneView = new GlossolApp.Views.RightPane();
@@ -16,5 +17,7 @@ GlossolApp.Views.Home = Backbone.CompositeView.extend({
     this.addSubView(".right-pane", this.rightPaneView);
     this.addSubView(".left-pane", this.leftPaneView);
     
-  }  
+  },
+  
+  
 });

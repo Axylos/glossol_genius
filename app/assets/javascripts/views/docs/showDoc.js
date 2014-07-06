@@ -67,20 +67,18 @@ GlossolApp.Views.ShowDoc = Backbone.CompositeView.extend({
     
     refColl = GlossolApp.Subsets.References.prototype.buildRefColl(refs);
     
+    var that = this;
     this.refsView = new GlossolApp.Views.ReferencesIndexView({
       collection: refColl,
+      model: that.model,
       notice: "No references yet!",
       title: "References"
     });
-    
-    this.refButtonsView = new GlossolApp.Views.DocRefButtons({
-      model: this.model
-    });
-    
+
     this.currSelView = new GlossolApp.Views.SelView();
     
     this.addSubView('.current-sel', this.currSelView);
-    this.addSubView('.buttons', this.refButtonsView);
+    
     this.addSubView('.existing-refs', this.refsView);
     
     GlossolApp.HomeRouter.navigate("documents/" + this.model.id + "/addRefs", { 
@@ -89,10 +87,7 @@ GlossolApp.Views.ShowDoc = Backbone.CompositeView.extend({
    },
    
    getSel: function(options) {
-     this.selection = options.sel;
-     
+     this.selection = options.sel;     
    },
- 
-   
-   
+  
 });

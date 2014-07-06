@@ -20,6 +20,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     var refColl = GlossolApp.Subsets.References.prototype.buildRefColl(refs)
     
     var refsView = new GlossolApp.Views.ReferencesIndexView({
+      model: docStuff.doc,
       collection: refColl,
       notice: "No references yet!",
       title: "References"

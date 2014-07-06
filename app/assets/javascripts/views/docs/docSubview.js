@@ -5,7 +5,8 @@ GlossolApp.Views.DocSubview = Backbone.View.extend({
   
   events: {
     "click .doc-preview": "openRef",
-    "click .anno-close": "closeRef"
+    "click .anno-close": "closeRef",
+    "mouseup .ref-text": "emitSel" 
   },
   
   initialize: function(options) {
@@ -37,9 +38,19 @@ GlossolApp.Views.DocSubview = Backbone.View.extend({
     this.open = false;
     this.render();
   },
-  
-  removeHighlight: function() {
+
+  emitSel: function(event) {
     
+    event.preventDefault();
+    var sel = rangy.getSelection();
+  
+    if (sel.toString().length > 1) {
+      var selection = GlossolApp.Models.Selection.prototype.buildSel(
+        sel, 
+        this.model
+      );
+      GlossolApp.PubSub.trigger("getSel", {sel: selection});
+    }
   },
   
   render: function() {

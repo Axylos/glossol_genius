@@ -6,7 +6,7 @@ GlossolApp.Views.NewRefIndex = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		"click a": "expandRef"
+		"click a": "expandRef",
 	},
 	
 	expandRef: function(event) {
@@ -23,5 +23,7 @@ GlossolApp.Views.NewRefIndex = Backbone.CompositeView.extend({
       title: "References"
     });
 		this.addSubView('.docIndex', this.docsView);
-	}
+	},
+  
+  
 });

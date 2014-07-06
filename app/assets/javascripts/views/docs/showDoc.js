@@ -13,11 +13,14 @@ GlossolApp.Views.ShowDoc = Backbone.CompositeView.extend({
     this.listenTo(GlossolApp.PubSub, "highlighted", this.receiveHighlight);
     this.listenTo(GlossolApp.PubSub, "unhighlight", this.removeHighlight);
     this.listenTo(GlossolApp.PubSub, "addRefs", this.addRefMode);
+    
+    this.listenTo(GlossolApp.PubSub, "getSel", this.getSel);
   },
 
   events: {
     "mouseup .doc-text": "getText",
-    "click #new-ref": "addRefMode"
+    "click #new-ref": "addRefMode",
+    "click make-ref": "createReference"
   },
   
   receiveHighlight: function(event) {
@@ -74,11 +77,22 @@ GlossolApp.Views.ShowDoc = Backbone.CompositeView.extend({
       model: this.model
     });
     
+    this.currSelView = new GlossolApp.Views.SelView();
+    
+    this.addSubView('.current-sel', this.currSelView);
     this.addSubView('.buttons', this.refButtonsView);
     this.addSubView('.existing-refs', this.refsView);
     
     GlossolApp.HomeRouter.navigate("documents/" + this.model.id + "/addRefs", { 
       trigger: true 
     });
-   }
+   },
+   
+   getSel: function(options) {
+     this.selection = options.sel;
+     
+   },
+ 
+   
+   
 });

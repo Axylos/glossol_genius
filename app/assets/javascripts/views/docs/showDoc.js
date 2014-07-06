@@ -58,6 +58,7 @@ GlossolApp.Views.ShowDoc = Backbone.CompositeView.extend({
   
   addRefMode: function(event) {
     event.preventDefault();
+    
     this.buttonsView.remove();
     var refs = this.model.get('references');
     
@@ -69,12 +70,13 @@ GlossolApp.Views.ShowDoc = Backbone.CompositeView.extend({
       title: "References"
     });
     
-    this.refButtonsView = new GlossolApp.Views.DocRevButtons({
+    this.refButtonsView = new GlossolApp.Views.DocRefButtons({
       model: this.model
     })
     
     this.addSubView('.buttons', this.refButtonsView);
     this.addSubView('.existing-refs', this.refsView);
-  }
-  
+    
+    GlossolApp.HomeRouter.navigate("right/add-refs/");
+   }
 });

@@ -4,12 +4,34 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     "doc/newdoc": "newDoc",
     "doc/show/:id(/)": "showDoc",
     "doc/:id(/)/newAnno": "newAnnotation",
-    "doc/:id(/)/showRefs": "showRefs"
+    "doc/:id(/)/showRefs": "showRefs",
+    "right/add-refs": "addRefsIndex"
   },
 
   initialize: function(options) {
     this.$leftContainer = options.pane.find('.user-docs');
     this.$rightContainer = options.pane.find('.sub-docs');
+  },
+  
+  showRefs: function(id) {
+    var docStuff = this.buildDoc(id);
+    var refs = docStuff.doc.get('references');
+    
+    var refColl = GlossolApp.Subsets.References.prototype.buildRefColl(refs)
+    
+    var refsView = new GlossolApp.Views.ReferencesIndexView({
+      collection: refColl,
+      notice: "No references yet!",
+      title: "References"
+    });
+    
+    this._rightSwapView(refsView);
+    this._leftSwapView(docStuff.view);
+  },
+  
+  
+  addRefsIndex: function() {
+    alert("refIndex");
   },
 
   newDoc: function() {
@@ -69,6 +91,8 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     //build right pane
     this.showDocIndex();
   },
+  
+  
 
   newAnnotation: function(id) {
     var sel = rangy.getSelection();
@@ -103,21 +127,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     
   },
   
-  showRefs: function(id) {
-    var docStuff = this.buildDoc(id);
-    var refs = docStuff.doc.get('references');
-    
-    var refColl = GlossolApp.Subsets.References.prototype.buildRefColl(refs)
-    
-    var refsView = new GlossolApp.Views.ReferencesIndexView({
-      collection: refColl,
-      notice: "No references yet!",
-      title: "References"
-    });
-    
-    this._rightSwapView(refsView);
-    this._leftSwapView(docStuff.view);
-  },
+  
 
   //utility function
   _leftSwapView: function(newView) {

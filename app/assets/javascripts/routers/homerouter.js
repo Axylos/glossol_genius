@@ -35,9 +35,11 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
 	var noteDoc = GlossolApp.allDocs.get(docId);
 	
 	var newRefIndex = new GlossolApp.Views.NewRefIndex({
-		model: noteDoc
+		model: noteDoc,
+    collection: GlossolApp.allDocs
 	});
-	
+	debugger
+  
 	this._rightSwapView(newRefIndex);
   },
 

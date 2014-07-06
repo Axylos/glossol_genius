@@ -39,6 +39,11 @@ GlossolApp.Models.Document = Backbone.Model.extend({
     return this.get('references')[0].source_document_id
   },
   
+  getAuthor: function() {
+    var that = this;
+    return new GlossolApp.Models.User({id: that.get('user_id')});
+  },
+  
   parse: function(jsonResp) {
     var that = this;
     if (jsonResp.references) {

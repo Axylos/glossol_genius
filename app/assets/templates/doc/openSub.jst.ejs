@@ -1,0 +1,7 @@
+<div class="anno-preview" id="<%= doc.id %>">
+  <a href="#/doc/show/<%= dpc.id %>"><%= doc.escape('title') %></a>
+  <div>By <%= author.escape('email') %></div>
+  <p class="ref-text"><%= doc.escape('body') %></p>
+  
+  <button class="anno-close">Close Preview</button>
+</div>

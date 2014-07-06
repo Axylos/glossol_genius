@@ -11,17 +11,17 @@ GlossolApp.Views.NewRefIndex = Backbone.CompositeView.extend({
 	
 	expandRef: function(event) {
 		event.preventDefault();
-		debugger
 	},
 	
 	addViews: function() {
 		var that = this;
 	  this.$el.html(this.template);
-	
-		var allDocsView = new GlossolApp.Views.Docs({
-		collection: GlossolApp.allDocs,
-		title: "All Documents"
-		});
-		this.addSubView('.docIndex', allDocsView);
+    
+    this.docsView = new GlossolApp.Views.DocPrevView({
+      collection: this.collection,
+      notice: "No references yet!",
+      title: "References"
+    });
+		this.addSubView('.docIndex', this.docsView);
 	}
 });

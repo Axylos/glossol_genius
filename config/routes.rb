@@ -24,6 +24,7 @@ GlossolHellYeah::Application.routes.draw do
   end
 
   namespace :api, defaults: { format: :json } do
+    get "search/:query", to: "search#show"
 
     shallow do
       resources :users do
@@ -35,6 +36,6 @@ GlossolHellYeah::Application.routes.draw do
       resources :references
     end
   end
-
+  
   get 'bb/', to: "site#root"
 end

@@ -11,6 +11,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
   initialize: function(options) {
     this.$leftContainer = options.pane.find('.user-docs');
     this.$rightContainer = options.pane.find('.sub-docs');
+    this.listenTo(GlossolApp.PubSub, "parseSearch", this.getSearch)
   },
   
   showRefs: function(id) {
@@ -99,8 +100,6 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     //build right pane
     this.showDocIndex();
   },
-  
-  
 
   newAnnotation: function(id) {
     var sel = rangy.getSelection();
@@ -135,8 +134,6 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     
   },
   
-  
-
   //utility function
   _leftSwapView: function(newView) {
     if (this.leftCurrentView) {
@@ -162,5 +159,16 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
       title: "All Documents"
     });
     this._rightSwapView(allDocsView);
+  },
+  
+  getSearch: function(model, res) {
+    alert("oh god!");
+    var docs = new GlossolApp.Collections.Documents(model.res, { user: ""});
+    var searchDocsView = new GlossolApp.Views.Docs({
+      collection: docs,
+      title: "Search Resuts",
+      notice: "Search Returned No Results!"
+    });
+    this._rightSwapView(searchDocsView);
   }
 });

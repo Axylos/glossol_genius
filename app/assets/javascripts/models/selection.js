@@ -1,6 +1,5 @@
 GlossolApp.Models.Selection = Backbone.Model.extend({
-  
-  
+
   buildSel: function(sel, doc) {
     var range = sel.getRangeAt(0);
     var parent = range.commonAncestorContainer.parentNode;

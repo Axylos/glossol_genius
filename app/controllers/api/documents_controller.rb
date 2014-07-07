@@ -8,7 +8,6 @@ class Api::DocumentsController < ApplicationController
     else
       @documents = Document.includes(:references, :annotatings).all
     end
-    
               
     render "api/documents/index"
   end

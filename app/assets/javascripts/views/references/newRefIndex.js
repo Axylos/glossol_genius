@@ -24,6 +24,4 @@ GlossolApp.Views.NewRefIndex = Backbone.CompositeView.extend({
     });
 		this.addSubView('.docIndex', this.docsView);
 	},
-  
-  
 });

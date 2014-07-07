@@ -1,4 +1,8 @@
 class Document < ActiveRecord::Base
+  include PgSearch
+
+  multisearchable against: [:title, :body]
+  
   validates :title, uniqueness: true
 
   validates :title, :body, :user_id, presence: true

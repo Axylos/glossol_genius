@@ -35,7 +35,7 @@ Der Punkt, an dem das Gleichnis hinkt ist nun der: Wir können auf einen Punkt d
 
 crit = Document.create(
         user_id: 3,
-        title: "what is this garbage",
+        title: "what is this stuff",
         body: "roflcoaster")
 
 critical_note = Annotating.create(

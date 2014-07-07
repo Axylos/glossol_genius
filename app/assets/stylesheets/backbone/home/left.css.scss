@@ -15,31 +15,18 @@
       height: 100%;
       border-right: solid #333 1px;
 
-      .new-anno {
-        color: #FF3000;
-        margin: 15px;
+     .show-refs, .new-anno {
+        color: rgba(255, 255, 255, 1);
+        margin: 8px;
         float: left;
-        width: 200px;
-        padding: 15px;
-        font-size: 20px;
-        background: #2012E4;
-        border: solid #9C00A5 3px;
-      }
-      
-      .show-refs {
-        color: #FF3000;
-        margin: 15px;
-        float: right;
-        width: 170px;
-        padding: 15px;
-        font-size: 20px;
-        background: #2012E4;
-        border: solid #9C00A5 3px;
+        padding: 8px;
+        font-size: 15px;
+        background: #2AB580;
+        border: solid #FF2A09 3px;
       }
       
       .buttons {
         display: block;
-        margin: 10px;
       }
 
       li {

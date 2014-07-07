@@ -1,5 +1,5 @@
-<container class="sel-display">
-  <h2>Current Selection:</h2>
-  <p>Selection Document: <%= sel.get('doc').escape('title') %></p>
-  <p>Text: <%= sel.escape('text') %></p>
+<container class="sel-display group">
+  <p><span class="label">Selection</span> Document: <%= sel.get('doc').escape('title') %></p>
+  <h2><span class="label">Current Selection:</span></h2>
+  <p class="text"><%= sel.get('range').text() %></p>
 </container>

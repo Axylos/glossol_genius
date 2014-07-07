@@ -1,0 +1,28 @@
+.sel-box {
+  float: left;
+  top: 50px;
+  width: 45%;
+  max-height: 200px;
+  background: #999;
+  margin-left: 30px;
+  border-radius: 6px;
+  overflow: scroll;
+  
+  
+  
+  .sel-display {
+    display: block;
+    margin: 15px;
+    color: #63FFFB;
+    
+    .label {
+      font-size: 18px;
+      color: #F6D9D9;
+    }
+    
+    .text {
+      whitespace: pre-wrap;
+      color: rgb(240, 255, 0);;
+    }
+  }
+}

@@ -7,6 +7,7 @@ body {
 }
 
 .navigation {
+  font-family: 'Oswald', sans-serif;
   margin-bottom: 8px;
   background: #3D3D3D;
   float: left;
@@ -46,7 +47,9 @@ body {
     border-left: solid #2FD000 4px;
      
     a, input[type="submit"] {
+      font-family: 'Montserrat', sans-serif;      
       display: block;
+      font-weight: bold;
       margin: auto;
       background: #FF0600;
       font-size: 17px;

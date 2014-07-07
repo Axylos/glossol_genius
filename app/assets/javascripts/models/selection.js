@@ -6,7 +6,8 @@ GlossolApp.Models.Selection = Backbone.Model.extend({
     var parent = range.commonAncestorContainer.parentNode;
     var pos = range.toCharacterRange(parent);
     var src_text = [pos.start - 1, pos.end - 1]
-    var text = doc.escape('body').substr(src_text[0], src_text[1]);
+    var text = doc.escape('body').substring(src_text[0] + 1, src_text[1] + 1);
+    
     var docId = doc.id;
     
     return new GlossolApp.Models.Selection({

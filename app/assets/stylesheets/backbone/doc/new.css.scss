@@ -4,10 +4,13 @@
 
   form {
     color: #3C3C3C;
-    background: #FFB800;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    background: rgba(0, 251, 255, 0.31);;
+    border-radius: 10px;
+    
 
     label {
+      font-weight: bold;
       padding: 15px;
       font-size: 20px;
       display: block;
@@ -15,36 +18,61 @@
 
     textarea {
       display: block;
-      background: #FF62CE;
-      width: 600px;
-      height: 700px;
+      background: #EFFFFB;
+      width: 80%;
+      height: 680px;
       border: solid red 5px;
-      margin-left: 30px;
+      margin: 20px auto;;
       padding: 10px;
+      box-shadow: 10px 10px 5px #888888;
+    }
+    
+    textarea:focus {
+      border: solid #3EC411 3px;
+    }
+    
+    #body {
+      margin-left: 50px;
     }
 
     .doc-info {
       display: block;
-      width: 600px;
       margin-left: 30px;
+      
+      #title {
+        margin-left: 18px;
+      }
 
       input[type="submit"] {
-        border: solid red 5px;
+        border: solid red 3px;
         color: #16FF00;
         background: #0735FF;
-        float: right;
-        padding: 15px;
-        font-size: 20px;
+        float: left;
+        margin-left: 40px;
+        padding: 8px;
+        font-size: 14px;
+      }
+      
+      input[type="submit"]:hover {
+        background: #54F400;
+        color: #960007;
       }
     }
 
     input[type="text"] {
-      border: solid red 5px;
+      border: solid red 3px;
       display: block;
+      margin-left: 30px;
       float: left;
-      padding: 15px;
-
-      background: #25CAFF;
+      padding: 8px;
+      margin-bottom: 25px;
+      background: #EFFFFB;
+    }
+    
+    input[type="text"]:focus {
+      border: solid #222 3px;
+      background: #FFF;
+      color: #000B99;
     }
   }
 }

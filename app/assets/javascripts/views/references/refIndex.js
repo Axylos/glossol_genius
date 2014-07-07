@@ -20,7 +20,6 @@ GlossolApp.Views.ReferencesIndexView = Backbone.CompositeView.extend({
           model: ref
         });
         that.addSubView('.ref-list', that.refView);
-        
       });
       
     } else {

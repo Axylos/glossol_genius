@@ -131,7 +131,6 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
       });
       this._rightSwapView(annotationView); 
     }
-    
   },
   
   //utility function
@@ -161,10 +160,10 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     this._rightSwapView(allDocsView);
   },
   
-  getSearch: function(model, res) {
-    alert("oh god!");
-    var docs = new GlossolApp.Collections.Documents(model.res, { user: ""});
-    var searchDocsView = new GlossolApp.Views.Docs({
+  getSearch: function(options) {
+    var docs = new GlossolApp.Collections.Documents(options.res, { user: ""});
+    var searchDocsView = new GlossolApp.Views.SearchDocs({
+      query: options.query,
       collection: docs,
       title: "Search Resuts",
       notice: "Search Returned No Results!"

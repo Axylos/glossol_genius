@@ -1,11 +1,13 @@
 .anno-preview {
   background: #CBCBCB;
+  font-size: 14px;
   color: #526FFF;
-  font-size: 25px;
   padding: 8px;
+  margin-bottom: 3px;
 }
 
 .anno-preview:hover {
  background: #F5E2A7; 
+ padding: 5px;
  border: solid #A5FF0E 3px;
 }

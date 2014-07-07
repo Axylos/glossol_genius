@@ -74,7 +74,6 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
   home: function() {
     this.fetchDocs();
 
-    this.$announcement.text("You Made It!");
     var navContent = JST['navContent'];
     this.$navLinks.html(navContent);
 

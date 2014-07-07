@@ -1,10 +1,11 @@
 body {
   min-height: 1200px;
   font-family: sans-serif;
-  background: #222;
+  background: #eee;
 }
 
 .navigation {
+  margin-bottom: 8px;
   background: #3D3D3D;
   float: left;
   width: 100%;
@@ -14,7 +15,7 @@ body {
   .nav-logo {
     display: block;
     float: left;
-    height: 53px;
+    height: 35px;
     width: 20%;
     border-right: solid #838383 2px;
    
@@ -30,7 +31,7 @@ body {
     
       .app-title {
         color: #0BCDB8;
-        font-size: 20px;
+        font-size: 16px;
         padding: 10px 8px 0 20px;
       }
     }
@@ -40,26 +41,25 @@ body {
   .enter-links {
     float: right;
     display: block;
-    border-left: solid #FF0300 4px;
+    border-left: solid #2FD000 4px;
      
     a, input[type="submit"] {
       display: block;
       margin: auto;
-      background: #00EAF2;
-      font-size: 20px;
-      color: #F31100;
-      font-weight: bold;
-      padding: 15px;
+      background: #FF0600;
+      font-size: 17px;
+      color: #fff;
+      padding: 8px;
     }
     
-    a:hover {
-      background: #0028FF;
-      color: #FAD900;
+    a:hover, input[type="submit"]:hover {
+      background: #00FFC5;
+      color: #000;
     }
     
     li {
       float: left;
-      border-right: solid #FF0300 4px;
+      border-right: solid #2FD000 4px;
     }
     
     li:nth-child(3) {
@@ -68,19 +68,4 @@ body {
   }
 }
 
-.announcement {
-  height: 50px;
-  font-size: 40px;
-  padding: 2px;
-  
-  .announce {
-    position: relative;
-    color: #FFF200;
-    margin-top: 0;
-    text-align: center;
-  }
-}
-
-.backbone {
-}
 

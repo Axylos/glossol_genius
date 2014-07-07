@@ -145,6 +145,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
   },
 
   _rightSwapView: function(newView) {
+    
     if (this.rightCurrentView) {
       this.rightCurrentView.remove();
     }
@@ -169,6 +170,7 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
       title: "Search Resuts",
       notice: "Search Returned No Results!"
     });
+    this.navigate("#/search");
     this._rightSwapView(searchDocsView);
   },
   

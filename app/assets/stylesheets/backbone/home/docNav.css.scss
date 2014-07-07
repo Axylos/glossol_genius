@@ -1,30 +1,30 @@
 .doc-nav {
-
-  background: #22F26B;
-  margin-bottom: 25px;
+  
+  float: left;
   padding: 0;
-  width: 500px;
 
   ul {
-    margin: 0;
-    padding: 0;
-    display: inline;
+    margin-left: 20px;
+    display: block;
 
     li {
-      padding: 10px;
-      margin: 0;
+      margin: 0 5px;
       float: left;
 
       a {
-        padding: 20px 15px 20px 15px;
-        background: #FCF800;
-        margin: 0;
+        padding: 4px;
+        border: solid #535353 2px;
+        border-radius: 3px;
+        color: #222;
+        background: #0EDB1A;
         display: block;
-        border-right: solid #DF00F4 2px;
-
+        margin: 8px 0;
+      }
+      
+      a:hover {
+        background: #FDD5AA;
+        color: #793A7D;
       }
     }
   }
-
-
 }

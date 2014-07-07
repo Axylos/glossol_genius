@@ -13,19 +13,21 @@
     }
   
     li {
-      color: #0FF;
+      color: #003CFF;
       margin: auto;
       display: block;
     }
   
     input {
       margin: 10px 0;
+      color: #0623FF;
       border: solid #3B3B3B 2px;
       padding: 7px;
     }
   
     input:focus {
-      border: solid #00F2C5 2px;
+      border: solid #00E653 2px;
+      background: #F0D000;
       -webkit-transition: 1s;
 //      transition: focus 1s;
     }

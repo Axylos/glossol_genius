@@ -1,3 +1,2 @@
-<div class="doc-preview" id="<%= doc.id %>">
-  <a href="#/doc/show/<%= doc.id %>"><%= doc.get('title') %></a>
-</div>
+<div class="doc-preview" id="<%= doc.id %>"><a href="#/doc/show/<%= doc.id %>"><span class="author-email"><%= author.escape('email') %></span>
+  <content class="doc-ttle"><%= doc.escape('title') %></content></a></div>

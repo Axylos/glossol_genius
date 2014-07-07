@@ -1,3 +1,11 @@
-.right-pane {
-  border: solid #FFD800 3px;
+.righty {
+  float: right;
+  width: 50%;
+  height: 900px;
+
+  .right-pane {
+    display: block;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
 }

@@ -3,11 +3,11 @@
   min-height: 75%;
 
 //  For development
-  border: solid yellow 4px;
 
   color: #C200C6;
 
   .lefty {
+    height: 900px;
     width: 50%;
     float: left;
 
@@ -15,7 +15,7 @@
       display: block;
       padding: 20px;
       height: 100%;
-      border: solid #00E2BF 3px;
+      border-right: solid #333 1px;
 
       .new-anno {
         color: #FF3000;
@@ -47,15 +47,6 @@
       li {
         margin: 10px;
       }
-    }
-  }
-
-  .righty {
-    float: right;
-    width: 50%;
-
-    .right-pane {
-      display: block;
     }
   }
 }

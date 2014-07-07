@@ -21,7 +21,7 @@ gem 'selenium-webdriver'
 
 gem 'figaro'
 
-#fuck you WEBrick
+#better server
 gem 'thin'
 
 # Use Uglifier as compressor for JavaScript assets

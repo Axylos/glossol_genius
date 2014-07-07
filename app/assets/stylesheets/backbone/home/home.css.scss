@@ -1,0 +1,41 @@
+.utility-stuff {
+  display: block;
+  
+  .search-box {
+    margin-left: 30px;
+    margin-top: 3px;
+    border: 0;
+    float: left;
+    padding: 5px 10px;
+    background: none;
+    
+      input {
+        border: solid #333 2px;
+        color: #3F3E42;
+        border-radius: 8px;
+        background: #ddd;
+        margin: 0 7px;
+        padding: 5px;
+      }
+    
+      button {
+        padding: 4px;
+        color: #FFF400;
+        border: solid #333 2px;
+        border-radius: 3px;
+        background: #12D0CA;
+      }
+    
+      button:hover {
+        background: #F8CC00;
+        color: #0026FF;
+      }
+  }
+  
+}
+
+.home-content {
+  margin-top: 35px;
+  display: block;
+  border-top: solid #222 1px;
+}

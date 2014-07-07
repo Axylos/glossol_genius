@@ -1,9 +1,16 @@
 .doc-preview {
+  background: #8FDEE0;
+  margin: 10px;
   font-size: 20px;
   cursor: pointer;
   width: 50%;
 
   a {
-    color: #FF2501;
+    font-size: 15px;
+    color: #fff;
+  }
+  
+  .author-email {
+    display: block;
   }
 }

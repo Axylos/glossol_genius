@@ -5,7 +5,8 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
     "doc/show/:id(/)": "showDoc",
     "doc/:id(/)/newAnno": "newAnnotation",
     "doc/:id(/)/showRefs": "showRefs",
-    "documents/:id(/)/addRefs": "addRefsIndex"
+    "documents/:id(/)/addRefs": "addRefsIndex",
+    "profile": "profile"
   },
 
   initialize: function(options) {
@@ -32,15 +33,15 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
   },
   
   addRefsIndex: function(id) {
-	var docId = parseInt(id);
-	var noteDoc = GlossolApp.allDocs.get(docId);
+  	var docId = parseInt(id);
+  	var noteDoc = GlossolApp.allDocs.get(docId);
 	
-	var newRefIndex = new GlossolApp.Views.NewRefIndex({
-		model: noteDoc,
-    collection: GlossolApp.allDocs
-	});
+  	var newRefIndex = new GlossolApp.Views.NewRefIndex({
+  		model: noteDoc,
+      collection: GlossolApp.allDocs
+  	});
   
-	this._rightSwapView(newRefIndex);
+  	this._rightSwapView(newRefIndex);
   },
 
   newDoc: function() {
@@ -169,5 +170,24 @@ GlossolApp.Routers.HomeRouter = Backbone.Router.extend({
       notice: "Search Returned No Results!"
     });
     this._rightSwapView(searchDocsView);
+  },
+  
+  profile: function() {
+    var user = GlossolApp.currUser;
+    this.viewUser(user);
+  },
+  
+  viewUser: function(user) {
+    var userDocs = new GlossolApp.Subsets.UserDocs([], {
+      parentCollection: GlossolApp.allDocs,
+      user: user
+    });
+    
+    var userView = new GlossolApp.Views.UserShowView({
+      model: user,
+      collection: userDocs
+    });
+    
+    this._leftSwapView(userView);
   }
 });

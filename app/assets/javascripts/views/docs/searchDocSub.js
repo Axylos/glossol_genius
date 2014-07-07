@@ -19,6 +19,9 @@ GlossolApp.Views.SearchDocSubview = Backbone.View.extend({
   
   receiveHighlight: function() {
     var str = this.$el.find('.ref-text').text();
+    str = str.replace(new RegExp(this.query), 
+      '<span class ="hilite"">' + this.query + "</span>")
+    this.$('.ref-text').html(str);
   },
   
   openRef: function() {
@@ -51,8 +54,9 @@ GlossolApp.Views.SearchDocSubview = Backbone.View.extend({
       doc: this.model,
       author: this.author
     });
-    
     this.$el.html(content);
+    this.receiveHighlight()
+    
     return this;
   }
 });

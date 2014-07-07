@@ -1,0 +1,28 @@
+.doc-text {
+  white-space: pre-wrap;
+  background: rgb(193, 193, 193);
+  margin-top: 10px;
+  display: block;
+  color: rgb(60, 97, 229);
+  
+  h2 {
+    margin: auto;
+    width: 500px;
+    font-size: 50px;
+  }
+  
+  .hilite {
+    background: #393939;
+    color: rgb(240, 255, 0);
+    padding: 3px;
+  }
+  
+  .doc-body {
+    background: rgb(232, 232, 232);
+    font-size: 25px;
+    margin: 10px;
+    padding: 10px;
+    border: solid black 5px;
+    border-radius: 25px;
+  }
+}

@@ -44,14 +44,14 @@ body {
   .enter-links {
     float: right;
     display: block;
-    border-left: solid #2FD000 4px;
+    border-left: solid #4F92FF 4px;
      
     a, input[type="submit"] {
       font-family: 'Montserrat', sans-serif;      
       display: block;
       font-weight: bold;
       margin: auto;
-      background: #FF0600;
+      background: rgba(249, 20, 62, 0.85);
       font-size: 17px;
       color: #fff;
       padding: 8px;
@@ -64,7 +64,7 @@ body {
     
     li {
       float: left;
-      border-right: solid #2FD000 4px;
+      border-right: solid #4F92FF 4px;
     }
     
     li:nth-child(3) {

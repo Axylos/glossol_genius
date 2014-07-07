@@ -1,0 +1,21 @@
+.abs-bottom {
+  
+  position: absolute;
+  width: 100%;
+  
+  .footer {
+    display: block;
+    background: #606060;
+    color: #00CD9A;
+  
+    .left {
+      float: left;
+      margin-left: 15px;
+    }
+  
+    .right {
+      margin-right: 15px;
+      float: right;
+    }
+  }
+}

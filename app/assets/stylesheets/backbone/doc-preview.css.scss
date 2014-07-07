@@ -1,16 +1,38 @@
-.doc-preview {
-  background: #8FDEE0;
-  margin: 10px;
-  font-size: 20px;
-  cursor: pointer;
-  width: 50%;
-
-  a {
-    font-size: 15px;
-    color: #fff;
-  }
+.right-pane {
   
-  .author-email {
-    display: block;
+  .title {
+    margin-left: 9px;
+    font-size: 30px;
+    color: #0052FF;
+    padding: 10px;
+    width: 195px;
+    border: solid #777 5px;
+  }
+
+  .doc-preview {
+    
+    
+    
+    a {
+      display: block;
+      width: 50%;
+      background:  #333;
+      padding-bottom: 5px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 15px;
+      color: #fff;
+    }
+  
+    .author {
+      padding: 7px 0 0 5px;
+      color: #00FFE4;
+      display: block;
+    }
+    
+    .doc-title {
+      padding: 0 0 0 5px;
+    }
   }
 }

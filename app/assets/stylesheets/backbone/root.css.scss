@@ -1,7 +1,9 @@
 body {
-  min-height: 1200px;
+  position: absolute;
+  display: block;
+  width: 100%;
   font-family: sans-serif;
-  background: #eee;
+  background: #fff;
 }
 
 .navigation {

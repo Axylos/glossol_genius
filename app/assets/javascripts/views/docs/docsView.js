@@ -36,6 +36,6 @@ GlossolApp.Views.Docs = Backbone.View.extend({
   },
 
   addTitle: function(title) {
-    this.$el.prepend("<div>" + this.title + "</div>");
+    this.$el.prepend('<div class="title">' + this.title + "</div>");
   }
 })

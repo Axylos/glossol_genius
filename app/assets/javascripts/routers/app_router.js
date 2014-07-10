@@ -44,6 +44,7 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
     $('#nick').show();
 		$('input[name="isUserNew"]').val(true);
     this.$announcement.text("Welcome!");
+    $('#reg-butt').val("Sign Up!");
     $('#fb-butt').text("Sign up with Facebook!");
   },
 
@@ -51,6 +52,7 @@ GlossolApp.Routers.AppRouter = Backbone.Router.extend({
 		$('input[name="isUserNew"]').val(false);
     $('#nick').hide();
     $('#fb-butt').text("Sign in with Facebook!");
+    $('#reg-butt').val("Sign In!");
     this.$announcement.text("Welcome Back!");
   },
 

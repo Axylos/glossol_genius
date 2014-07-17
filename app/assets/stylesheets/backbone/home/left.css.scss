@@ -14,6 +14,8 @@
       padding: 20px;
       height: 100%;
       border-right: solid #333 1px;
+      max-height: 940px;
+      overflow: scroll;
 
      .show-refs, .new-anno {
         color: rgba(255, 255, 255, 1);

@@ -73,3 +73,46 @@
     }
   }
 }
+
+.description {
+  margin-top: 120px;
+  padding: 10px;
+  background: #89D393;
+  width: 600px;
+  display: block;
+  margin: auto;
+  border-radius: 3px;
+  
+  .wel {
+    font-size: 25px;
+    font-weight: bold;
+    margin: auto;
+    width: 400px;
+  }
+  
+  .subtitle {
+    margin: 5px auto;
+    font-weight: bold;
+    width: 270px;
+  }
+  
+  a {
+    background: #D4D4D4;
+    color: #FF2000;
+    padding: 8px;
+    border-radius: 2px;
+    
+  }
+  
+  a:hover {
+    background: #FF3836;
+    color: #40C4D8;
+  };
+  
+  .person-links {
+    width: 250px;
+    margin: 10px auto;
+    display: block;
+    
+  }
+}

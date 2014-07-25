@@ -5,7 +5,7 @@ GlossolApp.Views.Docs = Backbone.View.extend({
   tagName: 'ul',
 
   initialize: function(options) {
-    this.listenTo(this.collection, 'sync create', this.render);
+    this.listenTo(this.collection, 'sync create add', this.render);
     this.notice = options.notice;
     this.title = options.title;
   },

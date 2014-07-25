@@ -4,7 +4,8 @@ GlossolApp.Views.PrevDoc = Backbone.View.extend({
   initialize: function() {
     this.author = this.model.getAuthor();
     this.listenTo(this.author, "sync", this.render);
-    this.author.fetch();
+    //This was causing major bottleneck.  TODO: Include author in Doc JSON
+    // this.author.fetch();
   },
 
   tagName: 'li',
